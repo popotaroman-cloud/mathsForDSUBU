@@ -31,6 +31,9 @@ create_slides.py
 fill_weekly_plan.py
 qa_check.py
 
+# ── ต้นฉบับ markdown ของสไลด์ (เอาแค่ .html ที่ render แล้ว) ──
+Week*/slides/*.md
+
 # ── ไฟล์ระบบทั่วไป ──
 .DS_Store
 Thumbs.db
