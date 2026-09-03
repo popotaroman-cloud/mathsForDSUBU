@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Slide Deck: Final Project Rubric &amp; Expectations</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" rel="stylesheet"/>
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+<script defer="" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],ignoredTags:['script','noscript','style','textarea','pre','code'],throwOnError:false});" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+<style>
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #1a237e;
+  --accent:  #1565c0;
+  --light:   #e3f2fd;
+  --bg:      #ffffff;
+  --text:    #212121;
+  --muted:   #546e7a;
+  --code-bg: #1e272e;
+  --code-fg: #dfe6e9;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: #0d1b2a;
+  font-family: 'Sarabun', 'Noto Sans Thai', 'Segoe UI', Arial, sans-serif;
+  color: var(--text);
+}
+
+/* ── Presentation container ───────────────────── */
+#presentation {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.slide {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  flex-direction: column;
+  padding: clamp(28px, 3.5vw, 56px) clamp(40px, 6vw, 88px) 74px;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+.slide.active {
+  display: flex;
+  opacity: 1;
+}
+
+/* ── Progress bar ─────────────────────────────── */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: rgba(255,255,255,0.12);
+  z-index: 200;
+}
+#progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #42a5f5, #1565c0);
+  transition: width 0.3s ease;
+}
+
+/* ── Slide header (title + num) ───────────────── */
+.slide-header {
+  margin-bottom: clamp(14px, 2vh, 28px);
+  padding-bottom: clamp(10px, 1.4vh, 18px);
+  border-bottom: 3px solid var(--light);
+  flex-shrink: 0;
+}
+.slide-num {
+  font-size: clamp(12px, 1.1vw, 15px);
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.slide-title {
+  font-size: clamp(30px, 3.8vw, 52px);
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.15;
+}
+
+/* ── Title Slide (index 0) ────────────────────── */
+.slide-0 {
+  background: linear-gradient(145deg, #0d1b2a 0%, #1a237e 55%, #1565c0 100%);
+  justify-content: center;
+}
+.slide-0 .slide-header {
+  border-bottom-color: rgba(255,255,255,0.2);
+  margin-bottom: clamp(20px, 3vh, 40px);
+}
+.slide-0 .slide-num  { color: #90caf9; }
+.slide-0 .slide-title {
+  font-size: clamp(34px, 5vw, 64px);
+  color: #ffffff;
+}
+.slide-0 .key-message {
+  background: rgba(255,255,255,0.1);
+  border-left-color: #42a5f5;
+  color: #e3f2fd;
+  font-size: clamp(18px, 2vw, 28px);
+}
+.slide-0 .slide-content { color: #cfd8dc; }
+.slide-0 .slide-content p { color: #cfd8dc; }
+.slide-0 .slide-content li { color: #cfd8dc; }
+.slide-0 .slide-content strong { color: #90caf9; }
+.slide-0 .content-heading { color: #90caf9; }
+
+/* ── Key Message callout ──────────────────────── */
+.key-message {
+  background: var(--light);
+  border-left: 6px solid var(--accent);
+  padding: clamp(11px, 1.4vh, 18px) clamp(18px, 2.2vw, 30px);
+  font-size: clamp(18px, 1.9vw, 26px);
+  font-weight: 600;
+  line-height: 1.45;
+  border-radius: 0 10px 10px 0;
+  margin-bottom: clamp(14px, 1.8vh, 26px);
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+/* ── Content area ─────────────────────────────── */
+.slide-content {
+  flex: 1;
+  overflow-y: auto;
+  font-size: clamp(17px, 1.85vw, 26px);
+  line-height: 1.68;
+  color: var(--text);
+  min-height: 0;
+}
+.slide-content::-webkit-scrollbar { width: 5px; }
+.slide-content::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+.slide-content p { margin-bottom: 0.55em; }
+.slide-content strong { color: var(--primary); }
+.slide-content em { color: #37474f; }
+
+/* ── Lists ────────────────────────────────────── */
+.slide-list {
+  padding-left: clamp(22px, 2.8vw, 38px);
+  margin: 0.2em 0 0.7em;
+}
+.slide-list li {
+  margin-bottom: 0.45em;
+  line-height: 1.5;
+}
+ul.slide-list li::marker { color: var(--accent); font-weight: 700; }
+ol.slide-list li::marker { color: var(--accent); font-weight: 700; }
+
+/* ── Code blocks ──────────────────────────────── */
+.code-block {
+  margin: 0.5em 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+  font-size: clamp(12px, 1.35vw, 18px);
+}
+.code-lang {
+  background: #37474f;
+  color: #90a4ae;
+  font-size: 0.82em;
+  padding: 4px 16px;
+  font-family: 'Fira Code', Consolas, monospace;
+  letter-spacing: 0.5px;
+}
+pre {
+  background: var(--code-bg);
+  color: var(--code-fg);
+  padding: clamp(12px, 1.4vh, 20px) clamp(14px, 1.8vw, 24px);
+  overflow-x: auto;
+  line-height: 1.58;
+  margin: 0;
+}
+code {
+  font-family: 'Fira Code', Consolas, 'Courier New', monospace;
+}
+.slide-content code:not(pre code) {
+  background: #e8eaf6;
+  color: #1a237e;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.86em;
+}
+
+/* ── Tables ───────────────────────────────────── */
+.table-wrap {
+  overflow-x: auto;
+  margin: 0.5em 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(14px, 1.5vw, 21px);
+}
+th {
+  background: var(--primary);
+  color: #fff;
+  padding: clamp(7px, 0.9vh, 13px) clamp(10px, 1.4vw, 18px);
+  text-align: left;
+  font-weight: 600;
+}
+td {
+  padding: clamp(6px, 0.8vh, 11px) clamp(10px, 1.4vw, 18px);
+  border-bottom: 1px solid #e0e0e0;
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #f8f9ff; }
+tr:hover td { background: var(--light); }
+
+/* ── Sub-headings inside content ──────────────── */
+.content-heading {
+  font-size: clamp(18px, 2vw, 28px);
+  color: var(--primary);
+  margin: 0.65em 0 0.25em;
+  font-weight: 700;
+}
+h3.content-heading {
+  font-size: clamp(16px, 1.8vw, 24px);
+  color: var(--accent);
+}
+
+/* ── Generated figure (matplotlib base64 PNG) ────────────── */
+.slide-figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.3em 0;
+  flex-shrink: 0;
+}
+.slide-figure img {
+  max-width: 96%;
+  max-height: clamp(200px, 38vh, 380px);
+  border-radius: 10px;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.10);
+  object-fit: contain;
+}
+
+/* ── Figure placeholder (fallback เมื่อ generate ไม่ได้) ─── */
+.placeholder {
+  border: 2px dashed var(--accent);
+  padding: clamp(12px, 1.6vh, 22px) clamp(16px, 2vw, 26px);
+  border-radius: 10px;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0.4em 0;
+  font-size: clamp(14px, 1.5vw, 20px);
+}
+
+.slide-hr {
+  border: none;
+  border-top: 2px solid #e8eaf6;
+  margin: 0.5em 0;
+}
+
+/* ── Navigation bar ───────────────────────────── */
+#nav {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(13,27,42,0.9);
+  backdrop-filter: blur(10px);
+  padding: 7px 20px;
+  border-radius: 40px;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+}
+#nav button {
+  background: none;
+  border: none;
+  color: #90a4ae;
+  font-size: clamp(16px, 1.8vw, 24px);
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s;
+  line-height: 1;
+}
+#nav button:hover:not(:disabled) { color: #fff; background: rgba(255,255,255,0.12); }
+#nav button:disabled { color: #3d4e5c; cursor: default; }
+#counter {
+  color: #e2e8f0;
+  font-size: clamp(12px, 1.2vw, 16px);
+  min-width: 64px;
+  text-align: center;
+  font-weight: 600;
+}
+#slide-label {
+  color: #78909c;
+  font-size: clamp(10px, 1vw, 13px);
+  max-width: 220px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ── Keyboard hint ────────────────────────────── */
+#kb-hint {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: rgba(255,255,255,0.2);
+  font-size: 11px;
+  pointer-events: none;
+}
+
+/* ── KaTeX math rendering ─────────────────── */
+.katex-display {
+  margin: 0.5em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.katex {
+  font-size: clamp(15px, 1.7vw, 21px) !important;
+}
+.slide-0 .katex { color: #e3f2fd; }
+
+
+/* ── ลิงก์อ้างอิง Glossary (เพิ่มโดยสคริปต์ link_glossary_terms.py) ── */
+.gloss-ref {
+  color: inherit; text-decoration: none; border-bottom: 1.5px dotted var(--accent, #E8820C);
+  cursor: help;
+}
+.gloss-ref:hover { background: rgba(232,130,12,0.12); border-bottom-style: solid; }
+</style>
+</head>
+<body>
+<div id="progress-bar"><div id="progress-fill" style="width:11.1%"></div></div>
+<div id="presentation">
+<div class="slide slide-0" data-title="Title">
+<div class="slide-header">
+<div class="slide-num">Slide 1</div>
+<div class="slide-title">Title</div>
+</div>
+<div class="slide-content"><p><strong>1145 201 คณิตศาสตร์สำหรับวิทยาการข้อมูล | Week 15</strong> Final Project: เกณฑ์ประเมิน, Expectations, และ Tips <a class="gloss-ref" href="../../glossary.html#term-clo1" title="ดูนิยามใน Glossary">CLO1</a>+2+3+4: 20% ของคะแนนทั้งหมด (Notebook 10% + Presentation 10%)</p></div>
+</div>
+<div class="slide slide-1" data-title="Overview: 20% ของเกรด">
+<div class="slide-header">
+<div class="slide-num">Slide 2</div>
+<div class="slide-title">Overview: 20% ของเกรด</div>
+</div>
+<div class="key-message">Final Project คิดเป็น 20% ของเกรด — แบ่งเป็น Notebook 10% และ Presentation 10%</div>
+<div class="slide-content"><p><strong>น้ำหนักคะแนนทั้งหมดของวิชา:</strong></p>
+<div class="code-block"><pre><code>Weekly Assignments (HW01–14):   50%  ← งานรายสัปดาห์
+Midterm Exam (Week 8):           15%
+Lab Participation (Week 1–14):   15%
+Final Project (Week 15):         20%  ← วันนี้
+    ├── Jupyter Notebook:  10%
+    └── Presentation:      10%</code></pre></div>
+<p><strong>โครงงานทำเป็น:</strong></p>
+<ul class="slide-list">
+<li>กลุ่ม 2–3 คน</li>
+<li>Dataset ที่กลุ่มเลือกเอง (≥500 rows, ≥5 features, <a class="gloss-ref" href="../../glossary.html#term-regression" title="ดูนิยามใน Glossary">regression</a> หรือ <a class="gloss-ref" href="../../glossary.html#term-classification" title="ดูนิยามใน Glossary">classification</a>)</li>
+<li><a class="gloss-ref" href="../../glossary.html#term-clo1" title="ดูนิยามใน Glossary">CLO1</a>+2+3+4 ครบทุก <a class="gloss-ref" href="../../glossary.html#term-w15-clo" title="ดูนิยามใน Glossary">CLO</a></li>
+</ul></div>
+</div>
+<div class="slide slide-2" data-title="Rubric: Jupyter Notebook (10%)">
+<div class="slide-header">
+<div class="slide-num">Slide 3</div>
+<div class="slide-title">Rubric: Jupyter Notebook (10%)</div>
+</div>
+<div class="key-message">Notebook จะถูกประเมินใน 5 ด้าน — ความถูกต้อง, ครบถ้วน, code quality, visualization, และ insight</div>
+<div class="slide-content"><div class="table-wrap"><table>
+<thead>
+<tr>
+<th>เกณฑ์</th>
+<th>Excellent (A)</th>
+<th>Good (B)</th>
+<th>Pass (C)</th>
+<th>Fail</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><a class="gloss-ref" href="../../glossary.html#term-clo1" title="ดูนิยามใน Glossary">CLO1</a>: LA Analysis</strong> (2%)</td>
+<td><a class="gloss-ref" href="../../glossary.html#term-w15-pca" title="ดูนิยามใน Glossary">PCA</a>/<a class="gloss-ref" href="../../glossary.html#term-w15-svd" title="ดูนิยามใน Glossary">SVD</a> พร้อม interpretation ชัดเจน</td>
+<td>PCA ถูกต้องแต่ interpretation น้อย</td>
+<td>มี code แต่ไม่ interpret</td>
+<td>ไม่มีหรือผิด</td>
+</tr>
+<tr>
+<td><strong>CLO2: <a class="gloss-ref" href="../../glossary.html#term-w15-eda" title="ดูนิยามใน Glossary">EDA</a> + Stats</strong> (2%)</td>
+<td>EDA ครบ, <a class="gloss-ref" href="../../glossary.html#term-bias" title="ดูนิยามใน Glossary">Bias</a>-Variance หรือ statistical test</td>
+<td>EDA ครบแต่ขาด statistical analysis</td>
+<td>EDA เบื้องต้น</td>
+<td>ขาด CLO2</td>
+</tr>
+<tr>
+<td><strong>CLO3: Model</strong> (3%)</td>
+<td>Model ≥2 ชนิด, metrics ถูกต้อง, ตีความได้</td>
+<td>Model ถูกต้องแต่ตีความน้อย</td>
+<td>มี 1 model</td>
+<td>ผิดหรือขาด</td>
+</tr>
+<tr>
+<td><strong>CLO4: <a class="gloss-ref" href="../../glossary.html#term-cv" title="ดูนิยามใน Glossary">CV</a></strong> (2%)</td>
+<td>CV ≥3 models, plot, สรุป best model</td>
+<td>CV ถูกต้องแต่ plot น้อย</td>
+<td>มี CV แต่ไม่สมบูรณ์</td>
+<td>ขาด CV</td>
+</tr>
+<tr>
+<td><strong>Code Quality</strong> (1%)</td>
+<td>Comments ทุก block, ชื่อ variable ชัด</td>
+<td>Comments ส่วนใหญ่มี</td>
+<td>Comments บางส่วน</td>
+<td>ไม่มี comment</td>
+</tr>
+</tbody></table></div>
+<p><strong>Bonus (+1%):</strong> <a class="gloss-ref" href="../../glossary.html#term-w15-data-storytelling" title="ดูนิยามใน Glossary">Data storytelling</a> — เล่าเรื่องจาก data ได้น่าสนใจ</p></div>
+</div>
+<div class="slide slide-3" data-title="Rubric: Presentation (10%)">
+<div class="slide-header">
+<div class="slide-num">Slide 4</div>
+<div class="slide-title">Rubric: Presentation (10%)</div>
+</div>
+<div class="key-message">Presentation จะถูกประเมินใน 4 ด้าน — content ถูกต้อง, ชัดเจน, ครบ <a class="gloss-ref" href="../../glossary.html#term-w15-clo" title="ดูนิยามใน Glossary">CLO</a>, และ Q&amp;A</div>
+<div class="slide-content"><div class="table-wrap"><table>
+<thead>
+<tr>
+<th>เกณฑ์</th>
+<th>Excellent (A)</th>
+<th>Good (B)</th>
+<th>Pass (C)</th>
+<th>Fail</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Mathematical <a class="gloss-ref" href="../../glossary.html#term-accuracy" title="ดูนิยามใน Glossary">Accuracy</a></strong> (3%)</td>
+<td>สูตรและผลถูกต้องสมบูรณ์</td>
+<td>ผิดเล็กน้อย 1–2 จุด</td>
+<td>ผิดหลายจุดแต่ถูกบ้าง</td>
+<td>ผิดส่วนใหญ่</td>
+</tr>
+<tr>
+<td><strong>Clarity &amp; Visuals</strong> (2%)</td>
+<td>Slides ชัดเจน, graph อ่านออก, flow ดี</td>
+<td>ชัดเจนแต่บาง slide รก</td>
+<td>เข้าใจยากบางส่วน</td>
+<td>ไม่ชัดเจนโดยรวม</td>
+</tr>
+<tr>
+<td><strong>CLO Coverage</strong> (3%)</td>
+<td>ครบ <a class="gloss-ref" href="../../glossary.html#term-clo1" title="ดูนิยามใน Glossary">CLO1</a>–4 ทุกตัว</td>
+<td>ครบ 3/4 CLO</td>
+<td>ครบ 2/4 CLO</td>
+<td>≤1 CLO</td>
+</tr>
+<tr>
+<td><strong>Q&amp;A</strong> (2%)</td>
+<td>ตอบคำถามได้ทุกคน แสดง understanding ลึก</td>
+<td>ตอบได้ส่วนใหญ่</td>
+<td>ตอบได้บางส่วน</td>
+<td>ตอบไม่ได้</td>
+</tr>
+</tbody></table></div>
+<p><strong>Time Management:</strong> 10 นาที ± 1 นาที (เกิน/ขาด เกิน 2 นาที → -0.5%)</p></div>
+</div>
+<div class="slide slide-4" data-title="Dataset Requirements">
+<div class="slide-header">
+<div class="slide-num">Slide 5</div>
+<div class="slide-title">Dataset Requirements</div>
+</div>
+<div class="key-message">Dataset ที่ดีเป็นครึ่งหนึ่งของโครงงาน — เลือกให้เหมาะกับ <a class="gloss-ref" href="../../glossary.html#term-w15-clo" title="ดูนิยามใน Glossary">CLO</a> ทั้ง 4</div>
+<div class="slide-content"><p><strong>ข้อกำหนดขั้นต่ำ:</strong></p>
+<div class="code-block"><pre><code>✅ ≥500 rows (observations)
+✅ ≥5 features (predictors)
+✅ Target variable ชัดเจน (regression: continuous, classification: categorical)
+✅ ไม่ใช่ Iris, Titanic, หรือ MNIST (too simple, ทุกคนรู้จัก)
+✅ ไม่ซ้ำกับ dataset ที่ใช้ใน lab/HW ของวิชา</code></pre></div>
+<p><strong>Dataset แนะนำ:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>แหล่ง</th>
+<th>ตัวอย่าง Dataset</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data.go.th</td>
+<td>เศรษฐกิจไทย, สาธารณสุข, การศึกษา</td>
+</tr>
+<tr>
+<td>UCI <a class="gloss-ref" href="../../glossary.html#term-ml" title="ดูนิยามใน Glossary">ML</a> Repository</td>
+<td>Wine Quality, Heart Disease, Abalone</td>
+</tr>
+<tr>
+<td>Kaggle</td>
+<td>House Prices, Credit Risk, Bike Sharing</td>
+</tr>
+<tr>
+<td>Our World in Data</td>
+<td>CO₂, Life Expectancy, Education</td>
+</tr>
+<tr>
+<td>WHO / World Bank</td>
+<td>Health metrics by country/year</td>
+</tr>
+</tbody></table></div></div>
+</div>
+<div class="slide slide-5" data-title="Timeline &amp; Deliverables">
+<div class="slide-header">
+<div class="slide-num">Slide 6</div>
+<div class="slide-title">Timeline &amp; Deliverables</div>
+</div>
+<div class="key-message">ทำตาม timeline เพื่อไม่ให้งานกองในนาทีสุดท้าย</div>
+<div class="slide-content"><div class="code-block"><pre><code>Week 13  → แจ้งชื่อกลุ่มและ Dataset ที่เลือก (approval)
+Week 14  → ส่ง Jupyter Notebook draft ผ่าน LMS
+Week 15  → นำเสนอ + ส่ง final Notebook + Peer Evaluation</code></pre></div>
+<p><strong>ไฟล์ที่ต้องส่ง (Week 15):</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ไฟล์</th>
+<th>รายละเอียด</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>final_[GroupID].ipynb</code></td>
+<td>Jupyter Notebook ที่รัน clean ได้</td>
+</tr>
+<tr>
+<td><code>dataset.[csv/xlsx]</code></td>
+<td>Dataset ที่ใช้ (หรือ link ถ้าใหญ่เกิน)</td>
+</tr>
+<tr>
+<td><code>slides_[GroupID].pdf</code></td>
+<td>Slides ที่ใช้ Presentation</td>
+</tr>
+<tr>
+<td><code>peer_eval_[StudentID].md</code></td>
+<td><a class="gloss-ref" href="../../glossary.html#term-w15-peer-evaluation" title="ดูนิยามใน Glossary">Peer Evaluation</a> Form (แยกรายคน)</td>
+</tr>
+</tbody></table></div>
+<p><strong>ZIP file ชื่อ:</strong> <code>final_[GroupID].zip</code></p></div>
+</div>
+<div class="slide slide-6" data-title="Common Mistakes to Avoid">
+<div class="slide-header">
+<div class="slide-num">Slide 7</div>
+<div class="slide-title">Common Mistakes to Avoid</div>
+</div>
+<div class="key-message">ข้อผิดพลาดที่พบบ่อยมากใน Final Project — หลีกเลี่ยงเหล่านี้จะได้คะแนนดีขึ้น</div>
+<div class="slide-content"><p><strong>❌ ข้อผิดพลาดที่พบบ่อย:</strong></p>
+<div class="code-block"><pre><code>1. ทำ EDA แต่ไม่อธิบาย → ใส่ graph แต่ไม่บอกว่า insight คืออะไร
+
+2. Report Training MSE แทน Test MSE → ต้องแบ่ง train/test ก่อนเสมอ
+
+3. ขาด CLO1 → ไม่มี PCA หรือ matrix analysis เลย
+
+4. ไม่ใช้ Cross-Validation → ประเมิน model จาก single split เท่านั้น
+
+5. Code ไม่มี comment → เหมือนส่งงาน TA ตรวจไม่ออก
+
+6. Presentation เกิน 10 นาที → ฝึกซ้อมก่อน!
+
+7. ไม่ standardize features ก่อน Logistic Regression/KNN</code></pre></div>
+<p><strong>✅ สิ่งที่จะทำให้ได้คะแนน Bonus:</strong></p>
+<ul class="slide-list">
+<li>แสดง connection ระหว่าง <a class="gloss-ref" href="../../glossary.html#term-w15-clo" title="ดูนิยามใน Glossary">CLO</a> ต่างๆ ใน notebook</li>
+<li>ใช้ <a class="gloss-ref" href="../../glossary.html#term-bootstrap" title="ดูนิยามใน Glossary">Bootstrap</a> estimate uncertainty ของ coefficient</li>
+<li>เล่าเรื่อง (<a class="gloss-ref" href="../../glossary.html#term-w15-data-storytelling" title="ดูนิยามใน Glossary">data storytelling</a>) ที่น่าสนใจ</li>
+</ul></div>
+</div>
+<div class="slide slide-7" data-title="Scoring Examples">
+<div class="slide-header">
+<div class="slide-num">Slide 8</div>
+<div class="slide-title">Scoring Examples</div>
+</div>
+<div class="key-message">ตัวอย่าง output จาก Notebook ที่ได้ A vs C เพื่อให้เห็นภาพ</div>
+<div class="slide-content"><p><strong>Grade A — Notebook:</strong></p>
+<div class="code-block"><div class="code-lang">python</div><pre><code># ─── PCA with Interpretation ──────────────────────────────────────
+# วัตถุประสงค์: ลด dimension เพื่อดู cluster ของ patients
+
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X_scaled)
+
+# PC1 อธิบาย 43.2% — dominated by 'glucose' และ 'BMI'
+# → สะท้อน metabolic syndrome risk factors
+print(f'Explained: PC1={pca.explained_variance_ratio_[0]:.1%}, PC2={pca.explained_variance_ratio_[1]:.1%}')</code></pre></div>
+<p><strong>Grade C — Notebook:</strong></p>
+<div class="code-block"><div class="code-lang">python</div><pre><code># PCA
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X)
+plt.scatter(X_pca[:,0], X_pca[:,1])</code></pre></div>
+<p><em>Grade A อธิบาย why และ interpretation; Grade C มี code แต่ไม่อธิบาย</em></p></div>
+</div>
+<div class="slide slide-8" data-title="Summary &amp; Good Luck!">
+<div class="slide-header">
+<div class="slide-num">Slide 9</div>
+<div class="slide-title">Summary &amp; Good Luck!</div>
+</div>
+<div class="slide-content"><p><strong>เกณฑ์การผ่าน Final Project:</strong></p>
+<ul class="slide-list">
+<li>ต้องได้อย่างน้อย 50% ใน Notebook <strong>และ</strong> 50% ใน Presentation</li>
+<li>ต้องครอบคลุม <a class="gloss-ref" href="../../glossary.html#term-clo1" title="ดูนิยามใน Glossary">CLO1</a>, CLO2, CLO3, CLO4 ทุก <a class="gloss-ref" href="../../glossary.html#term-w15-clo" title="ดูนิยามใน Glossary">CLO</a> (ไม่ครบ = ไม่ผ่านเกณฑ์)</li>
+</ul>
+<p><strong>Final Checklist ก่อนส่ง:</strong></p>
+<div class="code-block"><pre><code>☐ Notebook รัน clean ตั้งแต่ต้นจนจบ (Restart + Run All)
+☐ ทุก code block มี comment
+☐ ครบ CLO1 (LA), CLO2 (Stats/EDA), CLO3 (Model), CLO4 (CV)
+☐ มี interpretation สำหรับทุก key result
+☐ Slides ฝึกซ้อมแล้ว ≤ 10 นาที
+☐ ส่ง Peer Evaluation Form แยกรายคน</code></pre></div>
+<p><strong>โชคดีกับ Final Project ทุกกลุ่ม!</strong> 🎓</p></div>
+</div>
+</div>
+<div id="nav">
+<button id="prev-btn" onclick="changeSlide(-1)" title="Previous (←)">◀</button>
+<span id="counter">1 / 9</span>
+<span id="slide-label"></span>
+<button id="next-btn" onclick="changeSlide(1)" title="Next (→)">▶</button>
+</div>
+<div id="kb-hint">← → Space</div>
+<script>
+
+var current = 0;
+var slides = document.querySelectorAll('.slide');
+var total = slides.length;
+var counter = document.getElementById('counter');
+var fill = document.getElementById('progress-fill');
+var label = document.getElementById('slide-label');
+var prevBtn = document.getElementById('prev-btn');
+var nextBtn = document.getElementById('next-btn');
+
+function showSlide(n) {
+  slides[current].classList.remove('active');
+  current = Math.max(0, Math.min(n, total - 1));
+  slides[current].classList.add('active');
+  counter.textContent = (current + 1) + ' / ' + total;
+  fill.style.width = ((current + 1) / total * 100) + '%';
+  label.textContent = slides[current].dataset.title || '';
+  prevBtn.disabled = (current === 0);
+  nextBtn.disabled = (current === total - 1);
+  // Scroll content to top on slide change
+  var sc = slides[current].querySelector('.slide-content');
+  if (sc) sc.scrollTop = 0;
+}
+
+function changeSlide(dir) { showSlide(current + dir); }
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown') {
+    e.preventDefault(); changeSlide(1);
+  } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') {
+    e.preventDefault(); changeSlide(-1);
+  } else if (e.key === ' ') {
+    e.preventDefault(); changeSlide(e.shiftKey ? -1 : 1);
+  } else if (e.key === 'Home') { showSlide(0); }
+  else if (e.key === 'End')  { showSlide(total - 1); }
+});
+
+// Touch swipe
+var touchX = 0;
+document.addEventListener('touchstart', function(e) { touchX = e.touches[0].clientX; }, {passive:true});
+document.addEventListener('touchend', function(e) {
+  var dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 50) changeSlide(dx < 0 ? 1 : -1);
+});
+
+showSlide(0);
+
+</script>
+</body>
+</html>

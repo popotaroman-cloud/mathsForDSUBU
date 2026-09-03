@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Slide Deck: Next Steps — แหล่งเรียนรู้ต่อและ Career Path</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" rel="stylesheet"/>
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+<script defer="" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],ignoredTags:['script','noscript','style','textarea','pre','code'],throwOnError:false});" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+<style>
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #1a237e;
+  --accent:  #1565c0;
+  --light:   #e3f2fd;
+  --bg:      #ffffff;
+  --text:    #212121;
+  --muted:   #546e7a;
+  --code-bg: #1e272e;
+  --code-fg: #dfe6e9;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: #0d1b2a;
+  font-family: 'Sarabun', 'Noto Sans Thai', 'Segoe UI', Arial, sans-serif;
+  color: var(--text);
+}
+
+/* ── Presentation container ───────────────────── */
+#presentation {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.slide {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  flex-direction: column;
+  padding: clamp(28px, 3.5vw, 56px) clamp(40px, 6vw, 88px) 74px;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+.slide.active {
+  display: flex;
+  opacity: 1;
+}
+
+/* ── Progress bar ─────────────────────────────── */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: rgba(255,255,255,0.12);
+  z-index: 200;
+}
+#progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #42a5f5, #1565c0);
+  transition: width 0.3s ease;
+}
+
+/* ── Slide header (title + num) ───────────────── */
+.slide-header {
+  margin-bottom: clamp(14px, 2vh, 28px);
+  padding-bottom: clamp(10px, 1.4vh, 18px);
+  border-bottom: 3px solid var(--light);
+  flex-shrink: 0;
+}
+.slide-num {
+  font-size: clamp(12px, 1.1vw, 15px);
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.slide-title {
+  font-size: clamp(30px, 3.8vw, 52px);
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.15;
+}
+
+/* ── Title Slide (index 0) ────────────────────── */
+.slide-0 {
+  background: linear-gradient(145deg, #0d1b2a 0%, #1a237e 55%, #1565c0 100%);
+  justify-content: center;
+}
+.slide-0 .slide-header {
+  border-bottom-color: rgba(255,255,255,0.2);
+  margin-bottom: clamp(20px, 3vh, 40px);
+}
+.slide-0 .slide-num  { color: #90caf9; }
+.slide-0 .slide-title {
+  font-size: clamp(34px, 5vw, 64px);
+  color: #ffffff;
+}
+.slide-0 .key-message {
+  background: rgba(255,255,255,0.1);
+  border-left-color: #42a5f5;
+  color: #e3f2fd;
+  font-size: clamp(18px, 2vw, 28px);
+}
+.slide-0 .slide-content { color: #cfd8dc; }
+.slide-0 .slide-content p { color: #cfd8dc; }
+.slide-0 .slide-content li { color: #cfd8dc; }
+.slide-0 .slide-content strong { color: #90caf9; }
+.slide-0 .content-heading { color: #90caf9; }
+
+/* ── Key Message callout ──────────────────────── */
+.key-message {
+  background: var(--light);
+  border-left: 6px solid var(--accent);
+  padding: clamp(11px, 1.4vh, 18px) clamp(18px, 2.2vw, 30px);
+  font-size: clamp(18px, 1.9vw, 26px);
+  font-weight: 600;
+  line-height: 1.45;
+  border-radius: 0 10px 10px 0;
+  margin-bottom: clamp(14px, 1.8vh, 26px);
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+/* ── Content area ─────────────────────────────── */
+.slide-content {
+  flex: 1;
+  overflow-y: auto;
+  font-size: clamp(17px, 1.85vw, 26px);
+  line-height: 1.68;
+  color: var(--text);
+  min-height: 0;
+}
+.slide-content::-webkit-scrollbar { width: 5px; }
+.slide-content::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+.slide-content p { margin-bottom: 0.55em; }
+.slide-content strong { color: var(--primary); }
+.slide-content em { color: #37474f; }
+
+/* ── Lists ────────────────────────────────────── */
+.slide-list {
+  padding-left: clamp(22px, 2.8vw, 38px);
+  margin: 0.2em 0 0.7em;
+}
+.slide-list li {
+  margin-bottom: 0.45em;
+  line-height: 1.5;
+}
+ul.slide-list li::marker { color: var(--accent); font-weight: 700; }
+ol.slide-list li::marker { color: var(--accent); font-weight: 700; }
+
+/* ── Code blocks ──────────────────────────────── */
+.code-block {
+  margin: 0.5em 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+  font-size: clamp(12px, 1.35vw, 18px);
+}
+.code-lang {
+  background: #37474f;
+  color: #90a4ae;
+  font-size: 0.82em;
+  padding: 4px 16px;
+  font-family: 'Fira Code', Consolas, monospace;
+  letter-spacing: 0.5px;
+}
+pre {
+  background: var(--code-bg);
+  color: var(--code-fg);
+  padding: clamp(12px, 1.4vh, 20px) clamp(14px, 1.8vw, 24px);
+  overflow-x: auto;
+  line-height: 1.58;
+  margin: 0;
+}
+code {
+  font-family: 'Fira Code', Consolas, 'Courier New', monospace;
+}
+.slide-content code:not(pre code) {
+  background: #e8eaf6;
+  color: #1a237e;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.86em;
+}
+
+/* ── Tables ───────────────────────────────────── */
+.table-wrap {
+  overflow-x: auto;
+  margin: 0.5em 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(14px, 1.5vw, 21px);
+}
+th {
+  background: var(--primary);
+  color: #fff;
+  padding: clamp(7px, 0.9vh, 13px) clamp(10px, 1.4vw, 18px);
+  text-align: left;
+  font-weight: 600;
+}
+td {
+  padding: clamp(6px, 0.8vh, 11px) clamp(10px, 1.4vw, 18px);
+  border-bottom: 1px solid #e0e0e0;
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #f8f9ff; }
+tr:hover td { background: var(--light); }
+
+/* ── Sub-headings inside content ──────────────── */
+.content-heading {
+  font-size: clamp(18px, 2vw, 28px);
+  color: var(--primary);
+  margin: 0.65em 0 0.25em;
+  font-weight: 700;
+}
+h3.content-heading {
+  font-size: clamp(16px, 1.8vw, 24px);
+  color: var(--accent);
+}
+
+/* ── Generated figure (matplotlib base64 PNG) ────────────── */
+.slide-figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.3em 0;
+  flex-shrink: 0;
+}
+.slide-figure img {
+  max-width: 96%;
+  max-height: clamp(200px, 38vh, 380px);
+  border-radius: 10px;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.10);
+  object-fit: contain;
+}
+
+/* ── Figure placeholder (fallback เมื่อ generate ไม่ได้) ─── */
+.placeholder {
+  border: 2px dashed var(--accent);
+  padding: clamp(12px, 1.6vh, 22px) clamp(16px, 2vw, 26px);
+  border-radius: 10px;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0.4em 0;
+  font-size: clamp(14px, 1.5vw, 20px);
+}
+
+.slide-hr {
+  border: none;
+  border-top: 2px solid #e8eaf6;
+  margin: 0.5em 0;
+}
+
+/* ── Navigation bar ───────────────────────────── */
+#nav {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(13,27,42,0.9);
+  backdrop-filter: blur(10px);
+  padding: 7px 20px;
+  border-radius: 40px;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+}
+#nav button {
+  background: none;
+  border: none;
+  color: #90a4ae;
+  font-size: clamp(16px, 1.8vw, 24px);
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s;
+  line-height: 1;
+}
+#nav button:hover:not(:disabled) { color: #fff; background: rgba(255,255,255,0.12); }
+#nav button:disabled { color: #3d4e5c; cursor: default; }
+#counter {
+  color: #e2e8f0;
+  font-size: clamp(12px, 1.2vw, 16px);
+  min-width: 64px;
+  text-align: center;
+  font-weight: 600;
+}
+#slide-label {
+  color: #78909c;
+  font-size: clamp(10px, 1vw, 13px);
+  max-width: 220px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ── Keyboard hint ────────────────────────────── */
+#kb-hint {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: rgba(255,255,255,0.2);
+  font-size: 11px;
+  pointer-events: none;
+}
+
+/* ── KaTeX math rendering ─────────────────── */
+.katex-display {
+  margin: 0.5em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.katex {
+  font-size: clamp(15px, 1.7vw, 21px) !important;
+}
+.slide-0 .katex { color: #e3f2fd; }
+
+
+/* ── ลิงก์อ้างอิง Glossary (เพิ่มโดยสคริปต์ link_glossary_terms.py) ── */
+.gloss-ref {
+  color: inherit; text-decoration: none; border-bottom: 1.5px dotted var(--accent, #E8820C);
+  cursor: help;
+}
+.gloss-ref:hover { background: rgba(232,130,12,0.12); border-bottom-style: solid; }
+</style>
+</head>
+<body>
+<div id="progress-bar"><div id="progress-fill" style="width:11.1%"></div></div>
+<div id="presentation">
+<div class="slide slide-0" data-title="Title">
+<div class="slide-header">
+<div class="slide-num">Slide 1</div>
+<div class="slide-title">Title</div>
+</div>
+<div class="slide-content"><p><strong>1145 201 คณิตศาสตร์สำหรับวิทยาการข้อมูล | Week 15 — Last Slide Deck</strong> Next Steps: ไปจากนี้ทำอะไรได้บ้าง? แหล่งเรียนรู้เพิ่มเติม, Certificate, และ Career Roadmap</p></div>
+</div>
+<div class="slide slide-1" data-title="สิ่งที่ยังขาดอยู่: Gaps to Fill">
+<div class="slide-header">
+<div class="slide-num">Slide 2</div>
+<div class="slide-title">สิ่งที่ยังขาดอยู่: Gaps to Fill</div>
+</div>
+<div class="key-message">วิชานี้ cover ได้กว้างมาก แต่ยังมี topics สำคัญที่ต้องเรียนต่อ</div>
+<div class="slide-content"><p><strong>Topics ที่ cover แล้ว:</strong></p>
+<div class="code-block"><pre><code>✅ Linear Algebra (Vector, Matrix, SVD, PCA)
+✅ Statistical Learning (Y=f(X)+ε, Bias-Variance)
+✅ Regression, Classification, GLM
+✅ Cross-Validation, Bootstrap</code></pre></div>
+<p><strong>Topics สำคัญที่ยังไม่ได้ cover:</strong></p>
+<div class="code-block"><pre><code>⬜ Tree Methods (Decision Tree, Random Forest, XGBoost)
+⬜ Support Vector Machine (SVM)
+⬜ Neural Networks + Deep Learning
+⬜ Unsupervised Learning (K-means, DBSCAN, Gaussian Mixture)
+⬜ Time Series Analysis (ARIMA, LSTM)
+⬜ NLP (Text classification, Word embeddings)
+⬜ Reinforcement Learning
+⬜ Bayesian Statistics (Bayesian inference, MCMC)
+⬜ Calculus + Gradient Descent (Backpropagation)</code></pre></div></div>
+</div>
+<div class="slide slide-2" data-title="แนะนำหนังสือ: ต่อจากวิชานี้">
+<div class="slide-header">
+<div class="slide-num">Slide 3</div>
+<div class="slide-title">แนะนำหนังสือ: ต่อจากวิชานี้</div>
+</div>
+<div class="key-message">5 หนังสือที่ตรงกับสิ่งที่เรียนมาและขยายต่อได้ทันที</div>
+<div class="slide-content"><div class="table-wrap"><table>
+<thead>
+<tr>
+<th>หนังสือ</th>
+<th>ระดับ</th>
+<th>เหมาะกับ</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><a class="gloss-ref" href="../../glossary.html#term-islp" title="ดูนิยามใน Glossary">ISLP</a></strong> (James et al., 2023) — ฟรี PDF</td>
+<td>⭐⭐</td>
+<td>ต่อจากวิชานี้ทันที (Ch.3–13)</td>
+</tr>
+<tr>
+<td><strong>ESL</strong> (Hastie et al.) — ฟรี PDF</td>
+<td>⭐⭐⭐⭐</td>
+<td>นักศึกษา Graduate</td>
+</tr>
+<tr>
+<td><strong>Deep Learning</strong> (Goodfellow et al.)</td>
+<td>⭐⭐⭐</td>
+<td>หลังเรียน <a class="gloss-ref" href="../../glossary.html#term-ml" title="ดูนิยามใน Glossary">ML</a> พื้นฐาน</td>
+</tr>
+<tr>
+<td><strong>Pattern Recognition</strong> (Bishop)</td>
+<td>⭐⭐⭐⭐</td>
+<td>Bayesian approach ขั้นสูง</td>
+</tr>
+<tr>
+<td><strong>Hands-On ML</strong> (Géron, 2022)</td>
+<td>⭐⭐</td>
+<td>Practical, sklearn + TensorFlow</td>
+</tr>
+</tbody></table></div>
+<p><strong>ฟรีออนไลน์:</strong></p>
+<ul class="slide-list">
+<li>ISLP: https://www.statlearning.com/</li>
+<li>ESL: https://hastie.su.domains/ElemStatLearn/</li>
+<li>Deep Learning Book: https://www.deeplearningbook.org/</li>
+</ul></div>
+</div>
+<div class="slide slide-3" data-title="Online Courses แนะนำ">
+<div class="slide-header">
+<div class="slide-num">Slide 4</div>
+<div class="slide-title">Online Courses แนะนำ</div>
+</div>
+<div class="key-message">Structured online courses ช่วยให้เรียนได้อย่างมีระบบและได้ certificate</div>
+<div class="slide-content"><p><strong>Mathematics &amp; Statistics:</strong></p>
+<div class="code-block"><pre><code>Khan Academy                 — Review calculus, stats (ฟรี)
+MIT 18.06 (Gilbert Strang)   — Linear Algebra ขั้นสูง (YouTube ฟรี)
+StatQuest (Josh Starmer)     — Stats ใน ML อธิบายดีมาก (YouTube ฟรี)</code></pre></div>
+<p><strong>Machine Learning:</strong></p>
+<div class="code-block"><pre><code>Andrew Ng ML Specialization  — Coursera, ครอบคลุม ML ทั้งหมด ⭐⭐⭐
+fast.ai                      — Practical DL, top-down approach (ฟรี)
+CS229 Stanford               — ML theory ขั้นสูง (YouTube ฟรี)</code></pre></div>
+<p><strong>Deep Learning:</strong></p>
+<div class="code-block"><pre><code>Andrew Ng Deep Learning Spec — Coursera, 5 courses ⭐⭐⭐
+CS231n Stanford               — CNN สำหรับ Computer Vision (ฟรี)
+Hugging Face NLP Course      — Transformers, BERT, GPT (ฟรี)</code></pre></div>
+<p><strong>Recommended Path หลังวิชานี้:</strong></p>
+<div class="code-block"><pre><code>1. Andrew Ng ML Specialization (Coursera)
+2. fast.ai Practical Deep Learning
+3. CS229 / ISLP Ch.8-12 (Tree, SVM, Ensemble)</code></pre></div></div>
+</div>
+<div class="slide slide-4" data-title="Platform &amp; Practice">
+<div class="slide-header">
+<div class="slide-num">Slide 5</div>
+<div class="slide-title">Platform &amp; Practice</div>
+</div>
+<div class="key-message">ความรู้เกิดจาก practice — platform เหล่านี้ให้ datasets จริงและ competition สำหรับฝึก</div>
+<div class="slide-content"><p><strong>Kaggle (kaggle.com):</strong></p>
+<ul class="slide-list">
+<li>Competitions: แข่งขัน <a class="gloss-ref" href="../../glossary.html#term-ml" title="ดูนิยามใน Glossary">ML</a> กับคนทั่วโลก</li>
+<li>Datasets: ดาวน์โหลด dataset สำหรับ practice</li>
+<li>Notebooks: ดู solution ของคนอื่น — เรียนรู้ techniques ใหม่ๆ</li>
+<li>Courses: Free ML courses ของ Kaggle เอง</li>
+</ul>
+<p><strong>GitHub:</strong></p>
+<ul class="slide-list">
+<li>Host Jupyter Notebooks</li>
+<li>สร้าง Data Science portfolio</li>
+<li>Contribute to open-source projects</li>
+</ul>
+<p><strong>แนะนำให้ทำ หลังจบวิชา:</strong></p>
+<div class="code-block"><pre><code>1. ทำ Kaggle Titanic competition (บน test set ≥0.78) ← entry-level
+2. ทำ Housing Prices competition (บน Ames dataset)
+3. เขียน blog post อธิบาย 1 analysis ที่ทำ ← สร้าง portfolio
+4. สร้าง GitHub repo ที่ใส่ Final Project</code></pre></div></div>
+</div>
+<div class="slide slide-5" data-title="Certificate &amp; Academic Path">
+<div class="slide-header">
+<div class="slide-num">Slide 6</div>
+<div class="slide-title">Certificate &amp; Academic Path</div>
+</div>
+<div class="key-message">Certificate ช่วย validate skills — แต่ portfolio สำคัญกว่าสำหรับ industry job</div>
+<div class="slide-content"><p><strong>Certificates แนะนำ:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Certificate</th>
+<th>Platform</th>
+<th>เวลา</th>
+<th>ราคา</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a class="gloss-ref" href="../../glossary.html#term-ml" title="ดูนิยามใน Glossary">ML</a> Specialization (Andrew Ng)</td>
+<td>Coursera</td>
+<td>3 เดือน</td>
+<td>เสียเงิน / ขอ aid ได้</td>
+</tr>
+<tr>
+<td>Google Data Analytics</td>
+<td>Coursera</td>
+<td>6 เดือน</td>
+<td>เสียเงิน / ขอ aid ได้</td>
+</tr>
+<tr>
+<td>IBM Data Science</td>
+<td>Coursera</td>
+<td>6 เดือน</td>
+<td>เสียเงิน</td>
+</tr>
+<tr>
+<td>Kaggle ML Certificate</td>
+<td>Kaggle</td>
+<td>—</td>
+<td>ฟรี</td>
+</tr>
+<tr>
+<td>HarvardX Data Science</td>
+<td>edX</td>
+<td>9 เดือน</td>
+<td>เสียเงิน</td>
+</tr>
+</tbody></table></div>
+<p><strong>Academic Path ต่อ:</strong></p>
+<div class="code-block"><pre><code>ป.ตรี Data Science → ป.โท Data Science / CS / Stats → ป.เอก ML Research
+                   → ทำงาน industry (Data Analyst, DS, MLE)
+                   → Startup ด้าน AI</code></pre></div></div>
+</div>
+<div class="slide slide-6" data-title="Thai Data Science Community">
+<div class="slide-header">
+<div class="slide-num">Slide 7</div>
+<div class="slide-title">Thai Data Science Community</div>
+</div>
+<div class="key-message">Community ท้องถิ่นช่วยให้เติบโตได้เร็วกว่า — เชื่อมกับ professionals จริง</div>
+<div class="slide-content"><p><strong>Community ในไทยที่แนะนำ:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ชุมชน</th>
+<th>Platform</th>
+<th>ลักษณะ</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>DSDE Thailand</strong></td>
+<td>Facebook Group</td>
+<td>Data Science &amp; Engineering community</td>
+</tr>
+<tr>
+<td><strong>Thailand Data Science</strong></td>
+<td>Facebook Group</td>
+<td>ถามตอบ, แบ่งปันงาน</td>
+</tr>
+<tr>
+<td><strong>AI Thailand</strong></td>
+<td>Facebook</td>
+<td>AI news และ events</td>
+</tr>
+<tr>
+<td><strong>PyData Bangkok</strong></td>
+<td>Meetup</td>
+<td>Monthly tech talks (Python + Data)</td>
+</tr>
+<tr>
+<td><strong>Thailand AI</strong></td>
+<td>Discord/Slack</td>
+<td>Real-time discussion</td>
+</tr>
+</tbody></table></div>
+<p><strong>Events สำคัญในไทย:</strong></p>
+<ul class="slide-list">
+<li>NECTEC Annual Conference</li>
+<li>Thailand AI Summit</li>
+<li>DataFest Thailand</li>
+<li>iApp Technology Talks</li>
+</ul></div>
+</div>
+<div class="slide slide-7" data-title="Building Your Data Science Portfolio">
+<div class="slide-header">
+<div class="slide-num">Slide 8</div>
+<div class="slide-title">Building Your Data Science Portfolio</div>
+</div>
+<div class="key-message">Portfolio สำคัญกว่า GPA สำหรับการสมัครงาน Data Science</div>
+<div class="slide-content"><p><strong>สิ่งที่ควรมีใน Portfolio:</strong></p>
+<div class="code-block"><pre><code>1. GitHub Profile ที่มี repos ที่ clean + README ดี
+2. Final Project จากวิชานี้ (ใส่ใน GitHub + LinkedIn)
+3. อย่างน้อย 2 Kaggle competitions ที่ส่งได้
+4. Blog post 1-2 ชิ้น (Medium, Dev.to, หรือ GitHub Pages)</code></pre></div>
+<p><strong>ตัวอย่าง Project Ideas หลังวิชานี้:</strong></p>
+<div class="code-block"><pre><code>- วิเคราะห์ข้อมูล COVID-19 ในประเทศไทย
+- Predict ราคาอสังหาริมทรัพย์ในกรุงเทพฯ (DDproperty data)
+- Sentiment analysis ของ Twitter ภาษาไทย
+- Predict ผลการเลือกตั้ง จาก polling data
+- Air quality prediction (PM2.5) ใน Chiang Mai</code></pre></div>
+<p><strong>ทักษะเพิ่มเติมที่ต้องการ:</strong></p>
+<ul class="slide-list">
+<li>SQL (ใช้ทุกวันใน industry)</li>
+<li>Git + GitHub (version control)</li>
+<li>Tableau / Power BI (visualization สำหรับ business)</li>
+</ul></div>
+</div>
+<div class="slide slide-8" data-title="Final Message">
+<div class="slide-header">
+<div class="slide-num">Slide 9</div>
+<div class="slide-title">Final Message</div>
+</div>
+<div class="slide-content"><p><strong>สิ่งที่ต้องจำจากวิชานี้ (3 ข้อ)</strong></p>
+<div class="code-block"><pre><code>1. "Always check Test Error, not Training Error"
+   → ไม่มีประโยชน์ถ้า model แม่นบน training แต่ fail จริง
+
+2. "Start with simple models"  
+   → Linear Regression ที่ work ดีกว่า Deep Learning ที่ overfit
+   → เพิ่ม complexity เมื่อมีเหตุผลเท่านั้น
+
+3. "Math is the why, Code is the how"
+   → เข้าใจสูตร → เขียน code ได้อย่างถูกต้อง
+   → Debugging ง่ายขึ้นมาก เมื่อรู้ math</code></pre></div>
+<p><strong>ขอบคุณที่เรียนวิชานี้ตลอด 15 สัปดาห์</strong> จาก <a class="gloss-ref" href="../../glossary.html#term-vector" title="ดูนิยามใน Glossary">Vector</a> ง่ายๆ ใน Week 1 สู่ Cross-Validation ใน Week 14 — ทุกอย่างเชื่อมกัน ขอให้โชคดีกับ Final Project และ career ใน Data Science! 🎓</p>
+<hr class="slide-hr"/>
+<p><em>"In God we trust. All others must bring data."</em> — W. Edwards Deming</p></div>
+</div>
+</div>
+<div id="nav">
+<button id="prev-btn" onclick="changeSlide(-1)" title="Previous (←)">◀</button>
+<span id="counter">1 / 9</span>
+<span id="slide-label"></span>
+<button id="next-btn" onclick="changeSlide(1)" title="Next (→)">▶</button>
+</div>
+<div id="kb-hint">← → Space</div>
+<script>
+
+var current = 0;
+var slides = document.querySelectorAll('.slide');
+var total = slides.length;
+var counter = document.getElementById('counter');
+var fill = document.getElementById('progress-fill');
+var label = document.getElementById('slide-label');
+var prevBtn = document.getElementById('prev-btn');
+var nextBtn = document.getElementById('next-btn');
+
+function showSlide(n) {
+  slides[current].classList.remove('active');
+  current = Math.max(0, Math.min(n, total - 1));
+  slides[current].classList.add('active');
+  counter.textContent = (current + 1) + ' / ' + total;
+  fill.style.width = ((current + 1) / total * 100) + '%';
+  label.textContent = slides[current].dataset.title || '';
+  prevBtn.disabled = (current === 0);
+  nextBtn.disabled = (current === total - 1);
+  // Scroll content to top on slide change
+  var sc = slides[current].querySelector('.slide-content');
+  if (sc) sc.scrollTop = 0;
+}
+
+function changeSlide(dir) { showSlide(current + dir); }
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown') {
+    e.preventDefault(); changeSlide(1);
+  } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') {
+    e.preventDefault(); changeSlide(-1);
+  } else if (e.key === ' ') {
+    e.preventDefault(); changeSlide(e.shiftKey ? -1 : 1);
+  } else if (e.key === 'Home') { showSlide(0); }
+  else if (e.key === 'End')  { showSlide(total - 1); }
+});
+
+// Touch swipe
+var touchX = 0;
+document.addEventListener('touchstart', function(e) { touchX = e.touches[0].clientX; }, {passive:true});
+document.addEventListener('touchend', function(e) {
+  var dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 50) changeSlide(dx < 0 ? 1 : -1);
+});
+
+showSlide(0);
+
+</script>
+</body>
+</html>

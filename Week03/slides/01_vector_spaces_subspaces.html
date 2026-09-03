@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Slide Deck: Vector Spaces and Subspaces</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" rel="stylesheet"/>
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+<script defer="" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],ignoredTags:['script','noscript','style','textarea','pre','code'],throwOnError:false});" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+<style>
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #1a237e;
+  --accent:  #1565c0;
+  --light:   #e3f2fd;
+  --bg:      #ffffff;
+  --text:    #212121;
+  --muted:   #546e7a;
+  --code-bg: #1e272e;
+  --code-fg: #dfe6e9;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: #0d1b2a;
+  font-family: 'Sarabun', 'Noto Sans Thai', 'Segoe UI', Arial, sans-serif;
+  color: var(--text);
+}
+
+/* ── Presentation container ───────────────────── */
+#presentation {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.slide {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  flex-direction: column;
+  padding: clamp(28px, 3.5vw, 56px) clamp(40px, 6vw, 88px) 74px;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+.slide.active {
+  display: flex;
+  opacity: 1;
+}
+
+/* ── Progress bar ─────────────────────────────── */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: rgba(255,255,255,0.12);
+  z-index: 200;
+}
+#progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #42a5f5, #1565c0);
+  transition: width 0.3s ease;
+}
+
+/* ── Slide header (title + num) ───────────────── */
+.slide-header {
+  margin-bottom: clamp(14px, 2vh, 28px);
+  padding-bottom: clamp(10px, 1.4vh, 18px);
+  border-bottom: 3px solid var(--light);
+  flex-shrink: 0;
+}
+.slide-num {
+  font-size: clamp(12px, 1.1vw, 15px);
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.slide-title {
+  font-size: clamp(30px, 3.8vw, 52px);
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.15;
+}
+
+/* ── Title Slide (index 0) ────────────────────── */
+.slide-0 {
+  background: linear-gradient(145deg, #0d1b2a 0%, #1a237e 55%, #1565c0 100%);
+  justify-content: center;
+}
+.slide-0 .slide-header {
+  border-bottom-color: rgba(255,255,255,0.2);
+  margin-bottom: clamp(20px, 3vh, 40px);
+}
+.slide-0 .slide-num  { color: #90caf9; }
+.slide-0 .slide-title {
+  font-size: clamp(34px, 5vw, 64px);
+  color: #ffffff;
+}
+.slide-0 .key-message {
+  background: rgba(255,255,255,0.1);
+  border-left-color: #42a5f5;
+  color: #e3f2fd;
+  font-size: clamp(18px, 2vw, 28px);
+}
+.slide-0 .slide-content { color: #cfd8dc; }
+.slide-0 .slide-content p { color: #cfd8dc; }
+.slide-0 .slide-content li { color: #cfd8dc; }
+.slide-0 .slide-content strong { color: #90caf9; }
+.slide-0 .content-heading { color: #90caf9; }
+
+/* ── Key Message callout ──────────────────────── */
+.key-message {
+  background: var(--light);
+  border-left: 6px solid var(--accent);
+  padding: clamp(11px, 1.4vh, 18px) clamp(18px, 2.2vw, 30px);
+  font-size: clamp(18px, 1.9vw, 26px);
+  font-weight: 600;
+  line-height: 1.45;
+  border-radius: 0 10px 10px 0;
+  margin-bottom: clamp(14px, 1.8vh, 26px);
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+/* ── Content area ─────────────────────────────── */
+.slide-content {
+  flex: 1;
+  overflow-y: auto;
+  font-size: clamp(17px, 1.85vw, 26px);
+  line-height: 1.68;
+  color: var(--text);
+  min-height: 0;
+}
+.slide-content::-webkit-scrollbar { width: 5px; }
+.slide-content::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+.slide-content p { margin-bottom: 0.55em; }
+.slide-content strong { color: var(--primary); }
+.slide-content em { color: #37474f; }
+
+/* ── Lists ────────────────────────────────────── */
+.slide-list {
+  padding-left: clamp(22px, 2.8vw, 38px);
+  margin: 0.2em 0 0.7em;
+}
+.slide-list li {
+  margin-bottom: 0.45em;
+  line-height: 1.5;
+}
+ul.slide-list li::marker { color: var(--accent); font-weight: 700; }
+ol.slide-list li::marker { color: var(--accent); font-weight: 700; }
+
+/* ── Code blocks ──────────────────────────────── */
+.code-block {
+  margin: 0.5em 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+  font-size: clamp(12px, 1.35vw, 18px);
+}
+.code-lang {
+  background: #37474f;
+  color: #90a4ae;
+  font-size: 0.82em;
+  padding: 4px 16px;
+  font-family: 'Fira Code', Consolas, monospace;
+  letter-spacing: 0.5px;
+}
+pre {
+  background: var(--code-bg);
+  color: var(--code-fg);
+  padding: clamp(12px, 1.4vh, 20px) clamp(14px, 1.8vw, 24px);
+  overflow-x: auto;
+  line-height: 1.58;
+  margin: 0;
+}
+code {
+  font-family: 'Fira Code', Consolas, 'Courier New', monospace;
+}
+.slide-content code:not(pre code) {
+  background: #e8eaf6;
+  color: #1a237e;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.86em;
+}
+
+/* ── Tables ───────────────────────────────────── */
+.table-wrap {
+  overflow-x: auto;
+  margin: 0.5em 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(14px, 1.5vw, 21px);
+}
+th {
+  background: var(--primary);
+  color: #fff;
+  padding: clamp(7px, 0.9vh, 13px) clamp(10px, 1.4vw, 18px);
+  text-align: left;
+  font-weight: 600;
+}
+td {
+  padding: clamp(6px, 0.8vh, 11px) clamp(10px, 1.4vw, 18px);
+  border-bottom: 1px solid #e0e0e0;
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #f8f9ff; }
+tr:hover td { background: var(--light); }
+
+/* ── Sub-headings inside content ──────────────── */
+.content-heading {
+  font-size: clamp(18px, 2vw, 28px);
+  color: var(--primary);
+  margin: 0.65em 0 0.25em;
+  font-weight: 700;
+}
+h3.content-heading {
+  font-size: clamp(16px, 1.8vw, 24px);
+  color: var(--accent);
+}
+
+/* ── Generated figure (matplotlib base64 PNG) ────────────── */
+.slide-figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.3em 0;
+  flex-shrink: 0;
+}
+.slide-figure img {
+  max-width: 96%;
+  max-height: clamp(200px, 38vh, 380px);
+  border-radius: 10px;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.10);
+  object-fit: contain;
+}
+
+/* ── Figure placeholder (fallback เมื่อ generate ไม่ได้) ─── */
+.placeholder {
+  border: 2px dashed var(--accent);
+  padding: clamp(12px, 1.6vh, 22px) clamp(16px, 2vw, 26px);
+  border-radius: 10px;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0.4em 0;
+  font-size: clamp(14px, 1.5vw, 20px);
+}
+
+.slide-hr {
+  border: none;
+  border-top: 2px solid #e8eaf6;
+  margin: 0.5em 0;
+}
+
+/* ── Navigation bar ───────────────────────────── */
+#nav {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(13,27,42,0.9);
+  backdrop-filter: blur(10px);
+  padding: 7px 20px;
+  border-radius: 40px;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+}
+#nav button {
+  background: none;
+  border: none;
+  color: #90a4ae;
+  font-size: clamp(16px, 1.8vw, 24px);
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s;
+  line-height: 1;
+}
+#nav button:hover:not(:disabled) { color: #fff; background: rgba(255,255,255,0.12); }
+#nav button:disabled { color: #3d4e5c; cursor: default; }
+#counter {
+  color: #e2e8f0;
+  font-size: clamp(12px, 1.2vw, 16px);
+  min-width: 64px;
+  text-align: center;
+  font-weight: 600;
+}
+#slide-label {
+  color: #78909c;
+  font-size: clamp(10px, 1vw, 13px);
+  max-width: 220px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ── Keyboard hint ────────────────────────────── */
+#kb-hint {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: rgba(255,255,255,0.2);
+  font-size: 11px;
+  pointer-events: none;
+}
+
+/* ── KaTeX math rendering ─────────────────── */
+.katex-display {
+  margin: 0.5em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.katex {
+  font-size: clamp(15px, 1.7vw, 21px) !important;
+}
+.slide-0 .katex { color: #e3f2fd; }
+
+
+/* ── ลิงก์อ้างอิง Glossary (เพิ่มโดยสคริปต์ link_glossary_terms.py) ── */
+.gloss-ref {
+  color: inherit; text-decoration: none; border-bottom: 1.5px dotted var(--accent, #E8820C);
+  cursor: help;
+}
+.gloss-ref:hover { background: rgba(232,130,12,0.12); border-bottom-style: solid; }
+</style>
+</head>
+<body>
+<div id="progress-bar"><div id="progress-fill" style="width:11.1%"></div></div>
+<div id="presentation">
+<div class="slide slide-0" data-title="Title">
+<div class="slide-header">
+<div class="slide-num">Slide 1</div>
+<div class="slide-title">Title</div>
+</div>
+<div class="slide-content"><p><strong><a class="gloss-ref" href="../../glossary.html#term-vector" title="ดูนิยามใน Glossary">Vector</a> Spaces และ Subspaces: โครงสร้างเบื้องหลัง Data</strong> Week 3 | <a class="gloss-ref" href="../../glossary.html#term-w3-clo1" title="ดูนิยามใน Glossary">CLO1</a> | <a class="gloss-ref" href="../../glossary.html#term-llo" title="ดูนิยามใน Glossary">LLo</a>: อธิบาย Vector Space, Subspace, <a class="gloss-ref" href="../../glossary.html#term-w3-rank" title="ดูนิยามใน Glossary">Rank</a> ได้</p></div>
+</div>
+<div class="slide slide-1" data-title="Week Overview">
+<div class="slide-header">
+<div class="slide-num">Slide 2</div>
+<div class="slide-title">Week Overview</div>
+</div>
+<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-vector" title="ดูนิยามใน Glossary">Vector</a> Space กำหนด "กฎ" ว่า vector operations ทำได้อะไรบ้าง</div>
+<div class="slide-content"><p>สัปดาห์นี้เราจะเรียนรู้แนวคิดที่เป็นหัวใจของ Linear Algebra ทั้งหมด นั่นคือ Vector Space และ Subspace ซึ่งช่วยให้เราเข้าใจว่า solution set ของ Ax = b มี structure อย่างไร เป้าหมายคือให้นักศึกษาสามารถหา <a class="gloss-ref" href="../../glossary.html#term-w3-rank" title="ดูนิยามใน Glossary">rank</a>, Column Space, Null Space ของ matrix ได้ รวมถึงนำ Least Squares ไปแก้ปัญหา overdetermined systems ได้ ทักษะเหล่านี้เป็นพื้นฐานก่อน Eigenvalues (Week 4) และ Linear <a class="gloss-ref" href="../../glossary.html#term-regression" title="ดูนิยามใน Glossary">Regression</a> (Week 8–9)</p>
+<p><strong>หัวข้อวันนี้</strong>: Vector Space axioms, Column Space, Null Space, Rank, <a class="gloss-ref" href="../../glossary.html#term-w3-basis" title="ดูนิยามใน Glossary">Basis</a>, <a class="gloss-ref" href="../../glossary.html#term-w3-dimension" title="ดูนิยามใน Glossary">Dimension</a></p></div>
+</div>
+<div class="slide slide-2" data-title="Vector Space: นิยาม 8 Axioms">
+<div class="slide-header">
+<div class="slide-num">Slide 3</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-vector" title="ดูนิยามใน Glossary">Vector</a> Space: นิยาม 8 Axioms</div>
+</div>
+<div class="key-message">Vector Space คือ set ที่ปิดภายใต้ + และ × พร้อม 8 axioms</div>
+<div class="slide-content"><p><strong>V</strong> คือ Vector Space ถ้า: สำหรับ <strong>u</strong>, <strong>v</strong> ∈ V และ <a class="gloss-ref" href="../../glossary.html#term-scalar" title="ดูนิยามใน Glossary">scalar</a> c:</p>
+<ol class="slide-list">
+<li><strong>u + v</strong> ∈ V (closure under addition)</li>
+<li>c<strong>v</strong> ∈ V (closure under <a class="gloss-ref" href="../../glossary.html#term-scalar-multiplication" title="ดูนิยามใน Glossary">scalar multiplication</a>)</li>
+<li><strong>u + v = v + u</strong> (commutativity)</li>
+<li>(<strong>u + v</strong>) + <strong>w</strong> = <strong>u</strong> + (<strong>v + w</strong>) (associativity)</li>
+<li><strong>0</strong> ∈ V (zero vector)</li>
+<li><strong>v</strong> + (-<strong>v</strong>) = <strong>0</strong> (inverse)</li>
+<li>1·<strong>v</strong> = <strong>v</strong> (identity scalar)</li>
+<li>c(d<strong>v</strong>) = (cd)<strong>v</strong> (associativity scalar)</li>
+</ol>
+<p><strong>ตัวอย่าง Vector Spaces</strong>: ℝⁿ, polynomials, continuous functions <strong>ตัวอย่าง ที่ไม่ใช่</strong>: <a class="gloss-ref" href="../../glossary.html#term-line" title="ดูนิยามใน Glossary">line</a> ที่ไม่ผ่าน origin (axiom 5 fails)</p></div>
+</div>
+<div class="slide slide-3" data-title="Subspace">
+<div class="slide-header">
+<div class="slide-num">Slide 4</div>
+<div class="slide-title">Subspace</div>
+</div>
+<div class="key-message">Subspace ต้องผ่าน origin และปิดภายใต้ + และ ×</div>
+<div class="slide-content"><p><strong>Subspace</strong> W ⊆ V ถ้า:</p>
+<ol class="slide-list">
+<li><strong>0</strong> ∈ W</li>
+<li>ปิดภายใต้ +: <strong>u</strong>, <strong>v</strong> ∈ W → <strong>u + v</strong> ∈ W</li>
+<li>ปิดภายใต้ ×: <strong>v</strong> ∈ W, c <a class="gloss-ref" href="../../glossary.html#term-scalar" title="ดูนิยามใน Glossary">scalar</a> → c<strong>v</strong> ∈ W</li>
+</ol>
+<p><strong>ตัวอย่างใน ℝ²/ℝ³</strong>:</p>
+<ul class="slide-list">
+<li>{<strong>0</strong>}: trivial subspace ✓</li>
+<li>เส้นผ่าน origin: {c<strong>v</strong> : c ∈ ℝ} ✓</li>
+<li>ℝ³ ทั้งหมด ✓</li>
+<li>เส้นที่ไม่ผ่าน origin ✗ (no zero <a class="gloss-ref" href="../../glossary.html#term-vector" title="ดูนิยามใน Glossary">vector</a>)</li>
+<li>Circle (unit circle) ✗ (not closed under +)</li>
+</ul></div>
+</div>
+<div class="slide slide-4" data-title="Column Space C(A) และ Null Space N(A)">
+<div class="slide-header">
+<div class="slide-num">Slide 5</div>
+<div class="slide-title">Column Space C(A) และ Null Space N(A)</div>
+</div>
+<div class="key-message">C(A) กำหนดว่า Ax = b มี solution เมื่อไหร่; N(A) กำหนด freedom ของ solution</div>
+<div class="slide-content"><p>$$C(\mathbf{A}) = \{\mathbf{A}\mathbf{x} : \mathbf{x} \in \mathbb{R}^n\} = \text{span of columns of A}$$ $$N(\mathbf{A}) = \{\mathbf{x} : \mathbf{A}\mathbf{x} = \mathbf{0}\}$$</p>
+<div class="code-block"><div class="code-lang">python</div><pre><code>A = np.array([[1, 2, 3],
+              [2, 4, 6]])  # rank 1: col 2 = 2×col 1, col 3 = 3×col 1
+
+print('rank:', np.linalg.matrix_rank(A))  # 1
+print('dim C(A) = 1, dim N(A) = 2')
+
+# Null space vector: Ax = 0
+_, _, Vt = np.linalg.svd(A)
+print('null vector:', Vt[-1])  # verify A @ v ≈ 0</code></pre></div>
+<p><strong>Ax = b มี solution ↔ b ∈ C(A)</strong></p></div>
+</div>
+<div class="slide slide-5" data-title="Rank: Dimension ของ Column Space">
+<div class="slide-header">
+<div class="slide-num">Slide 6</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w3-rank" title="ดูนิยามใน Glossary">Rank</a>: <a class="gloss-ref" href="../../glossary.html#term-w3-dimension" title="ดูนิยามใน Glossary">Dimension</a> ของ Column Space</div>
+</div>
+<div class="key-message">rank(A) = dim C(A) = dim C(Aᵀ) = number of pivots</div>
+<div class="slide-content"><p>$$r = \text{rank}(A)$$</p>
+<ul class="slide-list">
+<li><strong>rank = n</strong>: full column rank → unique solution (only if m ≥ n)</li>
+<li><strong>rank = m</strong>: full row rank → solution always exists</li>
+<li><strong>rank &lt; min(m,n)</strong>: rank deficient → <a class="gloss-ref" href="../../glossary.html#term-w3-multicollinearity" title="ดูนิยามใน Glossary">multicollinearity</a> ใน <a class="gloss-ref" href="../../glossary.html#term-ml" title="ดูนิยามใน Glossary">ML</a></li>
+</ul>
+<div class="code-block"><div class="code-lang">python</div><pre><code>A1 = np.array([[1, 0], [0, 1], [0, 0]])  # 3×2, rank 2
+A2 = np.array([[1, 2], [2, 4]])           # 2×2, rank 1 (singular)
+
+print('rank(A1):', np.linalg.matrix_rank(A1))  # 2
+print('rank(A2):', np.linalg.matrix_rank(A2))  # 1</code></pre></div></div>
+</div>
+<div class="slide slide-6" data-title="Rank-Nullity Theorem">
+<div class="slide-header">
+<div class="slide-num">Slide 7</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w3-rank-nullity-theorem" title="ดูนิยามใน Glossary">Rank-Nullity Theorem</a></div>
+</div>
+<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-w3-rank" title="ดูนิยามใน Glossary">rank</a> + <a class="gloss-ref" href="../../glossary.html#term-w3-nullity" title="ดูนิยามใน Glossary">nullity</a> = n (number of columns)</div>
+<div class="slide-content"><p>$$\text{rank}(A) + \text{nullity}(A) = n$$</p>
+<p><strong>ตัวอย่าง</strong>: A ∈ ℝ³ˣ⁴, rank = 2</p>
+<ul class="slide-list">
+<li>Null Space dim = 4 - 2 = 2 → สองพารามิเตอร์อิสระ</li>
+<li>Complete solution: x = x_particular + c₁v₁ + c₂v₂</li>
+</ul>
+<p><strong>ใน <a class="gloss-ref" href="../../glossary.html#term-ds" title="ดูนิยามใน Glossary">DS</a></strong>: XᵀX มี rank &lt; p → <a class="gloss-ref" href="../../glossary.html#term-w3-multicollinearity" title="ดูนิยามใน Glossary">multicollinearity</a> → XᵀX singular → <a class="gloss-ref" href="../../glossary.html#term-regression" title="ดูนิยามใน Glossary">regression</a> ล้มเหลว</p></div>
+</div>
+<div class="slide slide-7" data-title="Linear Independence และ Basis">
+<div class="slide-header">
+<div class="slide-num">Slide 8</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w3-linear-independence" title="ดูนิยามใน Glossary">Linear Independence</a> และ <a class="gloss-ref" href="../../glossary.html#term-w3-basis" title="ดูนิยามใน Glossary">Basis</a></div>
+</div>
+<div class="key-message">Basis คือ independent spanning set ที่เล็กที่สุด</div>
+<div class="slide-content"><p><strong>Linear Independence</strong>: ไม่มี <a class="gloss-ref" href="../../glossary.html#term-vector" title="ดูนิยามใน Glossary">vector</a> = linear combo ของตัวอื่น → c₁v₁ + c₂v₂ + ... + cₖvₖ = <strong>0</strong> implies c₁ = c₂ = ... = cₖ = 0</p>
+<p><strong>Basis ของ C(A)</strong>: columns ของ A ที่เป็น <a class="gloss-ref" href="../../glossary.html#term-pivot" title="ดูนิยามใน Glossary">pivot</a> columns (จาก <a class="gloss-ref" href="../../glossary.html#term-w3-rref" title="ดูนิยามใน Glossary">RREF</a>)</p>
+<div class="code-block"><div class="code-lang">python</div><pre><code># Standard basis ของ R³
+e1 = [1, 0, 0]
+e2 = [0, 1, 0]
+e3 = [0, 0, 1]
+# Independent: no one is combo of others</code></pre></div></div>
+</div>
+<div class="slide slide-8" data-title="Summary">
+<div class="slide-header">
+<div class="slide-num">Slide 9</div>
+<div class="slide-title">Summary</div>
+</div>
+<div class="slide-content"><p><strong>สิ่งที่เรียนรู้วันนี้</strong>:</p>
+<ul class="slide-list">
+<li><a class="gloss-ref" href="../../glossary.html#term-vector" title="ดูนิยามใน Glossary">Vector</a> Space = set ปิดภายใต้ + และ × พร้อม zero vector</li>
+<li>Subspace ต้องผ่าน origin</li>
+<li>C(A) = <a class="gloss-ref" href="../../glossary.html#term-span" title="ดูนิยามใน Glossary">span</a> ของ columns; N(A) = solutions ของ Ax = 0</li>
+<li><a class="gloss-ref" href="../../glossary.html#term-w3-rank" title="ดูนิยามใน Glossary">rank</a> + <a class="gloss-ref" href="../../glossary.html#term-w3-nullity" title="ดูนิยามใน Glossary">nullity</a> = n (<a class="gloss-ref" href="../../glossary.html#term-w3-rank-nullity-theorem" title="ดูนิยามใน Glossary">Rank-Nullity Theorem</a>)</li>
+<li><a class="gloss-ref" href="../../glossary.html#term-w3-multicollinearity" title="ดูนิยามใน Glossary">Multicollinearity</a> ↔ rank deficient XᵀX</li>
+</ul>
+<p><strong>สัปดาห์ต่อไป</strong>: <a class="gloss-ref" href="../../glossary.html#term-w3-four-fundamental-subspaces" title="ดูนิยามใน Glossary">Four Fundamental Subspaces</a> — Strang's Big Picture</p></div>
+</div>
+</div>
+<div id="nav">
+<button id="prev-btn" onclick="changeSlide(-1)" title="Previous (←)">◀</button>
+<span id="counter">1 / 9</span>
+<span id="slide-label"></span>
+<button id="next-btn" onclick="changeSlide(1)" title="Next (→)">▶</button>
+</div>
+<div id="kb-hint">← → Space</div>
+<script>
+
+var current = 0;
+var slides = document.querySelectorAll('.slide');
+var total = slides.length;
+var counter = document.getElementById('counter');
+var fill = document.getElementById('progress-fill');
+var label = document.getElementById('slide-label');
+var prevBtn = document.getElementById('prev-btn');
+var nextBtn = document.getElementById('next-btn');
+
+function showSlide(n) {
+  slides[current].classList.remove('active');
+  current = Math.max(0, Math.min(n, total - 1));
+  slides[current].classList.add('active');
+  counter.textContent = (current + 1) + ' / ' + total;
+  fill.style.width = ((current + 1) / total * 100) + '%';
+  label.textContent = slides[current].dataset.title || '';
+  prevBtn.disabled = (current === 0);
+  nextBtn.disabled = (current === total - 1);
+  // Scroll content to top on slide change
+  var sc = slides[current].querySelector('.slide-content');
+  if (sc) sc.scrollTop = 0;
+}
+
+function changeSlide(dir) { showSlide(current + dir); }
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown') {
+    e.preventDefault(); changeSlide(1);
+  } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') {
+    e.preventDefault(); changeSlide(-1);
+  } else if (e.key === ' ') {
+    e.preventDefault(); changeSlide(e.shiftKey ? -1 : 1);
+  } else if (e.key === 'Home') { showSlide(0); }
+  else if (e.key === 'End')  { showSlide(total - 1); }
+});
+
+// Touch swipe
+var touchX = 0;
+document.addEventListener('touchstart', function(e) { touchX = e.touches[0].clientX; }, {passive:true});
+document.addEventListener('touchend', function(e) {
+  var dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 50) changeSlide(dx < 0 ? 1 : -1);
+});
+
+showSlide(0);
+
+</script>
+</body>
+</html>

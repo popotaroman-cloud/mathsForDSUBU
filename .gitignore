@@ -1,0 +1,36 @@
+# ── ตำรา/หนังสือมีลิขสิทธิ์ ห้ามเผยแพร่ ──
+Resources/
+Week*/ISLP_Ch*.pdf
+
+# ── ข้อสอบจริง เฉลย และกระดาษคำตอบสแกนของนักศึกษา (มีข้อมูลส่วนบุคคล) ──
+exam/
+
+# ── เฉลย lab (เก็บแยกไว้ ไม่เผยแพร่พร้อมโจทย์) ──
+solutions/
+
+# ── ไฟล์ build / cache ของ Python ──
+__pycache__/
+*.pyc
+
+# ── การตั้งค่าเฉพาะเครื่อง ──
+.claude/settings.local.json
+
+# ── ไฟล์โครงสร้าง/แผนรายสัปดาห์ (ใช้ภายในเท่านั้น ไม่เอาขึ้น) ──
+Week*/README.md
+Week*/plan.md
+course_outline.md
+
+# ── เครื่องมือ/คู่มือสร้างเนื้อหาและติดตามสถานะภายใน (ไม่ใช่สไลด์/lecture note) ──
+_status.md
+_commands.md
+exam_generator_guide.md
+exam_json_generator_guide.md
+examination_guide.md
+json_exam_example_guide.md
+create_slides.py
+fill_weekly_plan.py
+qa_check.py
+
+# ── ไฟล์ระบบทั่วไป ──
+.DS_Store
+Thumbs.db

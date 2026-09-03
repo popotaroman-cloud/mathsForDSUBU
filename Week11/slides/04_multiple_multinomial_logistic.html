@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Slide Deck: Multiple Logistic Regression และ Multinomial</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" rel="stylesheet"/>
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+<script defer="" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],ignoredTags:['script','noscript','style','textarea','pre','code'],throwOnError:false});" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+<style>
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #1a237e;
+  --accent:  #1565c0;
+  --light:   #e3f2fd;
+  --bg:      #ffffff;
+  --text:    #212121;
+  --muted:   #546e7a;
+  --code-bg: #1e272e;
+  --code-fg: #dfe6e9;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: #0d1b2a;
+  font-family: 'Sarabun', 'Noto Sans Thai', 'Segoe UI', Arial, sans-serif;
+  color: var(--text);
+}
+
+/* ── Presentation container ───────────────────── */
+#presentation {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.slide {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  flex-direction: column;
+  padding: clamp(28px, 3.5vw, 56px) clamp(40px, 6vw, 88px) 74px;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+.slide.active {
+  display: flex;
+  opacity: 1;
+}
+
+/* ── Progress bar ─────────────────────────────── */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: rgba(255,255,255,0.12);
+  z-index: 200;
+}
+#progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #42a5f5, #1565c0);
+  transition: width 0.3s ease;
+}
+
+/* ── Slide header (title + num) ───────────────── */
+.slide-header {
+  margin-bottom: clamp(14px, 2vh, 28px);
+  padding-bottom: clamp(10px, 1.4vh, 18px);
+  border-bottom: 3px solid var(--light);
+  flex-shrink: 0;
+}
+.slide-num {
+  font-size: clamp(12px, 1.1vw, 15px);
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.slide-title {
+  font-size: clamp(30px, 3.8vw, 52px);
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.15;
+}
+
+/* ── Title Slide (index 0) ────────────────────── */
+.slide-0 {
+  background: linear-gradient(145deg, #0d1b2a 0%, #1a237e 55%, #1565c0 100%);
+  justify-content: center;
+}
+.slide-0 .slide-header {
+  border-bottom-color: rgba(255,255,255,0.2);
+  margin-bottom: clamp(20px, 3vh, 40px);
+}
+.slide-0 .slide-num  { color: #90caf9; }
+.slide-0 .slide-title {
+  font-size: clamp(34px, 5vw, 64px);
+  color: #ffffff;
+}
+.slide-0 .key-message {
+  background: rgba(255,255,255,0.1);
+  border-left-color: #42a5f5;
+  color: #e3f2fd;
+  font-size: clamp(18px, 2vw, 28px);
+}
+.slide-0 .slide-content { color: #cfd8dc; }
+.slide-0 .slide-content p { color: #cfd8dc; }
+.slide-0 .slide-content li { color: #cfd8dc; }
+.slide-0 .slide-content strong { color: #90caf9; }
+.slide-0 .content-heading { color: #90caf9; }
+
+/* ── Key Message callout ──────────────────────── */
+.key-message {
+  background: var(--light);
+  border-left: 6px solid var(--accent);
+  padding: clamp(11px, 1.4vh, 18px) clamp(18px, 2.2vw, 30px);
+  font-size: clamp(18px, 1.9vw, 26px);
+  font-weight: 600;
+  line-height: 1.45;
+  border-radius: 0 10px 10px 0;
+  margin-bottom: clamp(14px, 1.8vh, 26px);
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+/* ── Content area ─────────────────────────────── */
+.slide-content {
+  flex: 1;
+  overflow-y: auto;
+  font-size: clamp(17px, 1.85vw, 26px);
+  line-height: 1.68;
+  color: var(--text);
+  min-height: 0;
+}
+.slide-content::-webkit-scrollbar { width: 5px; }
+.slide-content::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+.slide-content p { margin-bottom: 0.55em; }
+.slide-content strong { color: var(--primary); }
+.slide-content em { color: #37474f; }
+
+/* ── Lists ────────────────────────────────────── */
+.slide-list {
+  padding-left: clamp(22px, 2.8vw, 38px);
+  margin: 0.2em 0 0.7em;
+}
+.slide-list li {
+  margin-bottom: 0.45em;
+  line-height: 1.5;
+}
+ul.slide-list li::marker { color: var(--accent); font-weight: 700; }
+ol.slide-list li::marker { color: var(--accent); font-weight: 700; }
+
+/* ── Code blocks ──────────────────────────────── */
+.code-block {
+  margin: 0.5em 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+  font-size: clamp(12px, 1.35vw, 18px);
+}
+.code-lang {
+  background: #37474f;
+  color: #90a4ae;
+  font-size: 0.82em;
+  padding: 4px 16px;
+  font-family: 'Fira Code', Consolas, monospace;
+  letter-spacing: 0.5px;
+}
+pre {
+  background: var(--code-bg);
+  color: var(--code-fg);
+  padding: clamp(12px, 1.4vh, 20px) clamp(14px, 1.8vw, 24px);
+  overflow-x: auto;
+  line-height: 1.58;
+  margin: 0;
+}
+code {
+  font-family: 'Fira Code', Consolas, 'Courier New', monospace;
+}
+.slide-content code:not(pre code) {
+  background: #e8eaf6;
+  color: #1a237e;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.86em;
+}
+
+/* ── Tables ───────────────────────────────────── */
+.table-wrap {
+  overflow-x: auto;
+  margin: 0.5em 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(14px, 1.5vw, 21px);
+}
+th {
+  background: var(--primary);
+  color: #fff;
+  padding: clamp(7px, 0.9vh, 13px) clamp(10px, 1.4vw, 18px);
+  text-align: left;
+  font-weight: 600;
+}
+td {
+  padding: clamp(6px, 0.8vh, 11px) clamp(10px, 1.4vw, 18px);
+  border-bottom: 1px solid #e0e0e0;
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #f8f9ff; }
+tr:hover td { background: var(--light); }
+
+/* ── Sub-headings inside content ──────────────── */
+.content-heading {
+  font-size: clamp(18px, 2vw, 28px);
+  color: var(--primary);
+  margin: 0.65em 0 0.25em;
+  font-weight: 700;
+}
+h3.content-heading {
+  font-size: clamp(16px, 1.8vw, 24px);
+  color: var(--accent);
+}
+
+/* ── Generated figure (matplotlib base64 PNG) ────────────── */
+.slide-figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.3em 0;
+  flex-shrink: 0;
+}
+.slide-figure img {
+  max-width: 96%;
+  max-height: clamp(200px, 38vh, 380px);
+  border-radius: 10px;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.10);
+  object-fit: contain;
+}
+
+/* ── Figure placeholder (fallback เมื่อ generate ไม่ได้) ─── */
+.placeholder {
+  border: 2px dashed var(--accent);
+  padding: clamp(12px, 1.6vh, 22px) clamp(16px, 2vw, 26px);
+  border-radius: 10px;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0.4em 0;
+  font-size: clamp(14px, 1.5vw, 20px);
+}
+
+.slide-hr {
+  border: none;
+  border-top: 2px solid #e8eaf6;
+  margin: 0.5em 0;
+}
+
+/* ── Navigation bar ───────────────────────────── */
+#nav {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(13,27,42,0.9);
+  backdrop-filter: blur(10px);
+  padding: 7px 20px;
+  border-radius: 40px;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+}
+#nav button {
+  background: none;
+  border: none;
+  color: #90a4ae;
+  font-size: clamp(16px, 1.8vw, 24px);
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s;
+  line-height: 1;
+}
+#nav button:hover:not(:disabled) { color: #fff; background: rgba(255,255,255,0.12); }
+#nav button:disabled { color: #3d4e5c; cursor: default; }
+#counter {
+  color: #e2e8f0;
+  font-size: clamp(12px, 1.2vw, 16px);
+  min-width: 64px;
+  text-align: center;
+  font-weight: 600;
+}
+#slide-label {
+  color: #78909c;
+  font-size: clamp(10px, 1vw, 13px);
+  max-width: 220px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ── Keyboard hint ────────────────────────────── */
+#kb-hint {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: rgba(255,255,255,0.2);
+  font-size: 11px;
+  pointer-events: none;
+}
+
+/* ── KaTeX math rendering ─────────────────── */
+.katex-display {
+  margin: 0.5em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.katex {
+  font-size: clamp(15px, 1.7vw, 21px) !important;
+}
+.slide-0 .katex { color: #e3f2fd; }
+
+
+/* ── ลิงก์อ้างอิง Glossary (เพิ่มโดยสคริปต์ link_glossary_terms.py) ── */
+.gloss-ref {
+  color: inherit; text-decoration: none; border-bottom: 1.5px dotted var(--accent, #E8820C);
+  cursor: help;
+}
+.gloss-ref:hover { background: rgba(232,130,12,0.12); border-bottom-style: solid; }
+</style>
+</head>
+<body>
+<div id="progress-bar"><div id="progress-fill" style="width:11.1%"></div></div>
+<div id="presentation">
+<div class="slide slide-0" data-title="Title">
+<div class="slide-header">
+<div class="slide-num">Slide 1</div>
+<div class="slide-title">Title</div>
+</div>
+<div class="slide-content"><p><strong>Multiple <a class="gloss-ref" href="../../glossary.html#term-w11-logistic-regression" title="ดูนิยามใน Glossary">Logistic Regression</a> และ Multinomial Logistic</strong> Week 11 | CLO3 | <a class="gloss-ref" href="../../glossary.html#term-w11-islp" title="ดูนิยามใน Glossary">ISLP</a> 4.3.4–4.3.5 <a class="gloss-ref" href="../../glossary.html#term-llo" title="ดูนิยามใน Glossary">LLo</a>: สร้าง Multiple Logistic <a class="gloss-ref" href="../../glossary.html#term-regression" title="ดูนิยามใน Glossary">Regression</a>, ตีความ <a class="gloss-ref" href="../../glossary.html#term-w11-confounding" title="ดูนิยามใน Glossary">confounding</a> และ Softmax model ได้</p></div>
+</div>
+<div class="slide slide-1" data-title="Multiple Logistic Regression Model">
+<div class="slide-header">
+<div class="slide-num">Slide 2</div>
+<div class="slide-title">Multiple <a class="gloss-ref" href="../../glossary.html#term-w11-logistic-regression" title="ดูนิยามใน Glossary">Logistic Regression</a> Model</div>
+</div>
+<div class="key-message">Multiple Logistic = เพิ่ม predictors ใน log-<a class="gloss-ref" href="../../glossary.html#term-w11-odds" title="ดูนิยามใน Glossary">odds</a> — ตีความเหมือน <a class="gloss-ref" href="../../glossary.html#term-w11-mlr" title="ดูนิยามใน Glossary">MLR</a> โดยยึดตัวอื่นคงที่</div>
+<div class="slide-content"><p><strong>Model</strong>: $$\log\frac{p(X)}{1-p(X)} = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p$$</p>
+<p>$$p(X) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X_1 + \cdots + \beta_p X_p)}}$$</p>
+<p><strong>ตัวอย่าง Default</strong>: $$\log\frac{p(\text{default})}{1-p(\text{default})} = \beta_0 + \beta_1\text{balance} + \beta_2\text{income} + \beta_3\text{student}$$</p>
+<p><strong>Interpretation</strong>: β̂ⱼ = ผลของ Xⱼ ต่อ log-odds <strong>โดยยึด predictors อื่นคงที่</strong> — เหมือน MLR</p></div>
+</div>
+<div class="slide slide-2" data-title="Python: Multiple Logistic Regression">
+<div class="slide-header">
+<div class="slide-num">Slide 3</div>
+<div class="slide-title">Python: Multiple <a class="gloss-ref" href="../../glossary.html#term-w11-logistic-regression" title="ดูนิยามใน Glossary">Logistic Regression</a></div>
+</div>
+<div class="key-message">formula ใน statsmodels เหมือน <a class="gloss-ref" href="../../glossary.html#term-w11-ols" title="ดูนิยามใน Glossary">OLS</a> ทุกประการ แค่เปลี่ยน <code>ols</code> → <code>logit</code></div>
+<div class="slide-content"><div class="code-block"><div class="code-lang">python</div><pre><code>import statsmodels.formula.api as smf
+import pandas as pd
+
+default = pd.read_csv('Default.csv')
+default['default_num'] = (default['default'] == 'Yes').astype(int)
+default['student_num'] = (default['student'] == 'Yes').astype(int)
+
+# ─── Multiple Logistic Regression ────────────────────────
+# วัตถุประสงค์: fit model ที่ control ทั้ง balance, income, student พร้อมกัน
+m_multi = smf.logit('default_num ~ balance + income + student_num', data=default).fit()
+print(m_multi.summary())</code></pre></div>
+<div class="code-block"><pre><code>              coef     std err    z       P&gt;|z|
+-----------------------------------------------
+Intercept  -10.869      0.492  -22.08   0.000
+balance      0.006      0.000   24.74   0.000
+income       0.000      0.000    0.37   0.712
+student_num -0.647      0.236   -2.74   0.006</code></pre></div>
+<p><strong>สังเกต</strong>: income p = 0.712 → NOT significant ใน <a class="gloss-ref" href="../../glossary.html#term-w11-mlr" title="ดูนิยามใน Glossary">MLR</a> แม้ <a class="gloss-ref" href="../../glossary.html#term-w11-slr" title="ดูนิยามใน Glossary">SLR</a> อาจ significant</p></div>
+</div>
+<div class="slide slide-3" data-title="Confounding: Student Effect">
+<div class="slide-header">
+<div class="slide-num">Slide 4</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w11-confounding" title="ดูนิยามใน Glossary">Confounding</a>: Student Effect</div>
+</div>
+<div class="key-message">Student = Yes → lower default rate ใน <a class="gloss-ref" href="../../glossary.html#term-w11-slr" title="ดูนิยามใน Glossary">SLR</a> แต่ higher ใน <a class="gloss-ref" href="../../glossary.html#term-w11-mlr" title="ดูนิยามใน Glossary">MLR</a> — confounding จาก balance</div>
+<div class="slide-content"><p><strong>SLR: Default ~ Student</strong>:</p>
+<div class="code-block"><pre><code>student_num   coef = 0.405 (p &lt; 0.001)  ← student default MORE?</code></pre></div>
+<p>→ Student = Yes → default probability สูงกว่า</p>
+<p><strong>MLR: Default ~ Balance + Income + Student</strong>:</p>
+<div class="code-block"><pre><code>student_num   coef = -0.647 (p = 0.006)  ← student default LESS!</code></pre></div>
+<p>→ เมื่อ control balance → Student = Yes → default probability ต่ำกว่า</p>
+<p><strong>ทำไม?</strong>:</p>
+<ul class="slide-list">
+<li>นักศึกษามี balance สูงกว่า non-student เฉลี่ย</li>
+<li>Balance สูง → default probability สูง → SLR absorbs balance effect เข้า student</li>
+<li>MLR แยกออก: holding balance constant → student มี default probability ต่ำกว่า</li>
+</ul>
+<div class="slide-figure"><img alt="figure" src="data:image/png;base64,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"/></div></div>
+</div>
+<div class="slide slide-4" data-title="Multinomial Logistic Regression (K &gt; 2)">
+<div class="slide-header">
+<div class="slide-num">Slide 5</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w11-multinomial-logistic-regression" title="ดูนิยามใน Glossary">Multinomial Logistic Regression</a> (K &gt; 2)</div>
+</div>
+<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-w11-softmax-function" title="ดูนิยามใน Glossary">Softmax function</a> ขยาย sigmoid ให้รองรับ K class — เลือก reference class แล้ว fit K-1 models</div>
+<div class="slide-content"><p><strong>Problem</strong>: K &gt; 2 classes — เช่น ผลการวินิจฉัย: Low Risk / Medium Risk / High Risk</p>
+<p><strong>Multinomial Model</strong> (Softmax): $$\Pr(Y=k|X) = \frac{e^{\beta_{0k} + \boldsymbol{\beta}_k^T\mathbf{X}}}{\sum_{l=1}^{K}e^{\beta_{0l} + \boldsymbol{\beta}_l^T\mathbf{X}}}$$</p>
+<ul class="slide-list">
+<li>Reference class K: log-<a class="gloss-ref" href="../../glossary.html#term-w11-odds" title="ดูนิยามใน Glossary">odds</a> vs class K = β₀ₖ + βₖᵀX</li>
+<li>K−1 sets of coefficients (เหมือน dummy variable)</li>
+<li>Σ probabilities = 1 (valid distribution)</li>
+</ul></div>
+</div>
+<div class="slide slide-5" data-title="Python: Multinomial Logistic">
+<div class="slide-header">
+<div class="slide-num">Slide 6</div>
+<div class="slide-title">Python: Multinomial Logistic</div>
+</div>
+<div class="key-message">sklearn <code>multi_class='multinomial'</code> และ statsmodels <code>MNLogit</code> ใช้ได้ทั้งคู่</div>
+<div class="slide-content"><div class="code-block"><div class="code-lang">python</div><pre><code>from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import LabelEncoder
+import statsmodels.api as sm
+
+# ─── ตัวอย่าง: classify credit risk level ──────────────────
+# วัตถุประสงค์: multinomial logistic สำหรับ 3-class problem
+# สร้าง synthetic 3-class data จาก Default
+default['risk'] = pd.cut(default['balance'],
+                         bins=[0, 1000, 2000, 5000],
+                         labels=['Low', 'Medium', 'High'])
+default_clean = default.dropna(subset=['risk'])
+
+# sklearn multinomial
+lr_multi = LogisticRegression(multi_class='multinomial', max_iter=1000)
+lr_multi.fit(default_clean[['balance', 'income']], default_clean['risk'])
+
+# predict probabilities สำหรับ 3 classes
+proba = lr_multi.predict_proba([[1500, 50000]])
+print('P(Low):', round(proba[0,0],4))
+print('P(Medium):', round(proba[0,1],4))
+print('P(High):', round(proba[0,2],4))</code></pre></div></div>
+</div>
+<div class="slide slide-6" data-title="Odds Ratios: ตีความง่ายขึ้น">
+<div class="slide-header">
+<div class="slide-num">Slide 7</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w11-odds" title="ดูนิยามใน Glossary">Odds</a> Ratios: ตีความง่ายขึ้น</div>
+</div>
+<div class="key-message">e^β̂ = <a class="gloss-ref" href="../../glossary.html#term-w11-odds-ratio" title="ดูนิยามใน Glossary">Odds Ratio</a> — ตีความได้ชัดเจนกว่า coefficient ดิบ</div>
+<div class="slide-content"><p><strong>Odds Ratio</strong>: $$OR = e^{\hat{\beta}_1} = \frac{\text{Odds}(X=x+1)}{\text{Odds}(X=x)}$$</p>
+<p><strong>ตัวอย่าง Default ~ Balance + Student</strong>:</p>
+<ul class="slide-list">
+<li>β̂_balance = 0.0055 → OR = e^0.0055 = 1.0055</li>
+<li>Balance เพิ่ม $1 → odds of default คูณ 1.0055 (+0.55%)</li>
+<li>Balance เพิ่ม $100 → OR = e^0.55 = 1.73 (+73%)</li>
+<li>β̂_student = -0.647 → OR = e^{-0.647} = 0.52</li>
+<li>Student มี odds of default เพียง 52% ของ non-student (เมื่อ control balance)</li>
+</ul>
+<div class="code-block"><div class="code-lang">python</div><pre><code># ─── แสดง Odds Ratios ──────────────────────────────────────
+# วัตถุประสงค์: ตีความ coefficient ผ่าน OR ที่เข้าใจง่ายกว่า
+import numpy as np
+OR = np.exp(m_multi.params)
+CI_OR = np.exp(m_multi.conf_int())
+pd.concat([OR, CI_OR], axis=1).round(3)</code></pre></div></div>
+</div>
+<div class="slide slide-7" data-title="Predict Probability บน New Data">
+<div class="slide-header">
+<div class="slide-num">Slide 8</div>
+<div class="slide-title">Predict Probability บน New Data</div>
+</div>
+<div class="key-message">ขั้นตอน predict: สร้าง new DataFrame → predict → บอก class + probability</div>
+<div class="slide-content"><div class="code-block"><div class="code-lang">python</div><pre><code># ─── Predict สำหรับ customer ใหม่ ──────────────────────────
+# วัตถุประสงค์: วัตถุประสงค์จริง — score customer ว่าควร approve หรือไม่
+new_customers = pd.DataFrame({
+    'balance': [1000, 2000, 1500],
+    'income': [30000, 50000, 40000],
+    'student_num': [0, 1, 0]
+})
+
+probs = m_multi.predict(new_customers)
+preds = (probs &gt; 0.5).astype(int)
+
+result = new_customers.copy()
+result['P(default)'] = probs.round(4)
+result['Prediction'] = ['Default' if p else 'No Default' for p in preds]
+print(result)</code></pre></div></div>
+</div>
+<div class="slide slide-8" data-title="Summary">
+<div class="slide-header">
+<div class="slide-num">Slide 9</div>
+<div class="slide-title">Summary</div>
+</div>
+<div class="key-message">Multiple Logistic = Multiple Linear แต่ predict probability; Multinomial = Softmax</div>
+<div class="slide-content"><p><strong>สิ่งที่เรียนรู้วันนี้</strong>:</p>
+<ul class="slide-list">
+<li><strong>Multiple Logistic</strong>: log-<a class="gloss-ref" href="../../glossary.html#term-w11-odds" title="ดูนิยามใน Glossary">odds</a> linear ใน X₁,…,Xₚ — ตีความ "holding others fixed"</li>
+<li><strong><a class="gloss-ref" href="../../glossary.html#term-w11-confounding" title="ดูนิยามใน Glossary">Confounding</a></strong>: student example — ผลเปลี่ยนทิศทางเมื่อ control balance</li>
+<li><strong><a class="gloss-ref" href="../../glossary.html#term-w11-odds-ratio" title="ดูนิยามใน Glossary">Odds Ratio</a></strong>: e^β̂ — ตีความง่ายกว่า coefficient ดิบ</li>
+<li><strong>Multinomial</strong>: Softmax สำหรับ K &gt; 2 classes</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>สูตร</th>
+<th>Python</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Binary Logistic</td>
+<td>logit = β₀+β₁X</td>
+<td><code>smf.logit('y~x').fit()</code></td>
+</tr>
+<tr>
+<td>Multiple Logistic</td>
+<td>logit = Σβⱼxⱼ</td>
+<td><code>smf.logit('y~x1+x2').fit()</code></td>
+</tr>
+<tr>
+<td>Multinomial</td>
+<td>Softmax</td>
+<td><code>LogisticRegression(multi_class='multinomial')</code></td>
+</tr>
+<tr>
+<td>Odds Ratio</td>
+<td>e^β̂</td>
+<td><code>np.exp(model.params)</code></td>
+</tr>
+</tbody></table></div>
+<p><strong>สัปดาห์ต่อไป — Slide 5</strong>: <a class="gloss-ref" href="../../glossary.html#term-w11-classification" title="ดูนิยามใน Glossary">Classification</a> Metrics — <a class="gloss-ref" href="../../glossary.html#term-w11-confusion-matrix" title="ดูนิยามใน Glossary">Confusion Matrix</a>, <a class="gloss-ref" href="../../glossary.html#term-w11-precision" title="ดูนิยามใน Glossary">Precision</a>, Recall, <a class="gloss-ref" href="../../glossary.html#term-w11-f1" title="ดูนิยามใน Glossary">F1</a></p></div>
+</div>
+</div>
+<div id="nav">
+<button id="prev-btn" onclick="changeSlide(-1)" title="Previous (←)">◀</button>
+<span id="counter">1 / 9</span>
+<span id="slide-label"></span>
+<button id="next-btn" onclick="changeSlide(1)" title="Next (→)">▶</button>
+</div>
+<div id="kb-hint">← → Space</div>
+<script>
+
+var current = 0;
+var slides = document.querySelectorAll('.slide');
+var total = slides.length;
+var counter = document.getElementById('counter');
+var fill = document.getElementById('progress-fill');
+var label = document.getElementById('slide-label');
+var prevBtn = document.getElementById('prev-btn');
+var nextBtn = document.getElementById('next-btn');
+
+function showSlide(n) {
+  slides[current].classList.remove('active');
+  current = Math.max(0, Math.min(n, total - 1));
+  slides[current].classList.add('active');
+  counter.textContent = (current + 1) + ' / ' + total;
+  fill.style.width = ((current + 1) / total * 100) + '%';
+  label.textContent = slides[current].dataset.title || '';
+  prevBtn.disabled = (current === 0);
+  nextBtn.disabled = (current === total - 1);
+  // Scroll content to top on slide change
+  var sc = slides[current].querySelector('.slide-content');
+  if (sc) sc.scrollTop = 0;
+}
+
+function changeSlide(dir) { showSlide(current + dir); }
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown') {
+    e.preventDefault(); changeSlide(1);
+  } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') {
+    e.preventDefault(); changeSlide(-1);
+  } else if (e.key === ' ') {
+    e.preventDefault(); changeSlide(e.shiftKey ? -1 : 1);
+  } else if (e.key === 'Home') { showSlide(0); }
+  else if (e.key === 'End')  { showSlide(total - 1); }
+});
+
+// Touch swipe
+var touchX = 0;
+document.addEventListener('touchstart', function(e) { touchX = e.touches[0].clientX; }, {passive:true});
+document.addEventListener('touchend', function(e) {
+  var dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 50) changeSlide(dx < 0 ? 1 : -1);
+});
+
+showSlide(0);
+
+</script>
+</body>
+</html>
