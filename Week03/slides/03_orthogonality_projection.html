@@ -350,14 +350,14 @@ h3.content-heading {
 <div class="slide-num">Slide 1</div>
 <div class="slide-title">Title</div>
 </div>
-<div class="slide-content"><p><strong>Orthogonality และ Projection: การ "ส่าย" ข้อมูลลง Subspace</strong> Week 3 | <a class="gloss-ref" href="../../glossary.html#term-w3-clo1" title="ดูนิยามใน Glossary">CLO1</a> | พื้นฐาน Least Squares และ <a class="gloss-ref" href="../../glossary.html#term-pca" title="ดูนิยามใน Glossary">PCA</a></p></div>
+<div class="slide-content"><p><strong>Orthogonality และ Projection: การ "ส่าย" ข้อมูลลง Subspace</strong> Week 3 | <a class="gloss-ref" href="../../glossary.html#term-w3-clo1" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">CLO1</a> | พื้นฐาน Least Squares และ <a class="gloss-ref" href="../../glossary.html#term-pca" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">PCA</a></p></div>
 </div>
 <div class="slide slide-1" data-title="Orthogonal Vectors">
 <div class="slide-header">
 <div class="slide-num">Slide 2</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w3-orthogonal-vectors" title="ดูนิยามใน Glossary">Orthogonal Vectors</a></div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w3-orthogonal-vectors" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Orthogonal Vectors</a></div>
 </div>
-<div class="key-message">Orthogonal = <a class="gloss-ref" href="../../glossary.html#term-dot-product" title="ดูนิยามใน Glossary">dot product</a> เป็น 0 = ตั้งฉากกัน = "ไม่เกี่ยวข้องกัน"</div>
+<div class="key-message">Orthogonal = <a class="gloss-ref" href="../../glossary.html#term-dot-product" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">dot product</a> เป็น 0 = ตั้งฉากกัน = "ไม่เกี่ยวข้องกัน"</div>
 <div class="slide-content"><p>$$\mathbf{u} \perp \mathbf{v} \iff \mathbf{u}^T\mathbf{v} = 0$$</p>
 <div class="code-block"><div class="code-lang">python</div><pre><code>u = np.array([1, 0, 0])
 v = np.array([0, 1, 0])
@@ -365,19 +365,19 @@ w = np.array([1, 1, 0])
 
 print(np.dot(u, v))  # 0 → orthogonal ✓
 print(np.dot(u, w))  # 1 → not orthogonal</code></pre></div>
-<p><strong>ใน <a class="gloss-ref" href="../../glossary.html#term-ds" title="ดูนิยามใน Glossary">DS</a></strong>:</p>
+<p><strong>ใน <a class="gloss-ref" href="../../glossary.html#term-ds" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">DS</a></strong>:</p>
 <ul class="slide-list">
-<li>Orthogonal features = uncorrelated (ไม่มี <a class="gloss-ref" href="../../glossary.html#term-w3-multicollinearity" title="ดูนิยามใน Glossary">multicollinearity</a>)</li>
-<li><a class="gloss-ref" href="../../glossary.html#term-pca" title="ดูนิยามใน Glossary">PCA</a> สร้าง orthogonal principal components</li>
+<li>Orthogonal features = uncorrelated (ไม่มี <a class="gloss-ref" href="../../glossary.html#term-w3-multicollinearity" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">multicollinearity</a>)</li>
+<li><a class="gloss-ref" href="../../glossary.html#term-pca" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">PCA</a> สร้าง orthogonal principal components</li>
 <li>Orthonormal matrix Q: QᵀQ = I</li>
 </ul></div>
 </div>
 <div class="slide slide-2" data-title="Projection onto a Line">
 <div class="slide-header">
 <div class="slide-num">Slide 3</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w3-projection-onto-a-line" title="ดูนิยามใน Glossary">Projection onto a Line</a></div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w3-projection-onto-a-line" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Projection onto a Line</a></div>
 </div>
-<div class="key-message">project b ลงบน <a class="gloss-ref" href="../../glossary.html#term-line" title="ดูนิยามใน Glossary">line</a> ผ่าน a คือ <a class="gloss-ref" href="../../glossary.html#term-scalar" title="ดูนิยามใน Glossary">scalar</a> multiple ของ a</div>
+<div class="key-message">project b ลงบน <a class="gloss-ref" href="../../glossary.html#term-line" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">line</a> ผ่าน a คือ <a class="gloss-ref" href="../../glossary.html#term-scalar" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">scalar</a> multiple ของ a</div>
 <div class="slide-content"><p><strong>สูตร</strong>: $\mathbf{p} = \frac{\mathbf{a}^T\mathbf{b}}{\mathbf{a}^T\mathbf{a}}\mathbf{a} = \mathbf{P}\mathbf{b}$</p>
 <p>โดย Projection Matrix: $\mathbf{P} = \frac{\mathbf{a}\mathbf{a}^T}{\mathbf{a}^T\mathbf{a}}$</p>
 <div class="code-block"><div class="code-lang">python</div><pre><code>a = np.array([1, 1, 1], dtype=float)  # line direction
@@ -396,7 +396,7 @@ print('e ⊥ a?', np.allclose(np.dot(e, a), 0))  # True</code></pre></div>
 <div class="slide-num">Slide 4</div>
 <div class="slide-title">Projection Properties</div>
 </div>
-<div class="key-message">P² = P และ Pᵀ = P — นี่คือ <a class="gloss-ref" href="../../glossary.html#term-w3-idempotent" title="ดูนิยามใน Glossary">idempotent</a> <a class="gloss-ref" href="../../glossary.html#term-symmetric-matrix" title="ดูนิยามใน Glossary">symmetric matrix</a></div>
+<div class="key-message">P² = P และ Pᵀ = P — นี่คือ <a class="gloss-ref" href="../../glossary.html#term-w3-idempotent" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">idempotent</a> <a class="gloss-ref" href="../../glossary.html#term-symmetric-matrix" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">symmetric matrix</a></div>
 <div class="slide-content"><p>$$\mathbf{P}^2 = \mathbf{P}, \quad \mathbf{P}^T = \mathbf{P}$$</p>
 <p><strong>ทำไม P² = P ถึงสมเหตุสมผล</strong>: Project ครั้งที่สอง ผลไม่เปลี่ยนแปลง (p อยู่บน subspace แล้ว)</p>
 <div class="code-block"><div class="code-lang">python</div><pre><code>P = np.outer(a, a) / np.dot(a, a)
@@ -442,9 +442,9 @@ for i in range(A.shape[1]):
 <div class="slide slide-6" data-title="Orthonormal Basis">
 <div class="slide-header">
 <div class="slide-num">Slide 7</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w3-orthonormal-basis" title="ดูนิยามใน Glossary">Orthonormal Basis</a></div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w3-orthonormal-basis" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Orthonormal Basis</a></div>
 </div>
-<div class="key-message">Orthonormal <a class="gloss-ref" href="../../glossary.html#term-w3-basis" title="ดูนิยามใน Glossary">basis</a> ทำให้คำนวณง่ายขึ้นมาก</div>
+<div class="key-message">Orthonormal <a class="gloss-ref" href="../../glossary.html#term-w3-basis" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">basis</a> ทำให้คำนวณง่ายขึ้นมาก</div>
 <div class="slide-content"><p><strong>Orthonormal</strong>: qᵢᵀqⱼ = 0 (i≠j), qᵢᵀqᵢ = 1</p>
 <p>$$\mathbf{Q}^T\mathbf{Q} = \mathbf{I} \quad (\text{if Q is square: } \mathbf{Q}^T = \mathbf{Q}^{-1})$$</p>
 <p><strong>Projection ง่ายขึ้น</strong>: ถ้า A มี orthonormal columns Q $$\mathbf{P} = \mathbf{Q}\mathbf{Q}^T \quad (\text{no inverse needed!})$$ $$\hat{\mathbf{x}} = \mathbf{Q}^T\mathbf{b} \quad (\text{coordinate computation})$$</p>
@@ -457,7 +457,7 @@ print('P == P_qr?', np.allclose(P, P_qr))  # True</code></pre></div></div>
 <div class="slide-num">Slide 8</div>
 <div class="slide-title">Connection to Gram-Schmidt</div>
 </div>
-<div class="key-message">Gram-Schmidt สร้าง <a class="gloss-ref" href="../../glossary.html#term-w3-orthonormal-basis" title="ดูนิยามใน Glossary">orthonormal basis</a> จาก any independent vectors</div>
+<div class="key-message">Gram-Schmidt สร้าง <a class="gloss-ref" href="../../glossary.html#term-w3-orthonormal-basis" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">orthonormal basis</a> จาก any independent vectors</div>
 <div class="slide-content"><div class="code-block"><div class="code-lang">python</div><pre><code>def gram_schmidt(A):
     """สร้าง orthonormal basis ด้วย Gram-Schmidt"""
     Q = np.zeros_like(A, dtype=float)
@@ -480,12 +480,12 @@ print('QᵀQ =\n', Q.T @ Q)  # ≈ Identity</code></pre></div></div>
 <div class="slide-content"><p><strong>สิ่งที่เรียนรู้วันนี้</strong>:</p>
 <ul class="slide-list">
 <li><strong>u</strong> ⊥ <strong>v</strong> ↔ <strong>u</strong>ᵀ<strong>v</strong> = 0</li>
-<li>Projection onto <a class="gloss-ref" href="../../glossary.html#term-line" title="ดูนิยามใน Glossary">line</a>: P = aaᵀ/(aᵀa)</li>
+<li>Projection onto <a class="gloss-ref" href="../../glossary.html#term-line" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">line</a>: P = aaᵀ/(aᵀa)</li>
 <li>Projection onto subspace: P = A(AᵀA)⁻¹Aᵀ</li>
-<li>Properties: P² = P, Pᵀ = P (symmetric <a class="gloss-ref" href="../../glossary.html#term-w3-idempotent" title="ดูนิยามใน Glossary">idempotent</a>)</li>
+<li>Properties: P² = P, Pᵀ = P (symmetric <a class="gloss-ref" href="../../glossary.html#term-w3-idempotent" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">idempotent</a>)</li>
 <li>Orthonormal Q: QᵀQ = I, projection = QQᵀ</li>
 </ul>
-<p><strong>สัปดาห์ต่อไป</strong>: Least Squares — <a class="gloss-ref" href="../../glossary.html#term-w3-normal-equations" title="ดูนิยามใน Glossary">Normal Equations</a> และ <a class="gloss-ref" href="../../glossary.html#term-w3-qr" title="ดูนิยามใน Glossary">QR</a></p></div>
+<p><strong>สัปดาห์ต่อไป</strong>: Least Squares — <a class="gloss-ref" href="../../glossary.html#term-w3-normal-equations" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Normal Equations</a> และ <a class="gloss-ref" href="../../glossary.html#term-w3-qr" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">QR</a></p></div>
 </div>
 </div>
 <div id="nav">

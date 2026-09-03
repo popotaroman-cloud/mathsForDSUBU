@@ -350,15 +350,15 @@ h3.content-heading {
 <div class="slide-num">Slide 1</div>
 <div class="slide-title">Title</div>
 </div>
-<div class="slide-content"><p><strong>1145 201 คณิตศาสตร์สำหรับวิทยาการข้อมูล | Week 5</strong> Taxonomy ของ Statistical Learning: 4 ประเภทที่ต้องรู้จัก CLO2: จำแนก <a class="gloss-ref" href="../../glossary.html#term-ml" title="ดูนิยามใน Glossary">ML</a> problems เป็น Supervised/Unsupervised และ <a class="gloss-ref" href="../../glossary.html#term-w5-regression" title="ดูนิยามใน Glossary">Regression</a>/<a class="gloss-ref" href="../../glossary.html#term-w5-classification" title="ดูนิยามใน Glossary">Classification</a> ได้</p></div>
+<div class="slide-content"><p><strong>1145 201 คณิตศาสตร์สำหรับวิทยาการข้อมูล | Week 5</strong> Taxonomy ของ Statistical Learning: 4 ประเภทที่ต้องรู้จัก CLO2: จำแนก <a class="gloss-ref" href="../../glossary.html#term-ml" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ML</a> problems เป็น Supervised/Unsupervised และ <a class="gloss-ref" href="../../glossary.html#term-w5-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Regression</a>/<a class="gloss-ref" href="../../glossary.html#term-w5-classification" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Classification</a> ได้</p></div>
 </div>
 <div class="slide slide-1" data-title="The Big Picture">
 <div class="slide-header">
 <div class="slide-num">Slide 2</div>
 <div class="slide-title">The Big Picture</div>
 </div>
-<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-ml" title="ดูนิยามใน Glossary">ML</a> problems ทั้งหมดแบ่งได้ด้วย 2 คำถาม: "มี Y หรือไม่?" และ "Y เป็นตัวเลขหรือ category?"</div>
-<div class="slide-content"><p>ก่อนสร้าง ML model ทุกครั้ง นักวิทยาการข้อมูลต้องจำแนกปัญหาให้ถูกต้องก่อน เพราะการเลือก algorithm ผิดประเภททำให้ผลลัพธ์ไม่มีความหมาย การแบ่งประเภทใช้ 2 คำถามหลัก: หนึ่ง มี labeled response variable (Y) ในข้อมูล training หรือไม่? สอง ถ้ามี Y นั้นเป็น quantitative (ตัวเลขต่อเนื่อง) หรือ qualitative (category/class)? จากนี้ได้ 3 ประเภทหลัก: Supervised <a class="gloss-ref" href="../../glossary.html#term-w5-regression" title="ดูนิยามใน Glossary">Regression</a>, Supervised <a class="gloss-ref" href="../../glossary.html#term-w5-classification" title="ดูนิยามใน Glossary">Classification</a>, และ Unsupervised เป้าหมายของ deck นี้คือให้นักศึกษาเห็น examples จริงของแต่ละประเภทและตอบได้อย่างรวดเร็วว่าปัญหาที่พบคือประเภทไหน</p>
+<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-ml" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ML</a> problems ทั้งหมดแบ่งได้ด้วย 2 คำถาม: "มี Y หรือไม่?" และ "Y เป็นตัวเลขหรือ category?"</div>
+<div class="slide-content"><p>ก่อนสร้าง ML model ทุกครั้ง นักวิทยาการข้อมูลต้องจำแนกปัญหาให้ถูกต้องก่อน เพราะการเลือก algorithm ผิดประเภททำให้ผลลัพธ์ไม่มีความหมาย การแบ่งประเภทใช้ 2 คำถามหลัก: หนึ่ง มี labeled response variable (Y) ในข้อมูล training หรือไม่? สอง ถ้ามี Y นั้นเป็น quantitative (ตัวเลขต่อเนื่อง) หรือ qualitative (category/class)? จากนี้ได้ 3 ประเภทหลัก: Supervised <a class="gloss-ref" href="../../glossary.html#term-w5-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Regression</a>, Supervised <a class="gloss-ref" href="../../glossary.html#term-w5-classification" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Classification</a>, และ Unsupervised เป้าหมายของ deck นี้คือให้นักศึกษาเห็น examples จริงของแต่ละประเภทและตอบได้อย่างรวดเร็วว่าปัญหาที่พบคือประเภทไหน</p>
 <div class="code-block"><pre><code>มี Y หรือไม่?
 ├─ Yes → Supervised Learning
 │         Y เป็นตัวเลขต่อเนื่อง? → Regression
@@ -369,7 +369,7 @@ h3.content-heading {
 <div class="slide slide-2" data-title="Supervised Learning">
 <div class="slide-header">
 <div class="slide-num">Slide 3</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w5-supervised-learning" title="ดูนิยามใน Glossary">Supervised Learning</a></div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w5-supervised-learning" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Supervised Learning</a></div>
 </div>
 <div class="key-message">Supervised = เรียนจากตัวอย่างที่มี "เฉลย" (label) — training data มีทั้ง X และ Y</div>
 <div class="slide-content"><p><strong>นิยาม:</strong></p>
@@ -391,9 +391,9 @@ Evaluation:  เปรียบเทียบ Ŷ กับ Y_true บน test s
 <div class="slide slide-3" data-title="Regression: Quantitative Response">
 <div class="slide-header">
 <div class="slide-num">Slide 4</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w5-regression" title="ดูนิยามใน Glossary">Regression</a>: Quantitative Response</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w5-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Regression</a>: Quantitative Response</div>
 </div>
-<div class="key-message">Regression ใช้เมื่อ Y เป็น continuous number — <a class="gloss-ref" href="../../glossary.html#term-w5-mse" title="ดูนิยามใน Glossary">MSE</a> เป็น loss function ที่พบบ่อยที่สุด</div>
+<div class="key-message">Regression ใช้เมื่อ Y เป็น continuous number — <a class="gloss-ref" href="../../glossary.html#term-w5-mse" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">MSE</a> เป็น loss function ที่พบบ่อยที่สุด</div>
 <div class="slide-content"><p><strong>นิยาม:</strong> Y เป็น quantitative variable (real number)</p>
 <p><strong>ตัวอย่าง Regression Problems:</strong></p>
 <div class="table-wrap"><table>
@@ -437,9 +437,9 @@ Evaluation:  เปรียบเทียบ Ŷ กับ Y_true บน test s
 <div class="slide slide-4" data-title="Classification: Qualitative Response">
 <div class="slide-header">
 <div class="slide-num">Slide 5</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w5-classification" title="ดูนิยามใน Glossary">Classification</a>: Qualitative Response</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w5-classification" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Classification</a>: Qualitative Response</div>
 </div>
-<div class="key-message">Classification ใช้เมื่อ Y เป็น class/category — <a class="gloss-ref" href="../../glossary.html#term-accuracy" title="ดูนิยามใน Glossary">accuracy</a> และ <a class="gloss-ref" href="../../glossary.html#term-confusion-matrix" title="ดูนิยามใน Glossary">confusion matrix</a> เป็น metrics หลัก</div>
+<div class="key-message">Classification ใช้เมื่อ Y เป็น class/category — <a class="gloss-ref" href="../../glossary.html#term-accuracy" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">accuracy</a> และ <a class="gloss-ref" href="../../glossary.html#term-confusion-matrix" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">confusion matrix</a> เป็น metrics หลัก</div>
 <div class="slide-content"><p><strong>นิยาม:</strong> Y เป็น qualitative variable (category, class label)</p>
 <p><strong>ตัวอย่าง Classification Problems:</strong></p>
 <div class="table-wrap"><table>
@@ -480,12 +480,12 @@ Evaluation:  เปรียบเทียบ Ŷ กับ Y_true บน test s
 <div class="code-block"><pre><code>Accuracy  = (TP + TN) / (TP + TN + FP + FN)
 Precision = TP / (TP + FP)
 Recall    = TP / (TP + FN)</code></pre></div>
-<p><strong>Algorithm ที่ใช้บ่อย:</strong> <a class="gloss-ref" href="../../glossary.html#term-logistic-regression" title="ดูนิยามใน Glossary">Logistic Regression</a>, <a class="gloss-ref" href="../../glossary.html#term-w5-lda" title="ดูนิยามใน Glossary">LDA</a>, <a class="gloss-ref" href="../../glossary.html#term-w5-knn" title="ดูนิยามใน Glossary">KNN</a>, Decision Tree, Neural Network</p></div>
+<p><strong>Algorithm ที่ใช้บ่อย:</strong> <a class="gloss-ref" href="../../glossary.html#term-logistic-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Logistic Regression</a>, <a class="gloss-ref" href="../../glossary.html#term-w5-lda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LDA</a>, <a class="gloss-ref" href="../../glossary.html#term-w5-knn" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">KNN</a>, Decision Tree, Neural Network</p></div>
 </div>
 <div class="slide slide-5" data-title="Regression vs Classification: A Critical Distinction">
 <div class="slide-header">
 <div class="slide-num">Slide 6</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w5-regression" title="ดูนิยามใน Glossary">Regression</a> vs <a class="gloss-ref" href="../../glossary.html#term-w5-classification" title="ดูนิยามใน Glossary">Classification</a>: A Critical Distinction</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w5-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Regression</a> vs <a class="gloss-ref" href="../../glossary.html#term-w5-classification" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Classification</a>: A Critical Distinction</div>
 </div>
 <div class="key-message">ข้อผิดพลาดที่พบบ่อยมากคือใช้ Regression กับ categorical Y — ต้องจำแนกให้ถูก</div>
 <div class="slide-content"><p><strong>คำถามสำคัญ: Y เป็น quantitative หรือ qualitative?</strong></p>
@@ -510,12 +510,12 @@ Recall    = TP / (TP + FN)</code></pre></div>
 <tr>
 <td>Binary</td>
 <td>0/1, Yes/No</td>
-<td><a class="gloss-ref" href="../../glossary.html#term-logistic-regression" title="ดูนิยามใน Glossary">Logistic Regression</a>, <a class="gloss-ref" href="../../glossary.html#term-w5-lda" title="ดูนิยามใน Glossary">LDA</a></td>
+<td><a class="gloss-ref" href="../../glossary.html#term-logistic-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Logistic Regression</a>, <a class="gloss-ref" href="../../glossary.html#term-w5-lda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LDA</a></td>
 </tr>
 <tr>
 <td>Multi-class</td>
 <td>A/B/C/D/E</td>
-<td>Multinomial Logistic, LDA, <a class="gloss-ref" href="../../glossary.html#term-w5-svm" title="ดูนิยามใน Glossary">SVM</a></td>
+<td>Multinomial Logistic, LDA, <a class="gloss-ref" href="../../glossary.html#term-w5-svm" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">SVM</a></td>
 </tr>
 </tbody></table></div>
 <p><strong>กรณีที่ต้องระวัง:</strong></p>
@@ -528,7 +528,7 @@ Recall    = TP / (TP + FN)</code></pre></div>
 <div class="slide slide-6" data-title="Unsupervised Learning">
 <div class="slide-header">
 <div class="slide-num">Slide 7</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w5-unsupervised-learning" title="ดูนิยามใน Glossary">Unsupervised Learning</a></div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w5-unsupervised-learning" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Unsupervised Learning</a></div>
 </div>
 <div class="key-message">Unsupervised = หา "ความเป็นระเบียบ" ใน data โดยไม่มี Y label — ยากกว่า supervised เพราะไม่มีเฉลย</div>
 <div class="slide-content"><p><strong>นิยาม:</strong></p>
@@ -537,9 +537,9 @@ Training data: {X₁, X₂, ..., Xₙ}  ← ไม่มี Y!
 Goal: หา structure, pattern, grouping ใน X</code></pre></div>
 <p><strong>3 task หลักของ Unsupervised:</strong></p>
 <ul class="slide-list">
-<li><strong><a class="gloss-ref" href="../../glossary.html#term-w5-clustering" title="ดูนิยามใน Glossary">Clustering</a></strong>: จัดกลุ่ม observations ที่คล้ายกัน (K-means, Hierarchical)</li>
-<li><strong><a class="gloss-ref" href="../../glossary.html#term-w5-dimensionality-reduction" title="ดูนิยามใน Glossary">Dimensionality Reduction</a></strong>: ลด <a class="gloss-ref" href="../../glossary.html#term-dimension" title="ดูนิยามใน Glossary">dimension</a> ในขณะที่รักษา information (<a class="gloss-ref" href="../../glossary.html#term-pca" title="ดูนิยามใน Glossary">PCA</a>! ← Week 4)</li>
-<li><strong><a class="gloss-ref" href="../../glossary.html#term-w5-anomaly-detection" title="ดูนิยามใน Glossary">Anomaly Detection</a></strong>: หา outliers ที่ผิดปกติ (Isolation Forest, Autoencoder)</li>
+<li><strong><a class="gloss-ref" href="../../glossary.html#term-w5-clustering" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Clustering</a></strong>: จัดกลุ่ม observations ที่คล้ายกัน (K-means, Hierarchical)</li>
+<li><strong><a class="gloss-ref" href="../../glossary.html#term-w5-dimensionality-reduction" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Dimensionality Reduction</a></strong>: ลด <a class="gloss-ref" href="../../glossary.html#term-dimension" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">dimension</a> ในขณะที่รักษา information (<a class="gloss-ref" href="../../glossary.html#term-pca" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">PCA</a>! ← Week 4)</li>
+<li><strong><a class="gloss-ref" href="../../glossary.html#term-w5-anomaly-detection" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Anomaly Detection</a></strong>: หา outliers ที่ผิดปกติ (Isolation Forest, Autoencoder)</li>
 </ul>
 <p><strong>ตัวอย่าง:</strong></p>
 <ul class="slide-list">
@@ -552,10 +552,10 @@ Goal: หา structure, pattern, grouping ใน X</code></pre></div>
 <div class="slide slide-7" data-title="PCA เชื่อมกับ Week 4">
 <div class="slide-header">
 <div class="slide-num">Slide 8</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-pca" title="ดูนิยามใน Glossary">PCA</a> เชื่อมกับ Week 4</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-pca" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">PCA</a> เชื่อมกับ Week 4</div>
 </div>
-<div class="key-message">PCA ที่เรียนใน Week 4 คือ <a class="gloss-ref" href="../../glossary.html#term-w5-unsupervised-learning" title="ดูนิยามใน Glossary">Unsupervised Learning</a> — เราลด <a class="gloss-ref" href="../../glossary.html#term-dimension" title="ดูนิยามใน Glossary">dimension</a> โดยไม่ใช้ Y เลย</div>
-<div class="slide-content"><p><strong>PCA = Unsupervised <a class="gloss-ref" href="../../glossary.html#term-w5-dimensionality-reduction" title="ดูนิยามใน Glossary">Dimensionality Reduction</a>:</strong></p>
+<div class="key-message">PCA ที่เรียนใน Week 4 คือ <a class="gloss-ref" href="../../glossary.html#term-w5-unsupervised-learning" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Unsupervised Learning</a> — เราลด <a class="gloss-ref" href="../../glossary.html#term-dimension" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">dimension</a> โดยไม่ใช้ Y เลย</div>
+<div class="slide-content"><p><strong>PCA = Unsupervised <a class="gloss-ref" href="../../glossary.html#term-w5-dimensionality-reduction" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Dimensionality Reduction</a>:</strong></p>
 <div class="code-block"><div class="code-lang">python</div><pre><code>from sklearn.decomposition import PCA
 
 # ไม่ต้องการ y เลย! — Unsupervised
@@ -579,18 +579,18 @@ plt.scatter(X_reduced[:, 0], X_reduced[:, 1], c=y)</code></pre></div>
 <div class="slide slide-8" data-title="Case Study: Spam Filter Classification">
 <div class="slide-header">
 <div class="slide-num">Slide 9</div>
-<div class="slide-title">Case Study: Spam Filter <a class="gloss-ref" href="../../glossary.html#term-w5-classification" title="ดูนิยามใน Glossary">Classification</a></div>
+<div class="slide-title">Case Study: Spam Filter <a class="gloss-ref" href="../../glossary.html#term-w5-classification" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Classification</a></div>
 </div>
 <div class="key-message">Spam filter เป็น supervised classification ที่ใช้จริงทุกวัน — ตัวอย่างที่เชื่อมโยงทุก concept</div>
-<div class="slide-content"><p><strong>1. Scenario:</strong> Gmail, Yahoo, Outlook ต้องกรอง spam ออก โดยอัตโนมัติ — ผู้ใช้กว่า 1 พันล้านคน ต้องการ <a class="gloss-ref" href="../../glossary.html#term-precision" title="ดูนิยามใน Glossary">precision</a> สูง (false positive ทำลาย UX)</p>
+<div class="slide-content"><p><strong>1. Scenario:</strong> Gmail, Yahoo, Outlook ต้องกรอง spam ออก โดยอัตโนมัติ — ผู้ใช้กว่า 1 พันล้านคน ต้องการ <a class="gloss-ref" href="../../glossary.html#term-precision" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">precision</a> สูง (false positive ทำลาย UX)</p>
 <p><strong>2. Data:</strong></p>
 <ul class="slide-list">
 <li>50,000+ emails (Enron spam dataset)</li>
 <li>X: word frequency (TF-IDF), sender reputation, links count</li>
 <li>Y: spam (1) / not spam (0) — labeled by users</li>
 </ul>
-<p><strong>3. Method:</strong> Naive Bayes: P(spam|words) ∝ P(words|spam) × P(spam) <a class="gloss-ref" href="../../glossary.html#term-logistic-regression" title="ดูนิยามใน Glossary">Logistic Regression</a>: log(P/1-P) = β₀ + β₁ word_freq + ...</p>
-<p><strong>4. Result:</strong> Logistic <a class="gloss-ref" href="../../glossary.html#term-w5-regression" title="ดูนิยามใน Glossary">Regression</a>: <a class="gloss-ref" href="../../glossary.html#term-accuracy" title="ดูนิยามใน Glossary">accuracy</a> ≈ 97%, precision ≈ 99% False positive rate &lt; 0.1% (important: ham ≠ spam)</p>
+<p><strong>3. Method:</strong> Naive Bayes: P(spam|words) ∝ P(words|spam) × P(spam) <a class="gloss-ref" href="../../glossary.html#term-logistic-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Logistic Regression</a>: log(P/1-P) = β₀ + β₁ word_freq + ...</p>
+<p><strong>4. Result:</strong> Logistic <a class="gloss-ref" href="../../glossary.html#term-w5-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Regression</a>: <a class="gloss-ref" href="../../glossary.html#term-accuracy" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">accuracy</a> ≈ 97%, precision ≈ 99% False positive rate &lt; 0.1% (important: ham ≠ spam)</p>
 <p><strong>5. Insight:</strong></p>
 <ul class="slide-list">
 <li>Precision สำคัญกว่า recall สำหรับ spam (ผิดพลาดใน ham = user หัวร้อน)</li>
@@ -601,7 +601,7 @@ plt.scatter(X_reduced[:, 0], X_reduced[:, 1], c=y)</code></pre></div>
 <div class="slide slide-9" data-title="Summary: ML Taxonomy">
 <div class="slide-header">
 <div class="slide-num">Slide 10</div>
-<div class="slide-title">Summary: <a class="gloss-ref" href="../../glossary.html#term-ml" title="ดูนิยามใน Glossary">ML</a> Taxonomy</div>
+<div class="slide-title">Summary: <a class="gloss-ref" href="../../glossary.html#term-ml" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ML</a> Taxonomy</div>
 </div>
 <div class="slide-content"><p><strong>สิ่งที่เรียนรู้วันนี้</strong></p>
 <div class="code-block"><pre><code>Statistical Learning
@@ -620,7 +620,7 @@ plt.scatter(X_reduced[:, 0], X_reduced[:, 1], c=y)</code></pre></div>
     ├── Clustering: K-means, DBSCAN
     ├── Dimensionality Reduction: PCA (Week 4!)
     └── Anomaly Detection: Isolation Forest</code></pre></div>
-<p><strong>สัปดาห์ถัดไป (Week 6):</strong> <a class="gloss-ref" href="../../glossary.html#term-bias-variance-trade-off" title="ดูนิยามใน Glossary">Bias-Variance Trade-off</a> — อธิบาย U-shape ของ test error อย่างเป็น mathematical ว่าเกิดจาก Bias² + Variance + <a class="gloss-ref" href="../../glossary.html#term-w5-irreducible-error" title="ดูนิยามใน Glossary">Irreducible Error</a> (<a class="gloss-ref" href="../../glossary.html#term-islp" title="ดูนิยามใน Glossary">ISLP</a> Ch.2.2)</p></div>
+<p><strong>สัปดาห์ถัดไป (Week 6):</strong> <a class="gloss-ref" href="../../glossary.html#term-bias-variance-trade-off" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Bias-Variance Trade-off</a> — อธิบาย U-shape ของ test error อย่างเป็น mathematical ว่าเกิดจาก Bias² + Variance + <a class="gloss-ref" href="../../glossary.html#term-w5-irreducible-error" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Irreducible Error</a> (<a class="gloss-ref" href="../../glossary.html#term-islp" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ISLP</a> Ch.2.2)</p></div>
 </div>
 </div>
 <div id="nav">

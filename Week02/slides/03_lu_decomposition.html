@@ -350,16 +350,16 @@ h3.content-heading {
 <div class="slide-num">Slide 1</div>
 <div class="slide-title">Title</div>
 </div>
-<div class="slide-content"><p><strong><a class="gloss-ref" href="../../glossary.html#term-w2-lu" title="ดูนิยามใน Glossary">LU</a> Decomposition: A = LU</strong> Week 2 | <a class="gloss-ref" href="../../glossary.html#term-w2-clo1" title="ดูนิยามใน Glossary">CLO1</a> | พื้นฐาน solver ทุกตัวใน <a class="gloss-ref" href="../../glossary.html#term-numpy" title="ดูนิยามใน Glossary">NumPy</a>/MATLAB/R</p></div>
+<div class="slide-content"><p><strong><a class="gloss-ref" href="../../glossary.html#term-w2-lu" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LU</a> Decomposition: A = LU</strong> Week 2 | <a class="gloss-ref" href="../../glossary.html#term-w2-clo1" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">CLO1</a> | พื้นฐาน solver ทุกตัวใน <a class="gloss-ref" href="../../glossary.html#term-numpy" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">NumPy</a>/MATLAB/R</p></div>
 </div>
 <div class="slide slide-1" data-title="ทำไมต้องมี LU?">
 <div class="slide-header">
 <div class="slide-num">Slide 2</div>
-<div class="slide-title">ทำไมต้องมี <a class="gloss-ref" href="../../glossary.html#term-w2-lu" title="ดูนิยามใน Glossary">LU</a>?</div>
+<div class="slide-title">ทำไมต้องมี <a class="gloss-ref" href="../../glossary.html#term-w2-lu" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LU</a>?</div>
 </div>
 <div class="key-message">LU ช่วยให้แก้ Ax = b ได้เร็วขึ้นเมื่อมีหลาย b</div>
-<div class="slide-content"><p><strong>ปัญหา</strong>: ถ้าต้องแก้ Ax = b₁, Ax = b₂, ..., Ax = b₁₀₀ → <a class="gloss-ref" href="../../glossary.html#term-w2-gaussian-elimination" title="ดูนิยามใน Glossary">Gaussian Elimination</a> ซ้ำทุกครั้ง = ช้ามาก</p>
-<p><strong>ทางแก้ LU</strong>: แยก A = LU ครั้งเดียว (O(n³)) แล้วแก้ Ax = b ด้วย forward/<a class="gloss-ref" href="../../glossary.html#term-w2-back-substitution" title="ดูนิยามใน Glossary">back substitution</a> (O(n²)) แต่ละครั้ง</p>
+<div class="slide-content"><p><strong>ปัญหา</strong>: ถ้าต้องแก้ Ax = b₁, Ax = b₂, ..., Ax = b₁₀₀ → <a class="gloss-ref" href="../../glossary.html#term-w2-gaussian-elimination" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Gaussian Elimination</a> ซ้ำทุกครั้ง = ช้ามาก</p>
+<p><strong>ทางแก้ LU</strong>: แยก A = LU ครั้งเดียว (O(n³)) แล้วแก้ Ax = b ด้วย forward/<a class="gloss-ref" href="../../glossary.html#term-w2-back-substitution" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">back substitution</a> (O(n²)) แต่ละครั้ง</p>
 <div class="code-block"><div class="code-lang">python</div><pre><code># Factorize A ครั้งเดียว
 P, L, U = linalg.lu(A)
 
@@ -371,14 +371,14 @@ for b_i in [b1, b2, b3]:
 <div class="slide slide-2" data-title="LU Decomposition คืออะไร?">
 <div class="slide-header">
 <div class="slide-num">Slide 3</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-lu" title="ดูนิยามใน Glossary">LU</a> Decomposition คืออะไร?</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-lu" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LU</a> Decomposition คืออะไร?</div>
 </div>
 <div class="key-message">A = LU แยก matrix เป็น Lower × Upper triangular</div>
 <div class="slide-content"><p>$$\mathbf{A} = \mathbf{L}\mathbf{U}$$</p>
 <p>$$\begin{pmatrix} 2 &amp; 1 &amp; -1 \\ -3 &amp; -1 &amp; 2 \\ -2 &amp; 1 &amp; 2 \end{pmatrix} = \underbrace{\begin{pmatrix} 1 &amp; 0 &amp; 0 \\ l_{21} &amp; 1 &amp; 0 \\ l_{31} &amp; l_{32} &amp; 1 \end{pmatrix}}_{\mathbf{L}} \underbrace{\begin{pmatrix} u_{11} &amp; u_{12} &amp; u_{13} \\ 0 &amp; u_{22} &amp; u_{23} \\ 0 &amp; 0 &amp; u_{33} \end{pmatrix}}_{\mathbf{U}}$$</p>
 <ul class="slide-list">
 <li><strong>L</strong> (Lower triangular): diagonal = 1, เก็บ elimination multipliers</li>
-<li><strong>U</strong> (Upper triangular): ผลลัพธ์ของ <a class="gloss-ref" href="../../glossary.html#term-w2-forward-elimination" title="ดูนิยามใน Glossary">forward elimination</a></li>
+<li><strong>U</strong> (Upper triangular): ผลลัพธ์ของ <a class="gloss-ref" href="../../glossary.html#term-w2-forward-elimination" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">forward elimination</a></li>
 </ul></div>
 </div>
 <div class="slide slide-3" data-title="สร้าง L จาก Elimination Multipliers">
@@ -386,7 +386,7 @@ for b_i in [b1, b2, b3]:
 <div class="slide-num">Slide 4</div>
 <div class="slide-title">สร้าง L จาก Elimination Multipliers</div>
 </div>
-<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-w2-multiplier" title="ดูนิยามใน Glossary">multiplier</a> ที่ใช้ใน <a class="gloss-ref" href="../../glossary.html#term-w2-forward-elimination" title="ดูนิยามใน Glossary">forward elimination</a> กลายเป็น elements ของ L</div>
+<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-w2-multiplier" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">multiplier</a> ที่ใช้ใน <a class="gloss-ref" href="../../glossary.html#term-w2-forward-elimination" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">forward elimination</a> กลายเป็น elements ของ L</div>
 <div class="slide-content"><p><strong>Forward elimination ของ A</strong>:</p>
 <div class="code-block"><pre><code>Row2 ← Row2 - m₂₁ × Row1,  m₂₁ = -3/2 = -1.5
 Row3 ← Row3 - m₃₁ × Row1,  m₃₁ = -2/2 = -1
@@ -397,7 +397,7 @@ Row3 ← Row3 - m₃₂ × Row2,  m₃₂ = 2/0.5 = 4</code></pre></div>
 <div class="slide slide-4" data-title="Solving Ax = b via LU">
 <div class="slide-header">
 <div class="slide-num">Slide 5</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-solving-ax-b-via-lu" title="ดูนิยามใน Glossary">Solving Ax = b via LU</a></div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-solving-ax-b-via-lu" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Solving Ax = b via LU</a></div>
 </div>
 <div class="key-message">แก้สองขั้นตอน Ly = b แล้ว Ux = y — ทั้งสองอย่าง triangular (เร็ว)</div>
 <div class="slide-content"><p><strong>Ax = b → LUx = b → Let y = Ux</strong></p>
@@ -412,10 +412,10 @@ print(x)  # same as np.linalg.solve(A, b)</code></pre></div></div>
 <div class="slide slide-5" data-title="PA = LU: Partial Pivoting">
 <div class="slide-header">
 <div class="slide-num">Slide 6</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-pa-lu" title="ดูนิยามใน Glossary">PA = LU</a>: <a class="gloss-ref" href="../../glossary.html#term-w2-partial-pivoting" title="ดูนิยามใน Glossary">Partial Pivoting</a></div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-pa-lu" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">PA = LU</a>: <a class="gloss-ref" href="../../glossary.html#term-w2-partial-pivoting" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Partial Pivoting</a></div>
 </div>
 <div class="key-message">Permutation matrix P swap rows เพื่อ numerical stability</div>
-<div class="slide-content"><p><strong>PA = <a class="gloss-ref" href="../../glossary.html#term-w2-lu" title="ดูนิยามใน Glossary">LU</a></strong> (with pivoting) P = permutation matrix (ระบุ row swaps)</p>
+<div class="slide-content"><p><strong>PA = <a class="gloss-ref" href="../../glossary.html#term-w2-lu" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LU</a></strong> (with pivoting) P = permutation matrix (ระบุ row swaps)</p>
 <div class="code-block"><div class="code-lang">python</div><pre><code>from scipy import linalg
 A = np.array([[2, 1, -1], [-3, -1, 2], [-2, 1, 2]], dtype=float)
 P, L, U = linalg.lu(A)
@@ -429,7 +429,7 @@ print('PA == LU?', np.allclose(P @ A, L @ U))  # True</code></pre></div>
 <div class="slide slide-6" data-title="LU vs Other Factorizations">
 <div class="slide-header">
 <div class="slide-num">Slide 7</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-lu" title="ดูนิยามใน Glossary">LU</a> vs Other Factorizations</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-lu" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LU</a> vs Other Factorizations</div>
 </div>
 <div class="key-message">เลือก factorization ตาม structure ของ matrix</div>
 <div class="slide-content"><div class="table-wrap"><table>
@@ -442,7 +442,7 @@ print('PA == LU?', np.allclose(P @ A, L @ U))  # True</code></pre></div>
 </thead><tbody>
 <tr>
 <td><strong>LU</strong></td>
-<td>General <a class="gloss-ref" href="../../glossary.html#term-w2-square-matrix" title="ดูนิยามใน Glossary">square matrix</a></td>
+<td>General <a class="gloss-ref" href="../../glossary.html#term-w2-square-matrix" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">square matrix</a></td>
 <td>General purpose</td>
 </tr>
 <tr>
@@ -451,13 +451,13 @@ print('PA == LU?', np.allclose(P @ A, L @ U))  # True</code></pre></div>
 <td>เร็วกว่า LU 2x</td>
 </tr>
 <tr>
-<td><strong><a class="gloss-ref" href="../../glossary.html#term-qr" title="ดูนิยามใน Glossary">QR</a></strong></td>
+<td><strong><a class="gloss-ref" href="../../glossary.html#term-qr" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">QR</a></strong></td>
 <td>Least squares, overdetermined</td>
 <td>Numerically stable</td>
 </tr>
 <tr>
-<td><strong><a class="gloss-ref" href="../../glossary.html#term-svd" title="ดูนิยามใน Glossary">SVD</a></strong></td>
-<td><a class="gloss-ref" href="../../glossary.html#term-rank" title="ดูนิยามใน Glossary">Rank</a> deficient, ill-conditioned</td>
+<td><strong><a class="gloss-ref" href="../../glossary.html#term-svd" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">SVD</a></strong></td>
+<td><a class="gloss-ref" href="../../glossary.html#term-rank" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Rank</a> deficient, ill-conditioned</td>
 <td>Most robust</td>
 </tr>
 </tbody></table></div>
@@ -466,16 +466,16 @@ print('PA == LU?', np.allclose(P @ A, L @ U))  # True</code></pre></div>
 <div class="slide slide-7" data-title="LDU Decomposition">
 <div class="slide-header">
 <div class="slide-num">Slide 8</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-ldu" title="ดูนิยามใน Glossary">LDU</a> Decomposition</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-ldu" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LDU</a> Decomposition</div>
 </div>
 <div class="key-message">A = LDU แยก scaling (D) ออกจาก shape (L, U)</div>
 <div class="slide-content"><p>$$\mathbf{A} = \mathbf{L}\mathbf{D}\mathbf{U}$$</p>
-<p>โดย D = <a class="gloss-ref" href="../../glossary.html#term-w2-diagonal-matrix" title="ดูนิยามใน Glossary">diagonal matrix</a> ของ <a class="gloss-ref" href="../../glossary.html#term-w2-pivot" title="ดูนิยามใน Glossary">pivot</a> values, L และ U มี unit diagonal</p>
+<p>โดย D = <a class="gloss-ref" href="../../glossary.html#term-w2-diagonal-matrix" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">diagonal matrix</a> ของ <a class="gloss-ref" href="../../glossary.html#term-w2-pivot" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">pivot</a> values, L และ U มี unit diagonal</p>
 <div class="code-block"><div class="code-lang">python</div><pre><code>P, L, U = linalg.lu(A)
 D = np.diag(np.diag(U))    # extract diagonal of U
 U_normalized = np.diag(1/np.diag(U)) @ U  # unit upper triangular
 print('A ≈ L @ D @ U_normalized?', np.allclose(A, L @ D @ U_normalized))</code></pre></div>
-<p><strong>ใน Stats</strong>: Cholesky = LDLᵀ สำหรับ <a class="gloss-ref" href="../../glossary.html#term-w2-covariance-matrix" title="ดูนิยามใน Glossary">covariance matrix</a> decomposition</p></div>
+<p><strong>ใน Stats</strong>: Cholesky = LDLᵀ สำหรับ <a class="gloss-ref" href="../../glossary.html#term-w2-covariance-matrix" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">covariance matrix</a> decomposition</p></div>
 </div>
 <div class="slide slide-8" data-title="Summary">
 <div class="slide-header">
@@ -484,16 +484,16 @@ print('A ≈ L @ D @ U_normalized?', np.allclose(A, L @ D @ U_normalized))</code
 </div>
 <div class="slide-content"><p><strong>สิ่งที่เรียนรู้วันนี้</strong>:</p>
 <ul class="slide-list">
-<li>A = <a class="gloss-ref" href="../../glossary.html#term-w2-lu" title="ดูนิยามใน Glossary">LU</a> แยก matrix เป็น Lower × Upper triangular</li>
+<li>A = <a class="gloss-ref" href="../../glossary.html#term-w2-lu" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LU</a> แยก matrix เป็น Lower × Upper triangular</li>
 <li>L เก็บ elimination multipliers, U เป็นผลจาก elimination</li>
 <li>Solving Ax = b: Ly = b (forward sub) → Ux = y (back sub)</li>
-<li><a class="gloss-ref" href="../../glossary.html#term-w2-pa-lu" title="ดูนิยามใน Glossary">PA = LU</a> (with <a class="gloss-ref" href="../../glossary.html#term-w2-partial-pivoting" title="ดูนิยามใน Glossary">partial pivoting</a>) สำหรับ numerical stability</li>
+<li><a class="gloss-ref" href="../../glossary.html#term-w2-pa-lu" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">PA = LU</a> (with <a class="gloss-ref" href="../../glossary.html#term-w2-partial-pivoting" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">partial pivoting</a>) สำหรับ numerical stability</li>
 </ul>
 <p><strong>Python</strong>:</p>
 <div class="code-block"><div class="code-lang">python</div><pre><code>from scipy import linalg
 P, L, U = linalg.lu(A)   # factorize
 x = np.linalg.solve(A, b)  # ใช้ LU internally</code></pre></div>
-<p><strong>สัปดาห์ต่อไป</strong>: <a class="gloss-ref" href="../../glossary.html#term-w2-inverse-matrix" title="ดูนิยามใน Glossary">Inverse Matrix</a> และ <a class="gloss-ref" href="../../glossary.html#term-w2-determinant" title="ดูนิยามใน Glossary">Determinant</a></p></div>
+<p><strong>สัปดาห์ต่อไป</strong>: <a class="gloss-ref" href="../../glossary.html#term-w2-inverse-matrix" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Inverse Matrix</a> และ <a class="gloss-ref" href="../../glossary.html#term-w2-determinant" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Determinant</a></p></div>
 </div>
 </div>
 <div id="nav">

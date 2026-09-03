@@ -350,14 +350,14 @@ h3.content-heading {
 <div class="slide-num">Slide 1</div>
 <div class="slide-title">Title</div>
 </div>
-<div class="slide-content"><p><strong><a class="gloss-ref" href="../../glossary.html#term-multicollinearity" title="ดูนิยามใน Glossary">Multicollinearity</a>: ตรวจและแก้ปัญหา Correlated Predictors</strong> Week 10 | CLO3 | <a class="gloss-ref" href="../../glossary.html#term-islp" title="ดูนิยามใน Glossary">ISLP</a> 3.3.3 (Problem 6) <a class="gloss-ref" href="../../glossary.html#term-llo" title="ดูนิยามใน Glossary">LLo</a>: ตรวจ multicollinearity ด้วย <a class="gloss-ref" href="../../glossary.html#term-w10-vif" title="ดูนิยามใน Glossary">VIF</a> และเสนอแนวทางแก้ไขได้</p></div>
+<div class="slide-content"><p><strong><a class="gloss-ref" href="../../glossary.html#term-multicollinearity" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Multicollinearity</a>: ตรวจและแก้ปัญหา Correlated Predictors</strong> Week 10 | CLO3 | <a class="gloss-ref" href="../../glossary.html#term-islp" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ISLP</a> 3.3.3 (Problem 6) <a class="gloss-ref" href="../../glossary.html#term-llo" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LLo</a>: ตรวจ multicollinearity ด้วย <a class="gloss-ref" href="../../glossary.html#term-w10-vif" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">VIF</a> และเสนอแนวทางแก้ไขได้</p></div>
 </div>
 <div class="slide slide-1" data-title="Multicollinearity คืออะไร?">
 <div class="slide-header">
 <div class="slide-num">Slide 2</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-multicollinearity" title="ดูนิยามใน Glossary">Multicollinearity</a> คืออะไร?</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-multicollinearity" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Multicollinearity</a> คืออะไร?</div>
 </div>
-<div class="key-message">multicollinearity เกิดเมื่อ predictors correlated กัน — ทำให้ <a class="gloss-ref" href="../../glossary.html#term-se" title="ดูนิยามใน Glossary">SE</a> สูงและ interpretation ยาก</div>
+<div class="key-message">multicollinearity เกิดเมื่อ predictors correlated กัน — ทำให้ <a class="gloss-ref" href="../../glossary.html#term-se" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">SE</a> สูงและ interpretation ยาก</div>
 <div class="slide-content"><p><strong>นิยาม</strong>: สองหรือมากกว่าสอง predictors มี correlation สูงระหว่างกัน</p>
 <p><strong>ตัวอย่างจริง</strong>:</p>
 <ul class="slide-list">
@@ -367,15 +367,15 @@ h3.content-heading {
 </ul>
 <p><strong>ผล</strong>:</p>
 <ul class="slide-list">
-<li>SE(β̂ⱼ) สูงมาก → t-statistic เล็ก → <a class="gloss-ref" href="../../glossary.html#term-p-value" title="ดูนิยามใน Glossary">p-value</a> ใหญ่</li>
-<li>β̂ⱼ ไม่แน่นอน — ถ้าเก็บ <a class="gloss-ref" href="../../glossary.html#term-sample" title="ดูนิยามใน Glossary">sample</a> ใหม่อาจเปลี่ยนมาก</li>
+<li>SE(β̂ⱼ) สูงมาก → t-statistic เล็ก → <a class="gloss-ref" href="../../glossary.html#term-p-value" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">p-value</a> ใหญ่</li>
+<li>β̂ⱼ ไม่แน่นอน — ถ้าเก็บ <a class="gloss-ref" href="../../glossary.html#term-sample" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">sample</a> ใหม่อาจเปลี่ยนมาก</li>
 <li>ตีความ β̂ⱼ ได้ยาก เพราะ X₁ และ X₂ เปลี่ยนพร้อมกัน</li>
 </ul></div>
 </div>
 <div class="slide slide-2" data-title="ผลของ Collinearity ต่อ SE">
 <div class="slide-header">
 <div class="slide-num">Slide 3</div>
-<div class="slide-title">ผลของ Collinearity ต่อ <a class="gloss-ref" href="../../glossary.html#term-se" title="ดูนิยามใน Glossary">SE</a></div>
+<div class="slide-title">ผลของ Collinearity ต่อ <a class="gloss-ref" href="../../glossary.html#term-se" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">SE</a></div>
 </div>
 <div class="key-message">ยิ่ง X₁ กับ X₂ correlated มาก SE(β̂) ยิ่งพอง</div>
 <div class="slide-content"><div class="code-block"><div class="code-lang">python</div><pre><code># ─── Simulate collinearity effect ─────────────────────────
@@ -400,7 +400,7 @@ print(pd.DataFrame(results).to_string(index=False))
 <div class="slide slide-3" data-title="ตรวจ: Correlation Matrix">
 <div class="slide-header">
 <div class="slide-num">Slide 4</div>
-<div class="slide-title">ตรวจ: <a class="gloss-ref" href="../../glossary.html#term-w10-correlation-matrix" title="ดูนิยามใน Glossary">Correlation Matrix</a></div>
+<div class="slide-title">ตรวจ: <a class="gloss-ref" href="../../glossary.html#term-w10-correlation-matrix" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Correlation Matrix</a></div>
 </div>
 <div class="key-message">correlation matrix เป็นขั้นตอนแรกของ collinearity check — ดูคู่ที่มี |r| &gt; 0.8</div>
 <div class="slide-content"><div class="code-block"><div class="code-lang">python</div><pre><code># ─── Correlation matrix ────────────────────────────────────
@@ -412,17 +412,17 @@ sns.heatmap(corr_matrix, annot=True, fmt='.2f', cmap='coolwarm',
             center=0, square=True)
 plt.title('Correlation Matrix')
 plt.show()</code></pre></div>
-<p><strong>ข้อจำกัด</strong>: correlation matrix ดูเฉพาะ pairwise correlation ไม่ catch <strong><a class="gloss-ref" href="../../glossary.html#term-multicollinearity" title="ดูนิยามใน Glossary">multicollinearity</a></strong>: X₃ = X₁ + X₂ (X₃ correlated กับทั้งคู่แต่ r กับแต่ละตัวอาจไม่สูง)</p></div>
+<p><strong>ข้อจำกัด</strong>: correlation matrix ดูเฉพาะ pairwise correlation ไม่ catch <strong><a class="gloss-ref" href="../../glossary.html#term-multicollinearity" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">multicollinearity</a></strong>: X₃ = X₁ + X₂ (X₃ correlated กับทั้งคู่แต่ r กับแต่ละตัวอาจไม่สูง)</p></div>
 </div>
 <div class="slide slide-4" data-title="VIF: Variance Inflation Factor">
 <div class="slide-header">
 <div class="slide-num">Slide 5</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w10-vif" title="ดูนิยามใน Glossary">VIF</a>: Variance Inflation Factor</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w10-vif" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">VIF</a>: Variance Inflation Factor</div>
 </div>
-<div class="key-message">VIF วัด "inflation" ของ <a class="gloss-ref" href="../../glossary.html#term-se" title="ดูนิยามใน Glossary">SE</a> จาก <a class="gloss-ref" href="../../glossary.html#term-multicollinearity" title="ดูนิยามใน Glossary">multicollinearity</a> — VIF &gt; 5–10 → ปัญหา</div>
+<div class="key-message">VIF วัด "inflation" ของ <a class="gloss-ref" href="../../glossary.html#term-se" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">SE</a> จาก <a class="gloss-ref" href="../../glossary.html#term-multicollinearity" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">multicollinearity</a> — VIF &gt; 5–10 → ปัญหา</div>
 <div class="slide-content"><p><strong>สูตร VIF</strong>: $$VIF(\hat{\beta}_j) = \frac{1}{1 - R^2_{X_j|X_{-j}}}$$</p>
 <ul class="slide-list">
-<li>R²_{Xⱼ|X₋ⱼ} = <a class="gloss-ref" href="../../glossary.html#term-r2" title="ดูนิยามใน Glossary">R²</a> จาก <a class="gloss-ref" href="../../glossary.html#term-regression" title="ดูนิยามใน Glossary">regression</a> Xⱼ ~ predictors อื่น ๆ ทั้งหมด</li>
+<li>R²_{Xⱼ|X₋ⱼ} = <a class="gloss-ref" href="../../glossary.html#term-r2" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">R²</a> จาก <a class="gloss-ref" href="../../glossary.html#term-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">regression</a> Xⱼ ~ predictors อื่น ๆ ทั้งหมด</li>
 <li>VIF = 1: ไม่มี collinearity</li>
 <li>VIF = 5: SE พองขึ้น √5 ≈ 2.24 เท่า</li>
 <li>VIF = 10: SE พองขึ้น √10 ≈ 3.16 เท่า</li>
@@ -456,7 +456,7 @@ plt.show()</code></pre></div>
 <div class="slide slide-5" data-title="Python: คำนวณ VIF">
 <div class="slide-header">
 <div class="slide-num">Slide 6</div>
-<div class="slide-title">Python: คำนวณ <a class="gloss-ref" href="../../glossary.html#term-w10-vif" title="ดูนิยามใน Glossary">VIF</a></div>
+<div class="slide-title">Python: คำนวณ <a class="gloss-ref" href="../../glossary.html#term-w10-vif" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">VIF</a></div>
 </div>
 <div class="key-message"><code>variance_inflation_factor</code> จาก statsmodels คำนวณ VIF ทุก predictor ในคำสั่งเดียว</div>
 <div class="slide-content"><div class="code-block"><div class="code-lang">python</div><pre><code># ─── คำนวณ VIF ──────────────────────────────────────────────
@@ -482,7 +482,7 @@ print(vif_df.round(2))
 <div class="slide-num">Slide 7</div>
 <div class="slide-title">ตัวอย่าง: High Collinearity ใน Credit Data</div>
 </div>
-<div class="key-message">Limit และ Age มี <a class="gloss-ref" href="../../glossary.html#term-w10-vif" title="ดูนิยามใน Glossary">VIF</a> สูงมาก → <a class="gloss-ref" href="../../glossary.html#term-se" title="ดูนิยามใน Glossary">SE</a> พอง → t-statistic เล็ก → อาจ miss true effects</div>
+<div class="key-message">Limit และ Age มี <a class="gloss-ref" href="../../glossary.html#term-w10-vif" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">VIF</a> สูงมาก → <a class="gloss-ref" href="../../glossary.html#term-se" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">SE</a> พอง → t-statistic เล็ก → อาจ miss true effects</div>
 <div class="slide-content"><p><strong>Credit dataset</strong> — Predictors: Limit, Rating, Age, Cards, Education</p>
 <div class="code-block"><pre><code>Feature    VIF
 Rating     160.67   ← ปัญหาร้ายแรง
@@ -496,9 +496,9 @@ Education    1.01   ← ปกติ</code></pre></div>
 <div class="slide slide-7" data-title="วิธีแก้ Multicollinearity">
 <div class="slide-header">
 <div class="slide-num">Slide 8</div>
-<div class="slide-title">วิธีแก้ <a class="gloss-ref" href="../../glossary.html#term-multicollinearity" title="ดูนิยามใน Glossary">Multicollinearity</a></div>
+<div class="slide-title">วิธีแก้ <a class="gloss-ref" href="../../glossary.html#term-multicollinearity" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Multicollinearity</a></div>
 </div>
-<div class="key-message">3 วิธีหลัก — ลบตัวหนึ่ง, combine (<a class="gloss-ref" href="../../glossary.html#term-w10-pca" title="ดูนิยามใน Glossary">PCA</a>), หรือใช้ <a class="gloss-ref" href="../../glossary.html#term-regularization" title="ดูนิยามใน Glossary">regularization</a></div>
+<div class="key-message">3 วิธีหลัก — ลบตัวหนึ่ง, combine (<a class="gloss-ref" href="../../glossary.html#term-w10-pca" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">PCA</a>), หรือใช้ <a class="gloss-ref" href="../../glossary.html#term-regularization" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">regularization</a></div>
 <div class="slide-content"><p><strong>วิธีที่ 1: ลบ predictor ที่ collinear ออก</strong></p>
 <ul class="slide-list">
 <li>ถ้า X₁ กับ X₂ correlated มาก → เลือกเก็บตัวที่มี domain relevance มากกว่า</li>
@@ -509,7 +509,7 @@ Education    1.01   ← ปกติ</code></pre></div>
 <li>แทนที่ [X₁, X₂] ด้วย principal component Z₁ = 0.7X₁ + 0.7X₂</li>
 <li>ข้อดี: ไม่สูญเสีย information | ข้อเสีย: interpret ยาก</li>
 </ul>
-<p><strong>วิธีที่ 3: Regularization (<a class="gloss-ref" href="../../glossary.html#term-w10-ridge-regression" title="ดูนิยามใน Glossary">Ridge Regression</a>)</strong></p>
+<p><strong>วิธีที่ 3: Regularization (<a class="gloss-ref" href="../../glossary.html#term-w10-ridge-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Ridge Regression</a>)</strong></p>
 <ul class="slide-list">
 <li>เพิ่ม penalty term → β̂ stable แม้ predictors correlated</li>
 <li>ข้อดี: ใช้ได้ทุกกรณี | ข้อเสีย: biased estimates</li>
@@ -527,13 +527,13 @@ pcr.fit(df[['Limit','Rating','Age']], df['Balance'])</code></pre></div></div>
 <div class="slide-num">Slide 9</div>
 <div class="slide-title">Summary</div>
 </div>
-<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-w10-vif" title="ดูนิยามใน Glossary">VIF</a> &gt; 5–10 เป็น alarm signal — ต้องแก้ก่อนเชื่อ t-statistic ของ predictors นั้น</div>
+<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-w10-vif" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">VIF</a> &gt; 5–10 เป็น alarm signal — ต้องแก้ก่อนเชื่อ t-statistic ของ predictors นั้น</div>
 <div class="slide-content"><p><strong>สิ่งที่เรียนรู้วันนี้</strong>:</p>
 <ul class="slide-list">
-<li><strong><a class="gloss-ref" href="../../glossary.html#term-multicollinearity" title="ดูนิยามใน Glossary">Multicollinearity</a></strong>: predictors correlated → <a class="gloss-ref" href="../../glossary.html#term-se" title="ดูนิยามใน Glossary">SE</a> ↑ → t ↓ → อาจ miss real effects</li>
+<li><strong><a class="gloss-ref" href="../../glossary.html#term-multicollinearity" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Multicollinearity</a></strong>: predictors correlated → <a class="gloss-ref" href="../../glossary.html#term-se" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">SE</a> ↑ → t ↓ → อาจ miss real effects</li>
 <li><strong>VIF</strong> = 1/(1−R²_{Xⱼ}) — ยิ่งสูงยิ่งปัญหา</li>
-<li><strong>ตรวจด้วย</strong>: <a class="gloss-ref" href="../../glossary.html#term-w10-correlation-matrix" title="ดูนิยามใน Glossary">correlation matrix</a> (pairwise) + VIF (multivariate)</li>
-<li><strong>แก้ด้วย</strong>: ลบตัวหนึ่ง, <a class="gloss-ref" href="../../glossary.html#term-w10-pca" title="ดูนิยามใน Glossary">PCA</a>, หรือ <a class="gloss-ref" href="../../glossary.html#term-regularization" title="ดูนิยามใน Glossary">regularization</a></li>
+<li><strong>ตรวจด้วย</strong>: <a class="gloss-ref" href="../../glossary.html#term-w10-correlation-matrix" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">correlation matrix</a> (pairwise) + VIF (multivariate)</li>
+<li><strong>แก้ด้วย</strong>: ลบตัวหนึ่ง, <a class="gloss-ref" href="../../glossary.html#term-w10-pca" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">PCA</a>, หรือ <a class="gloss-ref" href="../../glossary.html#term-regularization" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">regularization</a></li>
 </ul>
 <p><strong>Week 10 Summary</strong> (ทุก Slides):</p>
 <div class="code-block"><pre><code>Extensions:
@@ -546,7 +546,7 @@ Diagnostics:
   - QQ-plot → normality
   - Leverage / Cook's D → influential points
   - VIF → multicollinearity</code></pre></div>
-<p><strong>สัปดาห์ต่อไป — Week 11</strong>: <a class="gloss-ref" href="../../glossary.html#term-logistic-regression" title="ดูนิยามใน Glossary">Logistic Regression</a> — จาก <a class="gloss-ref" href="../../glossary.html#term-regression" title="ดูนิยามใน Glossary">regression</a> สู่ <a class="gloss-ref" href="../../glossary.html#term-classification" title="ดูนิยามใน Glossary">classification</a></p></div>
+<p><strong>สัปดาห์ต่อไป — Week 11</strong>: <a class="gloss-ref" href="../../glossary.html#term-logistic-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Logistic Regression</a> — จาก <a class="gloss-ref" href="../../glossary.html#term-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">regression</a> สู่ <a class="gloss-ref" href="../../glossary.html#term-classification" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">classification</a></p></div>
 </div>
 </div>
 <div id="nav">

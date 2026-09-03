@@ -350,7 +350,7 @@ h3.content-heading {
 <div class="slide-num">Slide 1</div>
 <div class="slide-title">Title</div>
 </div>
-<div class="slide-content"><p><strong>Least Squares Estimation: คำนวณ β̂₀ และ β̂₁</strong> Week 8 | CLO3 | <a class="gloss-ref" href="../../glossary.html#term-islp" title="ดูนิยามใน Glossary">ISLP</a> 3.1.1 <a class="gloss-ref" href="../../glossary.html#term-llo" title="ดูนิยามใน Glossary">LLo</a>: คำนวณ β̂₀ β̂₁ ด้วยสูตร Least Squares และเชื่อมกับ <a class="gloss-ref" href="../../glossary.html#term-w8-normal-equations" title="ดูนิยามใน Glossary">Normal Equations</a> (Week 3)</p></div>
+<div class="slide-content"><p><strong>Least Squares Estimation: คำนวณ β̂₀ และ β̂₁</strong> Week 8 | CLO3 | <a class="gloss-ref" href="../../glossary.html#term-islp" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ISLP</a> 3.1.1 <a class="gloss-ref" href="../../glossary.html#term-llo" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LLo</a>: คำนวณ β̂₀ β̂₁ ด้วยสูตร Least Squares และเชื่อมกับ <a class="gloss-ref" href="../../glossary.html#term-w8-normal-equations" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Normal Equations</a> (Week 3)</p></div>
 </div>
 <div class="slide slide-1" data-title="ทบทวน: เราต้องการอะไร?">
 <div class="slide-header">
@@ -363,15 +363,15 @@ h3.content-heading {
 <p><strong>เกณฑ์ "ดีที่สุด"</strong> — Least Squares: $$\text{Minimize RSS} = \sum_{i=1}^{n}(y_i - \beta_0 - \beta_1 x_i)^2$$</p>
 <p><strong>ทำไมไม่ minimize Σ|eᵢ|?</strong></p>
 <ul class="slide-list">
-<li><a class="gloss-ref" href="../../glossary.html#term-w8-rss" title="ดูนิยามใน Glossary">RSS</a> differentiable → หา closed form ได้</li>
-<li>RSS ลงโทษ <a class="gloss-ref" href="../../glossary.html#term-outlier" title="ดูนิยามใน Glossary">outlier</a> หนักกว่า (squared)</li>
-<li>Connect กับ <a class="gloss-ref" href="../../glossary.html#term-w8-normal-equations" title="ดูนิยามใน Glossary">Normal Equations</a> จาก Week 3</li>
+<li><a class="gloss-ref" href="../../glossary.html#term-w8-rss" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">RSS</a> differentiable → หา closed form ได้</li>
+<li>RSS ลงโทษ <a class="gloss-ref" href="../../glossary.html#term-outlier" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">outlier</a> หนักกว่า (squared)</li>
+<li>Connect กับ <a class="gloss-ref" href="../../glossary.html#term-w8-normal-equations" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Normal Equations</a> จาก Week 3</li>
 </ul></div>
 </div>
 <div class="slide slide-2" data-title="Derivation: Minimize RSS">
 <div class="slide-header">
 <div class="slide-num">Slide 3</div>
-<div class="slide-title">Derivation: Minimize <a class="gloss-ref" href="../../glossary.html#term-w8-rss" title="ดูนิยามใน Glossary">RSS</a></div>
+<div class="slide-title">Derivation: Minimize <a class="gloss-ref" href="../../glossary.html#term-w8-rss" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">RSS</a></div>
 </div>
 <div class="key-message">หา β̂ โดย set partial derivatives = 0 → ได้สูตรปิด</div>
 <div class="slide-content"><p><strong>ขั้นตอน</strong> (Calculus):</p>
@@ -384,7 +384,7 @@ h3.content-heading {
 <div class="slide-num">Slide 4</div>
 <div class="slide-title">สูตรปิด: ความหมายแต่ละส่วน</div>
 </div>
-<div class="key-message">β̂₁ = Cov(X,Y)/Var(X) — slope คือ <a class="gloss-ref" href="../../glossary.html#term-covariance" title="ดูนิยามใน Glossary">covariance</a> หารด้วย variance ของ X</div>
+<div class="key-message">β̂₁ = Cov(X,Y)/Var(X) — slope คือ <a class="gloss-ref" href="../../glossary.html#term-covariance" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">covariance</a> หารด้วย variance ของ X</div>
 <div class="slide-content"><p><strong>β̂₁</strong>: $$\hat{\beta}_1 = \frac{\sum(x_i - \bar{x})(y_i - \bar{y})}{\sum(x_i - \bar{x})^2} = \frac{\widehat{Cov}(X,Y)}{\widehat{Var}(X)}$$</p>
 <ul class="slide-list">
 <li>ตัวเศษ: Cov(X,Y) — X และ Y เคลื่อนไปด้วยกันแค่ไหน?</li>
@@ -393,20 +393,20 @@ h3.content-heading {
 </ul>
 <p><strong>β̂₀</strong>: $$\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}$$</p>
 <ul class="slide-list">
-<li>fitted <a class="gloss-ref" href="../../glossary.html#term-w8-line" title="ดูนิยามใน Glossary">line</a> ต้องผ่าน point (x̄, ȳ) เสมอ</li>
+<li>fitted <a class="gloss-ref" href="../../glossary.html#term-w8-line" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">line</a> ต้องผ่าน point (x̄, ȳ) เสมอ</li>
 <li>β̂₀ adjust ให้เส้นผ่าน centroid ของ data</li>
 </ul></div>
 </div>
 <div class="slide slide-4" data-title="Connection: Normal Equations (Week 3)">
 <div class="slide-header">
 <div class="slide-num">Slide 5</div>
-<div class="slide-title">Connection: <a class="gloss-ref" href="../../glossary.html#term-w8-normal-equations" title="ดูนิยามใน Glossary">Normal Equations</a> (Week 3)</div>
+<div class="slide-title">Connection: <a class="gloss-ref" href="../../glossary.html#term-w8-normal-equations" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Normal Equations</a> (Week 3)</div>
 </div>
 <div class="key-message">Least Squares formula สอดคล้องกับ Normal Equations AᵀAβ̂ = Aᵀy ที่เรียนใน Week 3</div>
 <div class="slide-content"><p><strong>Week 3 — Least Squares ทั่วไป</strong>: $$A^T A\hat{\boldsymbol{\beta}} = A^T \mathbf{y} \quad\Rightarrow\quad \hat{\boldsymbol{\beta}} = (A^TA)^{-1}A^T\mathbf{y}$$</p>
-<p><strong><a class="gloss-ref" href="../../glossary.html#term-w8-slr" title="ดูนิยามใน Glossary">SLR</a> — <a class="gloss-ref" href="../../glossary.html#term-w8-design-matrix" title="ดูนิยามใน Glossary">Design Matrix</a></strong>: $$A = \begin{bmatrix} 1 &amp; x_1 \\ 1 &amp; x_2 \\ \vdots &amp; \vdots \\ 1 &amp; x_n \end{bmatrix}, \quad \hat{\boldsymbol{\beta}} = \begin{bmatrix}\hat{\beta}_0 \\ \hat{\beta}_1\end{bmatrix}$$</p>
+<p><strong><a class="gloss-ref" href="../../glossary.html#term-w8-slr" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">SLR</a> — <a class="gloss-ref" href="../../glossary.html#term-w8-design-matrix" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Design Matrix</a></strong>: $$A = \begin{bmatrix} 1 &amp; x_1 \\ 1 &amp; x_2 \\ \vdots &amp; \vdots \\ 1 &amp; x_n \end{bmatrix}, \quad \hat{\boldsymbol{\beta}} = \begin{bmatrix}\hat{\beta}_0 \\ \hat{\beta}_1\end{bmatrix}$$</p>
 <p><strong>ผล</strong>: สูตรปิดจาก calculus = formula จาก Normal Equations = <code>np.linalg.lstsq()</code> ทั้งหมดให้ผลเดียวกัน</p>
-<p><strong><a class="gloss-ref" href="../../glossary.html#term-ds" title="ดูนิยามใน Glossary">DS</a> Insight</strong>: ใน <a class="gloss-ref" href="../../glossary.html#term-w8-mlr" title="ดูนิยามใน Glossary">MLR</a> (Week 9) เราจะใช้ normal equations กับ p predictors — SLR เป็นแค่ p=1</p></div>
+<p><strong><a class="gloss-ref" href="../../glossary.html#term-ds" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">DS</a> Insight</strong>: ใน <a class="gloss-ref" href="../../glossary.html#term-w8-mlr" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">MLR</a> (Week 9) เราจะใช้ normal equations กับ p predictors — SLR เป็นแค่ p=1</p></div>
 </div>
 <div class="slide slide-5" data-title="ตัวอย่างเลข: คำนวณด้วยมือ">
 <div class="slide-header">
@@ -510,7 +510,7 @@ print(model.params)  # β̂₀, β̂₁</code></pre></div>
 <div class="slide slide-7" data-title="Visualize: Scatter + Fitted Line">
 <div class="slide-header">
 <div class="slide-num">Slide 8</div>
-<div class="slide-title">Visualize: Scatter + Fitted <a class="gloss-ref" href="../../glossary.html#term-w8-line" title="ดูนิยามใน Glossary">Line</a></div>
+<div class="slide-title">Visualize: Scatter + Fitted <a class="gloss-ref" href="../../glossary.html#term-w8-line" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Line</a></div>
 </div>
 <div class="key-message">plot เสมอ ก่อนอ่านตัวเลข — ตาดูก่อน แล้วค่อยอ่าน output</div>
 <div class="slide-content"><div class="code-block"><div class="code-lang">python</div><pre><code>import matplotlib.pyplot as plt
@@ -536,7 +536,7 @@ plt.show()</code></pre></div>
 <div class="slide slide-8" data-title="RSS บน Advertising Data">
 <div class="slide-header">
 <div class="slide-num">Slide 9</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w8-rss" title="ดูนิยามใน Glossary">RSS</a> บน Advertising Data</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w8-rss" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">RSS</a> บน Advertising Data</div>
 </div>
 <div class="key-message">RSS คือตัววัดความ "ไม่ดี" ของโมเดล — ยิ่งน้อยยิ่งดี แต่ไม่ใช่ 0 เพราะมี ε</div>
 <div class="slide-content"><div class="code-block"><div class="code-lang">python</div><pre><code># ─── คำนวณ RSS ด้วยมือ ──────────────────────────────────────
@@ -561,13 +561,13 @@ plt.show()</code></pre></div>
 <div class="slide-num">Slide 10</div>
 <div class="slide-title">Summary</div>
 </div>
-<div class="key-message">Least Squares คือหัวใจของ <a class="gloss-ref" href="../../glossary.html#term-regression" title="ดูนิยามใน Glossary">regression</a> — สูตรปิดใช้ได้เพราะ <a class="gloss-ref" href="../../glossary.html#term-w8-rss" title="ดูนิยามใน Glossary">RSS</a> เป็น quadratic</div>
+<div class="key-message">Least Squares คือหัวใจของ <a class="gloss-ref" href="../../glossary.html#term-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">regression</a> — สูตรปิดใช้ได้เพราะ <a class="gloss-ref" href="../../glossary.html#term-w8-rss" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">RSS</a> เป็น quadratic</div>
 <div class="slide-content"><p><strong>สิ่งที่เรียนรู้วันนี้</strong>:</p>
 <ul class="slide-list">
 <li><strong>RSS</strong>: Σ(yᵢ − β̂₀ − β̂₁xᵢ)² — สิ่งที่ minimize</li>
-<li><strong>β̂₁</strong> = Cov(X,Y)/Var(X) — slope เป็น ratio ของ <a class="gloss-ref" href="../../glossary.html#term-covariance" title="ดูนิยามใน Glossary">covariance</a> ต่อ variance</li>
-<li><strong>β̂₀</strong> = ȳ − β̂₁x̄ — fitted <a class="gloss-ref" href="../../glossary.html#term-w8-line" title="ดูนิยามใน Glossary">line</a> ผ่าน centroid (x̄, ȳ) เสมอ</li>
-<li><strong>Connection</strong>: <a class="gloss-ref" href="../../glossary.html#term-w8-normal-equations" title="ดูนิยามใน Glossary">Normal Equations</a> Week 3 = Least Squares = sklearn = statsmodels</li>
+<li><strong>β̂₁</strong> = Cov(X,Y)/Var(X) — slope เป็น ratio ของ <a class="gloss-ref" href="../../glossary.html#term-covariance" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">covariance</a> ต่อ variance</li>
+<li><strong>β̂₀</strong> = ȳ − β̂₁x̄ — fitted <a class="gloss-ref" href="../../glossary.html#term-w8-line" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">line</a> ผ่าน centroid (x̄, ȳ) เสมอ</li>
+<li><strong>Connection</strong>: <a class="gloss-ref" href="../../glossary.html#term-w8-normal-equations" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Normal Equations</a> Week 3 = Least Squares = sklearn = statsmodels</li>
 </ul>
 <div class="table-wrap"><table>
 <thead>
@@ -593,7 +593,7 @@ plt.show()</code></pre></div>
 <td>total squared error</td>
 </tr>
 </tbody></table></div>
-<p><strong>สัปดาห์ต่อไป — Slide 3</strong>: Coefficient <a class="gloss-ref" href="../../glossary.html#term-accuracy" title="ดูนิยามใน Glossary">Accuracy</a> — <a class="gloss-ref" href="../../glossary.html#term-w8-se" title="ดูนิยามใน Glossary">SE</a>, <a class="gloss-ref" href="../../glossary.html#term-w8-ci" title="ดูนิยามใน Glossary">CI</a>, <a class="gloss-ref" href="../../glossary.html#term-t-test" title="ดูนิยามใน Glossary">t-test</a>: "β̂₁ แม่นยำแค่ไหน?"</p></div>
+<p><strong>สัปดาห์ต่อไป — Slide 3</strong>: Coefficient <a class="gloss-ref" href="../../glossary.html#term-accuracy" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Accuracy</a> — <a class="gloss-ref" href="../../glossary.html#term-w8-se" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">SE</a>, <a class="gloss-ref" href="../../glossary.html#term-w8-ci" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">CI</a>, <a class="gloss-ref" href="../../glossary.html#term-t-test" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">t-test</a>: "β̂₁ แม่นยำแค่ไหน?"</p></div>
 </div>
 </div>
 <div id="nav">

@@ -358,7 +358,7 @@ h3.content-heading {
 <div class="slide-title">Week Overview</div>
 </div>
 <div class="key-message">Statistical Learning คือ framework ที่รองรับ Machine Learning ทั้งหมด — เข้าใจ Y = f(X) + ε คือเข้าใจหัวใจของ Data Science</div>
-<div class="slide-content"><p>สัปดาห์นี้เราก้าวข้ามจาก Linear Algebra (Week 1–4) สู่ Statistical Learning ซึ่งเป็น framework ที่ใช้อธิบาย Machine Learning algorithms ทั้งหมด แนวคิดหลักคือ "ข้อมูลทุกอย่างสร้างมาจาก Y = f(X) + ε" โดย f คือความสัมพันธ์จริงที่เราต้องการค้นหา และ ε คือ noise ที่หลีกเลี่ยงไม่ได้ Statistical Learning แบ่งเป็น 2 เป้าหมายหลัก: <a class="gloss-ref" href="../../glossary.html#term-w5-prediction" title="ดูนิยามใน Glossary">Prediction</a> (ทำนาย Y ให้แม่นยำ) และ <a class="gloss-ref" href="../../glossary.html#term-w5-inference" title="ดูนิยามใน Glossary">Inference</a> (เข้าใจว่า X กระทบ Y อย่างไร) เป้าหมายของสัปดาห์นี้คือให้นักศึกษาสามารถกำหนด X, Y, f ในปัญหาจริงได้ อธิบาย reducible vs <a class="gloss-ref" href="../../glossary.html#term-w5-irreducible-error" title="ดูนิยามใน Glossary">irreducible error</a> ได้ และเลือก approach ที่เหมาะสมได้ ทักษะนี้สำคัญมากเพราะก่อนเขียน code ทุกครั้ง ต้องคิดก่อนว่า "problem นี้คือ <a class="gloss-ref" href="../../glossary.html#term-w5-regression" title="ดูนิยามใน Glossary">Regression</a> หรือ <a class="gloss-ref" href="../../glossary.html#term-w5-classification" title="ดูนิยามใน Glossary">Classification</a>? Supervised หรือ Unsupervised?"</p>
+<div class="slide-content"><p>สัปดาห์นี้เราก้าวข้ามจาก Linear Algebra (Week 1–4) สู่ Statistical Learning ซึ่งเป็น framework ที่ใช้อธิบาย Machine Learning algorithms ทั้งหมด แนวคิดหลักคือ "ข้อมูลทุกอย่างสร้างมาจาก Y = f(X) + ε" โดย f คือความสัมพันธ์จริงที่เราต้องการค้นหา และ ε คือ noise ที่หลีกเลี่ยงไม่ได้ Statistical Learning แบ่งเป็น 2 เป้าหมายหลัก: <a class="gloss-ref" href="../../glossary.html#term-w5-prediction" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Prediction</a> (ทำนาย Y ให้แม่นยำ) และ <a class="gloss-ref" href="../../glossary.html#term-w5-inference" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Inference</a> (เข้าใจว่า X กระทบ Y อย่างไร) เป้าหมายของสัปดาห์นี้คือให้นักศึกษาสามารถกำหนด X, Y, f ในปัญหาจริงได้ อธิบาย reducible vs <a class="gloss-ref" href="../../glossary.html#term-w5-irreducible-error" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">irreducible error</a> ได้ และเลือก approach ที่เหมาะสมได้ ทักษะนี้สำคัญมากเพราะก่อนเขียน code ทุกครั้ง ต้องคิดก่อนว่า "problem นี้คือ <a class="gloss-ref" href="../../glossary.html#term-w5-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Regression</a> หรือ <a class="gloss-ref" href="../../glossary.html#term-w5-classification" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Classification</a>? Supervised หรือ Unsupervised?"</p>
 <p><strong>สิ่งที่จะเรียนรู้:</strong></p>
 <ul class="slide-list">
 <li>Framework: Y = f(X) + ε</li>
@@ -366,14 +366,14 @@ h3.content-heading {
 <li>Reducible vs Irreducible Error: อะไรปรับปรุงได้?</li>
 <li>How to estimate f: parametric vs non-parametric</li>
 </ul>
-<div class="placeholder">💡 <em>3 motivating examples จาก <a class="gloss-ref" href="../../glossary.html#term-islp" title="ดูนิยามใน Glossary">ISLP</a>: Wage, Stock, Cancer</em></div></div>
+<div class="placeholder">💡 <em>3 motivating examples จาก <a class="gloss-ref" href="../../glossary.html#term-islp" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ISLP</a>: Wage, Stock, Cancer</em></div></div>
 </div>
 <div class="slide slide-2" data-title="The Framework: Y = f(X) + ε">
 <div class="slide-header">
 <div class="slide-num">Slide 3</div>
 <div class="slide-title">The Framework: Y = f(X) + ε</div>
 </div>
-<div class="key-message">ทุก <a class="gloss-ref" href="../../glossary.html#term-ml" title="ดูนิยามใน Glossary">ML</a> problem สามารถ formulate เป็น Y = f(X) + ε — เข้าใจ notation นี้คือเข้าใจภาษากลางของ Data Science</div>
+<div class="key-message">ทุก <a class="gloss-ref" href="../../glossary.html#term-ml" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ML</a> problem สามารถ formulate เป็น Y = f(X) + ε — เข้าใจ notation นี้คือเข้าใจภาษากลางของ Data Science</div>
 <div class="slide-content"><p><strong>Framework:</strong></p>
 <div class="code-block"><pre><code>Y = f(X) + ε
 
@@ -399,7 +399,7 @@ f = true relationship between education/experience and salary
 <div class="slide-num">Slide 4</div>
 <div class="slide-title">Why Do We Estimate f?</div>
 </div>
-<div class="key-message">มี 2 เหตุผลที่เราต้องการ f̂: <a class="gloss-ref" href="../../glossary.html#term-w5-prediction" title="ดูนิยามใน Glossary">Prediction</a> (ต้องการ Ŷ แม่นยำ) หรือ <a class="gloss-ref" href="../../glossary.html#term-w5-inference" title="ดูนิยามใน Glossary">Inference</a> (ต้องการเข้าใจความสัมพันธ์)</div>
+<div class="key-message">มี 2 เหตุผลที่เราต้องการ f̂: <a class="gloss-ref" href="../../glossary.html#term-w5-prediction" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Prediction</a> (ต้องการ Ŷ แม่นยำ) หรือ <a class="gloss-ref" href="../../glossary.html#term-w5-inference" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Inference</a> (ต้องการเข้าใจความสัมพันธ์)</div>
 <div class="slide-content"><p><strong>Goal 1: Prediction</strong></p>
 <div class="code-block"><pre><code>Ŷ = f̂(X)   ← ต้องการ Ŷ ที่ใกล้ Y มากที่สุด</code></pre></div>
 <ul class="slide-list">
@@ -416,16 +416,16 @@ f = true relationship between education/experience and salary
 <p><strong>ทำไมสำคัญ?</strong> — เพราะเป้าหมายต่างกัน → method ต่างกัน:</p>
 <ul class="slide-list">
 <li>Prediction → ยอมรับ black-box (neural network, random forest)</li>
-<li>Inference → ต้องการ interpretable (linear <a class="gloss-ref" href="../../glossary.html#term-w5-regression" title="ดูนิยามใน Glossary">regression</a>, decision tree)</li>
+<li>Inference → ต้องการ interpretable (linear <a class="gloss-ref" href="../../glossary.html#term-w5-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">regression</a>, decision tree)</li>
 </ul></div>
 </div>
 <div class="slide slide-4" data-title="Reducible vs Irreducible Error">
 <div class="slide-header">
 <div class="slide-num">Slide 5</div>
-<div class="slide-title">Reducible vs <a class="gloss-ref" href="../../glossary.html#term-w5-irreducible-error" title="ดูนิยามใน Glossary">Irreducible Error</a></div>
+<div class="slide-title">Reducible vs <a class="gloss-ref" href="../../glossary.html#term-w5-irreducible-error" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Irreducible Error</a></div>
 </div>
-<div class="key-message">Error ของ model มี 2 ส่วน — เราปรับปรุงได้แค่ <a class="gloss-ref" href="../../glossary.html#term-w5-reducible-error" title="ดูนิยามใน Glossary">reducible error</a> ส่วน irreducible error เป็น fundamental limit</div>
-<div class="slide-content"><p><strong>Expected <a class="gloss-ref" href="../../glossary.html#term-w5-prediction" title="ดูนิยามใน Glossary">Prediction</a> Error:</strong></p>
+<div class="key-message">Error ของ model มี 2 ส่วน — เราปรับปรุงได้แค่ <a class="gloss-ref" href="../../glossary.html#term-w5-reducible-error" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">reducible error</a> ส่วน irreducible error เป็น fundamental limit</div>
+<div class="slide-content"><p><strong>Expected <a class="gloss-ref" href="../../glossary.html#term-w5-prediction" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Prediction</a> Error:</strong></p>
 <div class="code-block"><pre><code>E[(Y - f̂(X))²] = [f(X) - f̂(X)]²  +  Var(ε)
                    ─────────────────    ────────
                    Reducible Error      Irreducible Error
@@ -455,7 +455,7 @@ f = true relationship between education/experience and salary
    → reduce problem to estimating p+1 parameters</code></pre></div>
 <ul class="slide-list">
 <li>✓ ง่าย, interpretable, ทำงานได้แม้ data น้อย</li>
-<li>✗ ถ้า model form ผิด → high <a class="gloss-ref" href="../../glossary.html#term-bias" title="ดูนิยามใน Glossary">bias</a></li>
+<li>✗ ถ้า model form ผิด → high <a class="gloss-ref" href="../../glossary.html#term-bias" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">bias</a></li>
 </ul>
 <p><strong>Approach 2 — Non-parametric:</strong></p>
 <div class="code-block"><pre><code>ไม่ assume รูปแบบ f — fit curve ให้ใกล้ data มากที่สุด
@@ -469,29 +469,29 @@ f = true relationship between education/experience and salary
 <div class="slide slide-6" data-title="ตัวอย่างจริง: 3 Motivating Examples (ISLP)">
 <div class="slide-header">
 <div class="slide-num">Slide 7</div>
-<div class="slide-title">ตัวอย่างจริง: 3 Motivating Examples (<a class="gloss-ref" href="../../glossary.html#term-islp" title="ดูนิยามใน Glossary">ISLP</a>)</div>
+<div class="slide-title">ตัวอย่างจริง: 3 Motivating Examples (<a class="gloss-ref" href="../../glossary.html#term-islp" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ISLP</a>)</div>
 </div>
 <div class="key-message">ISLP เปิดด้วย 3 examples นี้เพราะแต่ละอันแสดง use case ต่างกัน ของ Statistical Learning</div>
 <div class="slide-content"><p><strong>Example 1 — Wage Data:</strong></p>
 <ul class="slide-list">
 <li>X: education, age, job class, year</li>
 <li>Y: salary (continuous)</li>
-<li>Goal: <strong><a class="gloss-ref" href="../../glossary.html#term-w5-inference" title="ดูนิยามใน Glossary">Inference</a></strong> — "ตัวแปรไหนส่งผลต่อ salary?"</li>
-<li>Method: Linear <a class="gloss-ref" href="../../glossary.html#term-w5-regression" title="ดูนิยามใน Glossary">Regression</a></li>
+<li>Goal: <strong><a class="gloss-ref" href="../../glossary.html#term-w5-inference" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Inference</a></strong> — "ตัวแปรไหนส่งผลต่อ salary?"</li>
+<li>Method: Linear <a class="gloss-ref" href="../../glossary.html#term-w5-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Regression</a></li>
 </ul>
 <p><strong>Example 2 — Stock Market:</strong></p>
 <ul class="slide-list">
 <li>X: past 5 days' returns (% change)</li>
 <li>Y: market Up/Down tomorrow</li>
-<li>Goal: <strong><a class="gloss-ref" href="../../glossary.html#term-w5-prediction" title="ดูนิยามใน Glossary">Prediction</a></strong> — แม่นยำสูงสุด</li>
-<li>Method: <a class="gloss-ref" href="../../glossary.html#term-logistic-regression" title="ดูนิยามใน Glossary">Logistic Regression</a>, <a class="gloss-ref" href="../../glossary.html#term-w5-lda" title="ดูนิยามใน Glossary">LDA</a>, QNN</li>
+<li>Goal: <strong><a class="gloss-ref" href="../../glossary.html#term-w5-prediction" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Prediction</a></strong> — แม่นยำสูงสุด</li>
+<li>Method: <a class="gloss-ref" href="../../glossary.html#term-logistic-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Logistic Regression</a>, <a class="gloss-ref" href="../../glossary.html#term-w5-lda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LDA</a>, QNN</li>
 </ul>
 <p><strong>Example 3 — Cancer Gene Expression:</strong></p>
 <ul class="slide-list">
 <li>X: expression ของ 6,830 genes</li>
 <li>Y: cancer type (4 classes)</li>
 <li>Goal: <strong>Prediction + Discovery</strong> — classify + find important genes</li>
-<li>Challenge: p &gt;&gt; n (more features than samples) → <a class="gloss-ref" href="../../glossary.html#term-pca" title="ดูนิยามใน Glossary">PCA</a> first!</li>
+<li>Challenge: p &gt;&gt; n (more features than samples) → <a class="gloss-ref" href="../../glossary.html#term-pca" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">PCA</a> first!</li>
 </ul></div>
 </div>
 <div class="slide slide-7" data-title="Python: Exploring Advertising Dataset">
@@ -532,7 +532,7 @@ plt.tight_layout()</code></pre></div>
 <div class="slide-num">Slide 9</div>
 <div class="slide-title">Key Concepts Summary</div>
 </div>
-<div class="key-message">4 คำถามที่ต้องถามก่อนทำ <a class="gloss-ref" href="../../glossary.html#term-ml" title="ดูนิยามใน Glossary">ML</a> ทุกครั้ง — นี่คือ checklist ของ Data Scientist</div>
+<div class="key-message">4 คำถามที่ต้องถามก่อนทำ <a class="gloss-ref" href="../../glossary.html#term-ml" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ML</a> ทุกครั้ง — นี่คือ checklist ของ Data Scientist</div>
 <div class="slide-content"><p><strong>4 คำถามก่อนเริ่มทำ ML:</strong></p>
 <div class="code-block"><pre><code>1. X = อะไร? (inputs/features)
    → กำหนดให้ชัดเจน, clean หรือยัง?
@@ -555,11 +555,11 @@ plt.tight_layout()</code></pre></div>
 </div>
 <div class="slide-content"><p><strong>สิ่งที่เรียนรู้วันนี้</strong></p>
 <ul class="slide-list">
-<li><strong>Framework</strong>: Y = f(X) + ε — ทุก <a class="gloss-ref" href="../../glossary.html#term-ml" title="ดูนิยามใน Glossary">ML</a> problem มีรูปแบบนี้</li>
-<li><strong><a class="gloss-ref" href="../../glossary.html#term-w5-prediction" title="ดูนิยามใน Glossary">Prediction</a> vs <a class="gloss-ref" href="../../glossary.html#term-w5-inference" title="ดูนิยามใน Glossary">Inference</a></strong>: เป้าหมายต่างกัน → method ต่างกัน</li>
-<li><strong><a class="gloss-ref" href="../../glossary.html#term-w5-reducible-error" title="ดูนิยามใน Glossary">Reducible Error</a></strong>: ลดได้โดยปรับ model</li>
-<li><strong><a class="gloss-ref" href="../../glossary.html#term-w5-irreducible-error" title="ดูนิยามใน Glossary">Irreducible Error</a></strong>: Var(ε) — fundamental limit, ลดไม่ได้</li>
-<li><strong>Parametric vs Non-parametric</strong>: trade-off ระหว่าง simplicity กับ <a class="gloss-ref" href="../../glossary.html#term-w5-flexibility" title="ดูนิยามใน Glossary">flexibility</a></li>
+<li><strong>Framework</strong>: Y = f(X) + ε — ทุก <a class="gloss-ref" href="../../glossary.html#term-ml" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ML</a> problem มีรูปแบบนี้</li>
+<li><strong><a class="gloss-ref" href="../../glossary.html#term-w5-prediction" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Prediction</a> vs <a class="gloss-ref" href="../../glossary.html#term-w5-inference" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Inference</a></strong>: เป้าหมายต่างกัน → method ต่างกัน</li>
+<li><strong><a class="gloss-ref" href="../../glossary.html#term-w5-reducible-error" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Reducible Error</a></strong>: ลดได้โดยปรับ model</li>
+<li><strong><a class="gloss-ref" href="../../glossary.html#term-w5-irreducible-error" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Irreducible Error</a></strong>: Var(ε) — fundamental limit, ลดไม่ได้</li>
+<li><strong>Parametric vs Non-parametric</strong>: trade-off ระหว่าง simplicity กับ <a class="gloss-ref" href="../../glossary.html#term-w5-flexibility" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">flexibility</a></li>
 </ul>
 <div class="table-wrap"><table>
 <thead>
@@ -581,7 +581,7 @@ plt.tight_layout()</code></pre></div>
 <td>Parametric: ง่าย / Non-param: ยืดหยุ่น</td>
 </tr>
 </tbody></table></div>
-<p><strong>สัปดาห์ถัดไป (Slide Deck 2):</strong> Parametric vs Non-parametric ในเชิงลึก + <a class="gloss-ref" href="../../glossary.html#term-accuracy" title="ดูนิยามใน Glossary">Accuracy</a>-Interpretability Trade-off</p></div>
+<p><strong>สัปดาห์ถัดไป (Slide Deck 2):</strong> Parametric vs Non-parametric ในเชิงลึก + <a class="gloss-ref" href="../../glossary.html#term-accuracy" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Accuracy</a>-Interpretability Trade-off</p></div>
 </div>
 </div>
 <div id="nav">

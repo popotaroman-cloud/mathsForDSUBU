@@ -350,7 +350,7 @@ h3.content-heading {
 <div class="slide-num">Slide 1</div>
 <div class="slide-title">Title</div>
 </div>
-<div class="slide-content"><p><strong><a class="gloss-ref" href="../../glossary.html#term-w1-vector" title="ดูนิยามใน Glossary">Vector</a> Notation: อ่านสัญลักษณ์คณิตศาสตร์ให้เป็น</strong> Week 1 | <a class="gloss-ref" href="../../glossary.html#term-w1-clo1" title="ดูนิยามใน Glossary">CLO1</a> | สิ่งสำคัญ: อ่าน paper และ textbook ได้โดยไม่งง</p></div>
+<div class="slide-content"><p><strong><a class="gloss-ref" href="../../glossary.html#term-w1-vector" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Vector</a> Notation: อ่านสัญลักษณ์คณิตศาสตร์ให้เป็น</strong> Week 1 | <a class="gloss-ref" href="../../glossary.html#term-w1-clo1" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">CLO1</a> | สิ่งสำคัญ: อ่าน paper และ textbook ได้โดยไม่งง</p></div>
 </div>
 <div class="slide slide-1" data-title="ทำไม Notation ถึงสำคัญ?">
 <div class="slide-header">
@@ -368,7 +368,7 @@ h3.content-heading {
 <div class="slide slide-2" data-title="Notation: Scalar, Vector, Matrix">
 <div class="slide-header">
 <div class="slide-num">Slide 3</div>
-<div class="slide-title">Notation: <a class="gloss-ref" href="../../glossary.html#term-w1-scalar" title="ดูนิยามใน Glossary">Scalar</a>, <a class="gloss-ref" href="../../glossary.html#term-w1-vector" title="ดูนิยามใน Glossary">Vector</a>, Matrix</div>
+<div class="slide-title">Notation: <a class="gloss-ref" href="../../glossary.html#term-w1-scalar" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Scalar</a>, <a class="gloss-ref" href="../../glossary.html#term-w1-vector" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Vector</a>, Matrix</div>
 </div>
 <div class="key-message">ขนาดตัวอักษรและ style บอกประเภทของ object</div>
 <div class="slide-content"><div class="table-wrap"><table>
@@ -413,7 +413,7 @@ A = np.array([[1,2],[3,4]])   # matrix (2D)</code></pre></div></div>
 <div class="slide slide-3" data-title="การเข้าถึง Elements ของ Vector">
 <div class="slide-header">
 <div class="slide-num">Slide 4</div>
-<div class="slide-title">การเข้าถึง Elements ของ <a class="gloss-ref" href="../../glossary.html#term-w1-vector" title="ดูนิยามใน Glossary">Vector</a></div>
+<div class="slide-title">การเข้าถึง Elements ของ <a class="gloss-ref" href="../../glossary.html#term-w1-vector" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Vector</a></div>
 </div>
 <div class="key-message">Index เริ่มต้นต่างกันระหว่าง Math (1) และ Python (0)</div>
 <div class="slide-content"><p><strong>Math notation</strong>: $\mathbf{v} = (v_1, v_2, \ldots, v_n)^T$ — index เริ่มที่ 1</p>
@@ -428,9 +428,9 @@ print(v[1:3])       # [20, 30] (slice)</code></pre></div>
 <div class="slide slide-4" data-title="Column Vector vs Row Vector">
 <div class="slide-header">
 <div class="slide-num">Slide 5</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w1-column-vector" title="ดูนิยามใน Glossary">Column Vector</a> vs <a class="gloss-ref" href="../../glossary.html#term-w1-row-vector" title="ดูนิยามใน Glossary">Row Vector</a></div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w1-column-vector" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Column Vector</a> vs <a class="gloss-ref" href="../../glossary.html#term-w1-row-vector" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Row Vector</a></div>
 </div>
-<div class="key-message">ใน math เราเขียน column <a class="gloss-ref" href="../../glossary.html#term-w1-vector" title="ดูนิยามใน Glossary">vector</a>, ใน <a class="gloss-ref" href="../../glossary.html#term-w1-numpy" title="ดูนิยามใน Glossary">NumPy</a> ต้องระวัง shape</div>
+<div class="key-message">ใน math เราเขียน column <a class="gloss-ref" href="../../glossary.html#term-w1-vector" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">vector</a>, ใน <a class="gloss-ref" href="../../glossary.html#term-w1-numpy" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">NumPy</a> ต้องระวัง shape</div>
 <div class="slide-content"><p><strong>Column vector</strong> (n×1): $$\mathbf{v} = \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}$$</p>
 <p><strong>Row vector</strong> (1×n): $$\mathbf{v}^T = \begin{pmatrix} 1 &amp; 2 &amp; 3 \end{pmatrix}$$</p>
 <div class="code-block"><div class="code-lang">python</div><pre><code>v = np.array([1, 2, 3])       # shape (3,) — 1D, ไม่ใช่ column/row
@@ -461,12 +461,12 @@ total = np.sum(v)
 total = v.sum()
 
 print(total)  # 15</code></pre></div>
-<p><strong>ใน <a class="gloss-ref" href="../../glossary.html#term-w1-ml" title="ดูนิยามใน Glossary">ML</a></strong>: RSS = $\sum_{i=1}^{n}(y_i - \hat{y}_i)^2$ → <code>np.sum((y - y_hat)**2)</code></p></div>
+<p><strong>ใน <a class="gloss-ref" href="../../glossary.html#term-w1-ml" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ML</a></strong>: RSS = $\sum_{i=1}^{n}(y_i - \hat{y}_i)^2$ → <code>np.sum((y - y_hat)**2)</code></p></div>
 </div>
 <div class="slide slide-6" data-title="Notation ใน ISLP และ Strang">
 <div class="slide-header">
 <div class="slide-num">Slide 7</div>
-<div class="slide-title">Notation ใน <a class="gloss-ref" href="../../glossary.html#term-w1-islp" title="ดูนิยามใน Glossary">ISLP</a> และ Strang</div>
+<div class="slide-title">Notation ใน <a class="gloss-ref" href="../../glossary.html#term-w1-islp" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ISLP</a> และ Strang</div>
 </div>
 <div class="key-message">textbook สองเล่มที่ใช้ในวิชานี้มี convention ต่างกันเล็กน้อย</div>
 <div class="slide-content"><div class="table-wrap"><table>
@@ -493,7 +493,7 @@ print(total)  # 15</code></pre></div>
 <td><strong>β</strong></td>
 </tr>
 <tr>
-<td><a class="gloss-ref" href="../../glossary.html#term-sample" title="ดูนิยามใน Glossary">Sample</a> size</td>
+<td><a class="gloss-ref" href="../../glossary.html#term-sample" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Sample</a> size</td>
 <td>m (rows)</td>
 <td>n</td>
 </tr>
@@ -518,9 +518,9 @@ print(total)  # 15</code></pre></div>
 <div class="key-message">Notation ที่ถูกต้องคือกุญแจสู่การอ่าน paper และ textbook — ชั่วโมงที่ใช้เรียน notation วันนี้จะประหยัดเวลาหลายชั่วโมงในอนาคต</div>
 <div class="slide-content"><p><strong>สิ่งที่เรียนรู้วันนี้</strong>:</p>
 <ul class="slide-list">
-<li><a class="gloss-ref" href="../../glossary.html#term-w1-scalar" title="ดูนิยามใน Glossary">Scalar</a> (<em>c</em>), <a class="gloss-ref" href="../../glossary.html#term-w1-vector" title="ดูนิยามใน Glossary">Vector</a> (<strong>v</strong>), Matrix (<strong>A</strong>) — แยกด้วย font style</li>
+<li><a class="gloss-ref" href="../../glossary.html#term-w1-scalar" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Scalar</a> (<em>c</em>), <a class="gloss-ref" href="../../glossary.html#term-w1-vector" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Vector</a> (<strong>v</strong>), Matrix (<strong>A</strong>) — แยกด้วย font style</li>
 <li>Python index เริ่ม 0, Math index เริ่ม 1</li>
-<li>shape (3,) ≠ shape (3,1) ใน <a class="gloss-ref" href="../../glossary.html#term-w1-numpy" title="ดูนิยามใน Glossary">NumPy</a> — ระวังการ multiply</li>
+<li>shape (3,) ≠ shape (3,1) ใน <a class="gloss-ref" href="../../glossary.html#term-w1-numpy" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">NumPy</a> — ระวังการ multiply</li>
 <li>$\sum$ notation แปลเป็น <code>np.sum()</code> โดยตรง</li>
 </ul>
 <p><strong>Quick Reference Card</strong>:</p>

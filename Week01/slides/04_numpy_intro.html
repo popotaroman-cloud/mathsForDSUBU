@@ -350,12 +350,12 @@ h3.content-heading {
 <div class="slide-num">Slide 1</div>
 <div class="slide-title">Title</div>
 </div>
-<div class="slide-content"><p><strong><a class="gloss-ref" href="../../glossary.html#term-w1-numpy" title="ดูนิยามใน Glossary">NumPy</a>: เครื่องมือหลักสำหรับ <a class="gloss-ref" href="../../glossary.html#term-w1-vector" title="ดูนิยามใน Glossary">Vector</a>/Matrix ใน Python</strong> Week 1 | <a class="gloss-ref" href="../../glossary.html#term-w1-clo1" title="ดูนิยามใน Glossary">CLO1</a> | Lab Preparation | <a class="gloss-ref" href="../../glossary.html#term-w1-llo" title="ดูนิยามใน Glossary">LLo</a>: ใช้ NumPy สร้างและดำเนินการกับ Vector ได้</p></div>
+<div class="slide-content"><p><strong><a class="gloss-ref" href="../../glossary.html#term-w1-numpy" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">NumPy</a>: เครื่องมือหลักสำหรับ <a class="gloss-ref" href="../../glossary.html#term-w1-vector" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Vector</a>/Matrix ใน Python</strong> Week 1 | <a class="gloss-ref" href="../../glossary.html#term-w1-clo1" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">CLO1</a> | Lab Preparation | <a class="gloss-ref" href="../../glossary.html#term-w1-llo" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LLo</a>: ใช้ NumPy สร้างและดำเนินการกับ Vector ได้</p></div>
 </div>
 <div class="slide slide-1" data-title="NumPy คืออะไร และทำไมถึงเร็ว?">
 <div class="slide-header">
 <div class="slide-num">Slide 2</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w1-numpy" title="ดูนิยามใน Glossary">NumPy</a> คืออะไร และทำไมถึงเร็ว?</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w1-numpy" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">NumPy</a> คืออะไร และทำไมถึงเร็ว?</div>
 </div>
 <div class="key-message">NumPy เร็วกว่า Python list 10–100 เท่าเพราะใช้ C ข้างหลัง</div>
 <div class="slide-content"><p><strong>NumPy</strong> = Numerical Python — library สำหรับ scientific computing</p>
@@ -379,7 +379,7 @@ print(f"NumPy: {time.time()-t0:.3f}s")
 <ul class="slide-list">
 <li>C memory layout → no Python overhead</li>
 <li>Vectorized operations → no Python loop</li>
-<li><a class="gloss-ref" href="../../glossary.html#term-w1-blas-lapack" title="ดูนิยามใน Glossary">BLAS/LAPACK</a> → optimized linear algebra routines</li>
+<li><a class="gloss-ref" href="../../glossary.html#term-w1-blas-lapack" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">BLAS/LAPACK</a> → optimized linear algebra routines</li>
 </ul></div>
 </div>
 <div class="slide slide-2" data-title="สร้าง Array: 5 วิธีหลัก">
@@ -411,7 +411,7 @@ v8 = np.random.uniform(0, 1, 4)
 <div class="slide slide-3" data-title="Attributes สำคัญ: shape, dtype, ndim">
 <div class="slide-header">
 <div class="slide-num">Slide 4</div>
-<div class="slide-title">Attributes สำคัญ: shape, <a class="gloss-ref" href="../../glossary.html#term-w1-dtype" title="ดูนิยามใน Glossary">dtype</a>, <a class="gloss-ref" href="../../glossary.html#term-w1-ndim" title="ดูนิยามใน Glossary">ndim</a></div>
+<div class="slide-title">Attributes สำคัญ: shape, <a class="gloss-ref" href="../../glossary.html#term-w1-dtype" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">dtype</a>, <a class="gloss-ref" href="../../glossary.html#term-w1-ndim" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ndim</a></div>
 </div>
 <div class="key-message">ตรวจสอบ shape และ dtype ก่อนทำ operation ทุกครั้ง</div>
 <div class="slide-content"><div class="code-block"><div class="code-lang">python</div><pre><code>v = np.array([[1, 2, 3], [4, 5, 6]], dtype=np.float64)
@@ -437,7 +437,7 @@ print(v.nbytes)  # 48 — bytes in memory</code></pre></div>
 </tr>
 <tr>
 <td>float64</td>
-<td><a class="gloss-ref" href="../../glossary.html#term-w1-ml" title="ดูนิยามใน Glossary">ML</a> weights, features</td>
+<td><a class="gloss-ref" href="../../glossary.html#term-w1-ml" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ML</a> weights, features</td>
 <td>8 bytes</td>
 </tr>
 <tr>
@@ -452,7 +452,7 @@ print(v.nbytes)  # 48 — bytes in memory</code></pre></div>
 <div class="slide-num">Slide 5</div>
 <div class="slide-title">Indexing และ Slicing</div>
 </div>
-<div class="key-message">Slicing ใน <a class="gloss-ref" href="../../glossary.html#term-w1-numpy" title="ดูนิยามใน Glossary">NumPy</a> ส่งคืน view (ไม่ copy) — ระวัง side effects</div>
+<div class="key-message">Slicing ใน <a class="gloss-ref" href="../../glossary.html#term-w1-numpy" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">NumPy</a> ส่งคืน view (ไม่ copy) — ระวัง side effects</div>
 <div class="slide-content"><div class="code-block"><div class="code-lang">python</div><pre><code>v = np.array([10, 20, 30, 40, 50])
 
 # Basic indexing
@@ -478,7 +478,7 @@ print(v[v &gt; 0])  # [1, 3, 5]</code></pre></div></div>
 <div class="slide-num">Slide 6</div>
 <div class="slide-title">Vectorized Operations: ไม่ต้องใช้ Loop</div>
 </div>
-<div class="key-message">Operations บน <a class="gloss-ref" href="../../glossary.html#term-w1-numpy" title="ดูนิยามใน Glossary">NumPy</a> arrays ทำงานแบบ element-wise โดยอัตโนมัติ</div>
+<div class="key-message">Operations บน <a class="gloss-ref" href="../../glossary.html#term-w1-numpy" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">NumPy</a> arrays ทำงานแบบ element-wise โดยอัตโนมัติ</div>
 <div class="slide-content"><div class="code-block"><div class="code-lang">python</div><pre><code>a = np.array([1, 2, 3, 4])
 b = np.array([10, 20, 30, 40])
 
@@ -500,7 +500,7 @@ print(np.sin(a))   # sine</code></pre></div>
 <div class="slide slide-6" data-title="Linear Algebra ใน NumPy">
 <div class="slide-header">
 <div class="slide-num">Slide 7</div>
-<div class="slide-title">Linear Algebra ใน <a class="gloss-ref" href="../../glossary.html#term-w1-numpy" title="ดูนิยามใน Glossary">NumPy</a></div>
+<div class="slide-title">Linear Algebra ใน <a class="gloss-ref" href="../../glossary.html#term-w1-numpy" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">NumPy</a></div>
 </div>
 <div class="key-message"><code>np.linalg</code> คือ module สำหรับ linear algebra operations</div>
 <div class="slide-content"><div class="code-block"><div class="code-lang">python</div><pre><code>u = np.array([3.0, 4.0])
@@ -553,7 +553,7 @@ print(v / 2)   # [0.5 1.  1.5] — OK (float division)
 <div class="slide-num">Slide 9</div>
 <div class="slide-title">From Array to Data Science</div>
 </div>
-<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-w1-numpy" title="ดูนิยามใน Glossary">NumPy</a> คือ foundation — Pandas, sklearn, PyTorch ล้วนสร้างบน NumPy</div>
+<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-w1-numpy" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">NumPy</a> คือ foundation — Pandas, sklearn, PyTorch ล้วนสร้างบน NumPy</div>
 <div class="slide-content"><div class="code-block"><pre><code>NumPy ndarray
      │
      ├── Pandas Series / DataFrame
@@ -577,7 +577,7 @@ print(v / 2)   # [0.5 1.  1.5] — OK (float division)
 <div class="slide-num">Slide 10</div>
 <div class="slide-title">Summary &amp; Lab Preview</div>
 </div>
-<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-w1-numpy" title="ดูนิยามใน Glossary">NumPy</a> คือ backbone ของ data science ecosystem ทั้งหมด — master NumPy แล้ว Pandas, sklearn, PyTorch จะไม่ใช่เรื่องยากอีกต่อไป</div>
+<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-w1-numpy" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">NumPy</a> คือ backbone ของ data science ecosystem ทั้งหมด — master NumPy แล้ว Pandas, sklearn, PyTorch จะไม่ใช่เรื่องยากอีกต่อไป</div>
 <div class="slide-content"><p><strong>สิ่งที่เรียนรู้วันนี้</strong>:</p>
 <ul class="slide-list">
 <li>NumPy เร็วกว่า Python list ด้วย vectorized operations</li>
@@ -588,11 +588,11 @@ print(v / 2)   # [0.5 1.  1.5] — OK (float division)
 </ul>
 <p><strong>Lab 01 Preview — 3 TODOs</strong>:</p>
 <ul class="slide-list">
-<li><strong>TODO 1</strong> (Easy): สร้าง <a class="gloss-ref" href="../../glossary.html#term-w1-feature-vector" title="ดูนิยามใน Glossary">feature vector</a> ของบ้านและ compute <a class="gloss-ref" href="../../glossary.html#term-w1-unit-vector" title="ดูนิยามใน Glossary">unit vector</a></li>
-<li><strong>TODO 2</strong> (Medium): <a class="gloss-ref" href="../../glossary.html#term-w1-cosine-similarity" title="ดูนิยามใน Glossary">Cosine similarity</a> ระหว่าง word vectors</li>
+<li><strong>TODO 1</strong> (Easy): สร้าง <a class="gloss-ref" href="../../glossary.html#term-w1-feature-vector" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">feature vector</a> ของบ้านและ compute <a class="gloss-ref" href="../../glossary.html#term-w1-unit-vector" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">unit vector</a></li>
+<li><strong>TODO 2</strong> (Medium): <a class="gloss-ref" href="../../glossary.html#term-w1-cosine-similarity" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Cosine similarity</a> ระหว่าง word vectors</li>
 <li><strong>TODO 3</strong> (Hard): Similarity matrix + heatmap visualization</li>
 </ul>
-<p><strong>สัปดาห์ต่อไป</strong>: Matrix ขนาด m×n, <a class="gloss-ref" href="../../glossary.html#term-matrix-multiplication" title="ดูนิยามใน Glossary">Matrix multiplication</a>, <a class="gloss-ref" href="../../glossary.html#term-gaussian-elimination" title="ดูนิยามใน Glossary">Gaussian Elimination</a></p></div>
+<p><strong>สัปดาห์ต่อไป</strong>: Matrix ขนาด m×n, <a class="gloss-ref" href="../../glossary.html#term-matrix-multiplication" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Matrix multiplication</a>, <a class="gloss-ref" href="../../glossary.html#term-gaussian-elimination" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Gaussian Elimination</a></p></div>
 </div>
 </div>
 <div id="nav">

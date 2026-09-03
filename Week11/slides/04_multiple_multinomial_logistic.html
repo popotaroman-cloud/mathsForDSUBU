@@ -350,14 +350,14 @@ h3.content-heading {
 <div class="slide-num">Slide 1</div>
 <div class="slide-title">Title</div>
 </div>
-<div class="slide-content"><p><strong>Multiple <a class="gloss-ref" href="../../glossary.html#term-w11-logistic-regression" title="ดูนิยามใน Glossary">Logistic Regression</a> และ Multinomial Logistic</strong> Week 11 | CLO3 | <a class="gloss-ref" href="../../glossary.html#term-w11-islp" title="ดูนิยามใน Glossary">ISLP</a> 4.3.4–4.3.5 <a class="gloss-ref" href="../../glossary.html#term-llo" title="ดูนิยามใน Glossary">LLo</a>: สร้าง Multiple Logistic <a class="gloss-ref" href="../../glossary.html#term-regression" title="ดูนิยามใน Glossary">Regression</a>, ตีความ <a class="gloss-ref" href="../../glossary.html#term-w11-confounding" title="ดูนิยามใน Glossary">confounding</a> และ Softmax model ได้</p></div>
+<div class="slide-content"><p><strong>Multiple <a class="gloss-ref" href="../../glossary.html#term-w11-logistic-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Logistic Regression</a> และ Multinomial Logistic</strong> Week 11 | CLO3 | <a class="gloss-ref" href="../../glossary.html#term-w11-islp" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ISLP</a> 4.3.4–4.3.5 <a class="gloss-ref" href="../../glossary.html#term-llo" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LLo</a>: สร้าง Multiple Logistic <a class="gloss-ref" href="../../glossary.html#term-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Regression</a>, ตีความ <a class="gloss-ref" href="../../glossary.html#term-w11-confounding" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">confounding</a> และ Softmax model ได้</p></div>
 </div>
 <div class="slide slide-1" data-title="Multiple Logistic Regression Model">
 <div class="slide-header">
 <div class="slide-num">Slide 2</div>
-<div class="slide-title">Multiple <a class="gloss-ref" href="../../glossary.html#term-w11-logistic-regression" title="ดูนิยามใน Glossary">Logistic Regression</a> Model</div>
+<div class="slide-title">Multiple <a class="gloss-ref" href="../../glossary.html#term-w11-logistic-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Logistic Regression</a> Model</div>
 </div>
-<div class="key-message">Multiple Logistic = เพิ่ม predictors ใน log-<a class="gloss-ref" href="../../glossary.html#term-w11-odds" title="ดูนิยามใน Glossary">odds</a> — ตีความเหมือน <a class="gloss-ref" href="../../glossary.html#term-w11-mlr" title="ดูนิยามใน Glossary">MLR</a> โดยยึดตัวอื่นคงที่</div>
+<div class="key-message">Multiple Logistic = เพิ่ม predictors ใน log-<a class="gloss-ref" href="../../glossary.html#term-w11-odds" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">odds</a> — ตีความเหมือน <a class="gloss-ref" href="../../glossary.html#term-w11-mlr" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">MLR</a> โดยยึดตัวอื่นคงที่</div>
 <div class="slide-content"><p><strong>Model</strong>: $$\log\frac{p(X)}{1-p(X)} = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p$$</p>
 <p>$$p(X) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X_1 + \cdots + \beta_p X_p)}}$$</p>
 <p><strong>ตัวอย่าง Default</strong>: $$\log\frac{p(\text{default})}{1-p(\text{default})} = \beta_0 + \beta_1\text{balance} + \beta_2\text{income} + \beta_3\text{student}$$</p>
@@ -366,9 +366,9 @@ h3.content-heading {
 <div class="slide slide-2" data-title="Python: Multiple Logistic Regression">
 <div class="slide-header">
 <div class="slide-num">Slide 3</div>
-<div class="slide-title">Python: Multiple <a class="gloss-ref" href="../../glossary.html#term-w11-logistic-regression" title="ดูนิยามใน Glossary">Logistic Regression</a></div>
+<div class="slide-title">Python: Multiple <a class="gloss-ref" href="../../glossary.html#term-w11-logistic-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Logistic Regression</a></div>
 </div>
-<div class="key-message">formula ใน statsmodels เหมือน <a class="gloss-ref" href="../../glossary.html#term-w11-ols" title="ดูนิยามใน Glossary">OLS</a> ทุกประการ แค่เปลี่ยน <code>ols</code> → <code>logit</code></div>
+<div class="key-message">formula ใน statsmodels เหมือน <a class="gloss-ref" href="../../glossary.html#term-w11-ols" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">OLS</a> ทุกประการ แค่เปลี่ยน <code>ols</code> → <code>logit</code></div>
 <div class="slide-content"><div class="code-block"><div class="code-lang">python</div><pre><code>import statsmodels.formula.api as smf
 import pandas as pd
 
@@ -386,14 +386,14 @@ Intercept  -10.869      0.492  -22.08   0.000
 balance      0.006      0.000   24.74   0.000
 income       0.000      0.000    0.37   0.712
 student_num -0.647      0.236   -2.74   0.006</code></pre></div>
-<p><strong>สังเกต</strong>: income p = 0.712 → NOT significant ใน <a class="gloss-ref" href="../../glossary.html#term-w11-mlr" title="ดูนิยามใน Glossary">MLR</a> แม้ <a class="gloss-ref" href="../../glossary.html#term-w11-slr" title="ดูนิยามใน Glossary">SLR</a> อาจ significant</p></div>
+<p><strong>สังเกต</strong>: income p = 0.712 → NOT significant ใน <a class="gloss-ref" href="../../glossary.html#term-w11-mlr" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">MLR</a> แม้ <a class="gloss-ref" href="../../glossary.html#term-w11-slr" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">SLR</a> อาจ significant</p></div>
 </div>
 <div class="slide slide-3" data-title="Confounding: Student Effect">
 <div class="slide-header">
 <div class="slide-num">Slide 4</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w11-confounding" title="ดูนิยามใน Glossary">Confounding</a>: Student Effect</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w11-confounding" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Confounding</a>: Student Effect</div>
 </div>
-<div class="key-message">Student = Yes → lower default rate ใน <a class="gloss-ref" href="../../glossary.html#term-w11-slr" title="ดูนิยามใน Glossary">SLR</a> แต่ higher ใน <a class="gloss-ref" href="../../glossary.html#term-w11-mlr" title="ดูนิยามใน Glossary">MLR</a> — confounding จาก balance</div>
+<div class="key-message">Student = Yes → lower default rate ใน <a class="gloss-ref" href="../../glossary.html#term-w11-slr" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">SLR</a> แต่ higher ใน <a class="gloss-ref" href="../../glossary.html#term-w11-mlr" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">MLR</a> — confounding จาก balance</div>
 <div class="slide-content"><p><strong>SLR: Default ~ Student</strong>:</p>
 <div class="code-block"><pre><code>student_num   coef = 0.405 (p &lt; 0.001)  ← student default MORE?</code></pre></div>
 <p>→ Student = Yes → default probability สูงกว่า</p>
@@ -411,13 +411,13 @@ student_num -0.647      0.236   -2.74   0.006</code></pre></div>
 <div class="slide slide-4" data-title="Multinomial Logistic Regression (K &gt; 2)">
 <div class="slide-header">
 <div class="slide-num">Slide 5</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w11-multinomial-logistic-regression" title="ดูนิยามใน Glossary">Multinomial Logistic Regression</a> (K &gt; 2)</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w11-multinomial-logistic-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Multinomial Logistic Regression</a> (K &gt; 2)</div>
 </div>
-<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-w11-softmax-function" title="ดูนิยามใน Glossary">Softmax function</a> ขยาย sigmoid ให้รองรับ K class — เลือก reference class แล้ว fit K-1 models</div>
+<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-w11-softmax-function" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Softmax function</a> ขยาย sigmoid ให้รองรับ K class — เลือก reference class แล้ว fit K-1 models</div>
 <div class="slide-content"><p><strong>Problem</strong>: K &gt; 2 classes — เช่น ผลการวินิจฉัย: Low Risk / Medium Risk / High Risk</p>
 <p><strong>Multinomial Model</strong> (Softmax): $$\Pr(Y=k|X) = \frac{e^{\beta_{0k} + \boldsymbol{\beta}_k^T\mathbf{X}}}{\sum_{l=1}^{K}e^{\beta_{0l} + \boldsymbol{\beta}_l^T\mathbf{X}}}$$</p>
 <ul class="slide-list">
-<li>Reference class K: log-<a class="gloss-ref" href="../../glossary.html#term-w11-odds" title="ดูนิยามใน Glossary">odds</a> vs class K = β₀ₖ + βₖᵀX</li>
+<li>Reference class K: log-<a class="gloss-ref" href="../../glossary.html#term-w11-odds" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">odds</a> vs class K = β₀ₖ + βₖᵀX</li>
 <li>K−1 sets of coefficients (เหมือน dummy variable)</li>
 <li>Σ probabilities = 1 (valid distribution)</li>
 </ul></div>
@@ -453,9 +453,9 @@ print('P(High):', round(proba[0,2],4))</code></pre></div></div>
 <div class="slide slide-6" data-title="Odds Ratios: ตีความง่ายขึ้น">
 <div class="slide-header">
 <div class="slide-num">Slide 7</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w11-odds" title="ดูนิยามใน Glossary">Odds</a> Ratios: ตีความง่ายขึ้น</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w11-odds" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Odds</a> Ratios: ตีความง่ายขึ้น</div>
 </div>
-<div class="key-message">e^β̂ = <a class="gloss-ref" href="../../glossary.html#term-w11-odds-ratio" title="ดูนิยามใน Glossary">Odds Ratio</a> — ตีความได้ชัดเจนกว่า coefficient ดิบ</div>
+<div class="key-message">e^β̂ = <a class="gloss-ref" href="../../glossary.html#term-w11-odds-ratio" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Odds Ratio</a> — ตีความได้ชัดเจนกว่า coefficient ดิบ</div>
 <div class="slide-content"><p><strong>Odds Ratio</strong>: $$OR = e^{\hat{\beta}_1} = \frac{\text{Odds}(X=x+1)}{\text{Odds}(X=x)}$$</p>
 <p><strong>ตัวอย่าง Default ~ Balance + Student</strong>:</p>
 <ul class="slide-list">
@@ -502,9 +502,9 @@ print(result)</code></pre></div></div>
 <div class="key-message">Multiple Logistic = Multiple Linear แต่ predict probability; Multinomial = Softmax</div>
 <div class="slide-content"><p><strong>สิ่งที่เรียนรู้วันนี้</strong>:</p>
 <ul class="slide-list">
-<li><strong>Multiple Logistic</strong>: log-<a class="gloss-ref" href="../../glossary.html#term-w11-odds" title="ดูนิยามใน Glossary">odds</a> linear ใน X₁,…,Xₚ — ตีความ "holding others fixed"</li>
-<li><strong><a class="gloss-ref" href="../../glossary.html#term-w11-confounding" title="ดูนิยามใน Glossary">Confounding</a></strong>: student example — ผลเปลี่ยนทิศทางเมื่อ control balance</li>
-<li><strong><a class="gloss-ref" href="../../glossary.html#term-w11-odds-ratio" title="ดูนิยามใน Glossary">Odds Ratio</a></strong>: e^β̂ — ตีความง่ายกว่า coefficient ดิบ</li>
+<li><strong>Multiple Logistic</strong>: log-<a class="gloss-ref" href="../../glossary.html#term-w11-odds" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">odds</a> linear ใน X₁,…,Xₚ — ตีความ "holding others fixed"</li>
+<li><strong><a class="gloss-ref" href="../../glossary.html#term-w11-confounding" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Confounding</a></strong>: student example — ผลเปลี่ยนทิศทางเมื่อ control balance</li>
+<li><strong><a class="gloss-ref" href="../../glossary.html#term-w11-odds-ratio" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Odds Ratio</a></strong>: e^β̂ — ตีความง่ายกว่า coefficient ดิบ</li>
 <li><strong>Multinomial</strong>: Softmax สำหรับ K &gt; 2 classes</li>
 </ul>
 <div class="table-wrap"><table>
@@ -536,7 +536,7 @@ print(result)</code></pre></div></div>
 <td><code>np.exp(model.params)</code></td>
 </tr>
 </tbody></table></div>
-<p><strong>สัปดาห์ต่อไป — Slide 5</strong>: <a class="gloss-ref" href="../../glossary.html#term-w11-classification" title="ดูนิยามใน Glossary">Classification</a> Metrics — <a class="gloss-ref" href="../../glossary.html#term-w11-confusion-matrix" title="ดูนิยามใน Glossary">Confusion Matrix</a>, <a class="gloss-ref" href="../../glossary.html#term-w11-precision" title="ดูนิยามใน Glossary">Precision</a>, Recall, <a class="gloss-ref" href="../../glossary.html#term-w11-f1" title="ดูนิยามใน Glossary">F1</a></p></div>
+<p><strong>สัปดาห์ต่อไป — Slide 5</strong>: <a class="gloss-ref" href="../../glossary.html#term-w11-classification" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Classification</a> Metrics — <a class="gloss-ref" href="../../glossary.html#term-w11-confusion-matrix" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Confusion Matrix</a>, <a class="gloss-ref" href="../../glossary.html#term-w11-precision" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Precision</a>, Recall, <a class="gloss-ref" href="../../glossary.html#term-w11-f1" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">F1</a></p></div>
 </div>
 </div>
 <div id="nav">

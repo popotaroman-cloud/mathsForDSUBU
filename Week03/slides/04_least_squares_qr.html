@@ -350,7 +350,7 @@ h3.content-heading {
 <div class="slide-num">Slide 1</div>
 <div class="slide-title">Title</div>
 </div>
-<div class="slide-content"><p><strong>Least Squares: คณิตศาสตร์เบื้องหลัง Linear <a class="gloss-ref" href="../../glossary.html#term-regression" title="ดูนิยามใน Glossary">Regression</a></strong> Week 3 | <a class="gloss-ref" href="../../glossary.html#term-w3-clo1" title="ดูนิยามใน Glossary">CLO1</a> | Connection: → Week 8 (<a class="gloss-ref" href="../../glossary.html#term-slr" title="ดูนิยามใน Glossary">SLR</a>), → Week 9 (<a class="gloss-ref" href="../../glossary.html#term-mlr" title="ดูนิยามใน Glossary">MLR</a>)</p></div>
+<div class="slide-content"><p><strong>Least Squares: คณิตศาสตร์เบื้องหลัง Linear <a class="gloss-ref" href="../../glossary.html#term-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Regression</a></strong> Week 3 | <a class="gloss-ref" href="../../glossary.html#term-w3-clo1" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">CLO1</a> | Connection: → Week 8 (<a class="gloss-ref" href="../../glossary.html#term-slr" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">SLR</a>), → Week 9 (<a class="gloss-ref" href="../../glossary.html#term-mlr" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">MLR</a>)</p></div>
 </div>
 <div class="slide slide-1" data-title="ปัญหา: Ax = b ไม่มีคำตอบ">
 <div class="slide-header">
@@ -358,7 +358,7 @@ h3.content-heading {
 <div class="slide-title">ปัญหา: Ax = b ไม่มีคำตอบ</div>
 </div>
 <div class="key-message">Dataset จริงมี n &gt;&gt; p — overdetermined system ไม่มี exact solution</div>
-<div class="slide-content"><p><strong><a class="gloss-ref" href="../../glossary.html#term-regression" title="ดูนิยามใน Glossary">Regression</a> setup</strong>:</p>
+<div class="slide-content"><p><strong><a class="gloss-ref" href="../../glossary.html#term-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Regression</a> setup</strong>:</p>
 <ul class="slide-list">
 <li>n = 100 data points, p = 3 features</li>
 <li>A ∈ ℝ¹⁰⁰ˣ³, b ∈ ℝ¹⁰⁰ → overdetermined</li>
@@ -377,14 +377,14 @@ h3.content-heading {
 <ul class="slide-list">
 <li>Ax̂ = p = projection ของ b ลง C(A)</li>
 <li>Error e = b − Ax̂ ⊥ C(A)</li>
-<li>→ Aᵀe = 0 → Aᵀ(b − Ax̂) = 0 → <strong><a class="gloss-ref" href="../../glossary.html#term-w3-normal-equations" title="ดูนิยามใน Glossary">Normal Equations</a></strong></li>
+<li>→ Aᵀe = 0 → Aᵀ(b − Ax̂) = 0 → <strong><a class="gloss-ref" href="../../glossary.html#term-w3-normal-equations" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Normal Equations</a></strong></li>
 </ul>
 <p>$$\mathbf{A}^T\mathbf{A}\hat{\mathbf{x}} = \mathbf{A}^T\mathbf{b}$$</p></div>
 </div>
 <div class="slide slide-3" data-title="Normal Equations">
 <div class="slide-header">
 <div class="slide-num">Slide 4</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w3-normal-equations" title="ดูนิยามใน Glossary">Normal Equations</a></div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w3-normal-equations" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Normal Equations</a></div>
 </div>
 <div class="key-message">Aᵀ(b − Ax̂) = 0 ↔ Normal Equations ↔ x̂ = (AᵀA)⁻¹Aᵀb</div>
 <div class="slide-content"><p>$$(\mathbf{A}^T\mathbf{A})\hat{\mathbf{x}} = \mathbf{A}^T\mathbf{b}$$</p>
@@ -397,26 +397,26 @@ ATA = A.T @ A
 ATb = A.T @ b
 x_hat = np.linalg.solve(ATA, ATb)
 print('β̂ =', x_hat)</code></pre></div>
-<p><strong>ข้อจำกัด</strong>: AᵀA ต้องเป็น invertible → <a class="gloss-ref" href="../../glossary.html#term-w3-rank" title="ดูนิยามใน Glossary">rank</a>(A) = p → ไม่มี <a class="gloss-ref" href="../../glossary.html#term-w3-multicollinearity" title="ดูนิยามใน Glossary">multicollinearity</a></p></div>
+<p><strong>ข้อจำกัด</strong>: AᵀA ต้องเป็น invertible → <a class="gloss-ref" href="../../glossary.html#term-w3-rank" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">rank</a>(A) = p → ไม่มี <a class="gloss-ref" href="../../glossary.html#term-w3-multicollinearity" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">multicollinearity</a></p></div>
 </div>
 <div class="slide slide-4" data-title="Least Squares = Linear Regression">
 <div class="slide-header">
 <div class="slide-num">Slide 5</div>
-<div class="slide-title">Least Squares = Linear <a class="gloss-ref" href="../../glossary.html#term-regression" title="ดูนิยามใน Glossary">Regression</a></div>
+<div class="slide-title">Least Squares = Linear <a class="gloss-ref" href="../../glossary.html#term-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Regression</a></div>
 </div>
-<div class="key-message">Linear Regression คือ Least Squares บน [1, X] <a class="gloss-ref" href="../../glossary.html#term-w3-design-matrix" title="ดูนิยามใน Glossary">design matrix</a></div>
+<div class="key-message">Linear Regression คือ Least Squares บน [1, X] <a class="gloss-ref" href="../../glossary.html#term-w3-design-matrix" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">design matrix</a></div>
 <div class="slide-content"><p><strong>Model</strong>: ŷ = β₀ + β₁x₁ + ... + βₚxₚ</p>
 <p><strong>Design Matrix</strong> A = <strong>X</strong> ∈ ℝⁿˣ⁽ᵖ⁺¹⁾:</p>
 <p>$$\mathbf{X} = \begin{pmatrix} 1 &amp; x_{11} &amp; \cdots &amp; x_{1p} \\ 1 &amp; x_{21} &amp; \cdots &amp; x_{2p} \\ \vdots &amp; &amp; &amp; \vdots \\ 1 &amp; x_{n1} &amp; \cdots &amp; x_{np} \end{pmatrix}$$</p>
 <p>→ β̂ = (XᵀX)⁻¹Xᵀy = <code>np.linalg.lstsq(X, y)</code></p>
-<p><strong>Connection</strong>: Week 8 จะใช้ <a class="gloss-ref" href="../../glossary.html#term-slr" title="ดูนิยามใน Glossary">SLR</a> (p=1), Week 9 <a class="gloss-ref" href="../../glossary.html#term-mlr" title="ดูนิยามใน Glossary">MLR</a> (p&gt;1) — math เหมือนกัน</p></div>
+<p><strong>Connection</strong>: Week 8 จะใช้ <a class="gloss-ref" href="../../glossary.html#term-slr" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">SLR</a> (p=1), Week 9 <a class="gloss-ref" href="../../glossary.html#term-mlr" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">MLR</a> (p&gt;1) — math เหมือนกัน</p></div>
 </div>
 <div class="slide slide-5" data-title="np.linalg.lstsq vs Normal Equations">
 <div class="slide-header">
 <div class="slide-num">Slide 6</div>
-<div class="slide-title">np.linalg.lstsq vs <a class="gloss-ref" href="../../glossary.html#term-w3-normal-equations" title="ดูนิยามใน Glossary">Normal Equations</a></div>
+<div class="slide-title">np.linalg.lstsq vs <a class="gloss-ref" href="../../glossary.html#term-w3-normal-equations" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Normal Equations</a></div>
 </div>
-<div class="key-message">lstsq ใช้ <a class="gloss-ref" href="../../glossary.html#term-w3-svd" title="ดูนิยามใน Glossary">SVD</a> ดีกว่า Normal Equations เมื่อ AᵀA near-singular</div>
+<div class="key-message">lstsq ใช้ <a class="gloss-ref" href="../../glossary.html#term-w3-svd" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">SVD</a> ดีกว่า Normal Equations เมื่อ AᵀA near-singular</div>
 <div class="slide-content"><div class="table-wrap"><table>
 <thead>
 <tr>
@@ -441,7 +441,7 @@ print('β̂ =', x_hat)</code></pre></div>
 <tr>
 <td><code>np.linalg.lstsq</code></td>
 <td><code>lstsq(A, b)</code></td>
-<td>SVD: robust, handles <a class="gloss-ref" href="../../glossary.html#term-w3-rank" title="ดูนิยามใน Glossary">rank</a> deficient</td>
+<td>SVD: robust, handles <a class="gloss-ref" href="../../glossary.html#term-w3-rank" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">rank</a> deficient</td>
 <td>ช้ากว่าเล็กน้อย</td>
 </tr>
 </tbody></table></div>
@@ -476,9 +476,9 @@ print('q1 · q2 =', np.dot(q1, q2).round(10))  # ≈ 0</code></pre></div></div>
 <div class="slide slide-7" data-title="QR Decomposition">
 <div class="slide-header">
 <div class="slide-num">Slide 8</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w3-qr-decomposition" title="ดูนิยามใน Glossary">QR Decomposition</a></div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w3-qr-decomposition" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">QR Decomposition</a></div>
 </div>
-<div class="key-message">A = <a class="gloss-ref" href="../../glossary.html#term-w3-qr" title="ดูนิยามใน Glossary">QR</a> เก็บ orthogonal (Q) และ upper triangular (R) ไว้แยกกัน</div>
+<div class="key-message">A = <a class="gloss-ref" href="../../glossary.html#term-w3-qr" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">QR</a> เก็บ orthogonal (Q) และ upper triangular (R) ไว้แยกกัน</div>
 <div class="slide-content"><p>$$\mathbf{A} = \mathbf{Q}\mathbf{R}$$</p>
 <p>โดย Q orthogonal (QᵀQ = I), R upper triangular</p>
 <p><strong>Solving Least Squares via QR</strong>: $$\hat{x} = \mathbf{R}^{-1}\mathbf{Q}^T\mathbf{b}$$</p>
@@ -490,7 +490,7 @@ print('condition(R):', np.linalg.cond(R))  # R: cond ≈ sqrt(cond(A))</code></p
 <div class="slide slide-8" data-title="R² และ RSE">
 <div class="slide-header">
 <div class="slide-num">Slide 9</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w3-r2" title="ดูนิยามใน Glossary">R²</a> และ <a class="gloss-ref" href="../../glossary.html#term-w3-rse" title="ดูนิยามใน Glossary">RSE</a></div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w3-r2" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">R²</a> และ <a class="gloss-ref" href="../../glossary.html#term-w3-rse" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">RSE</a></div>
 </div>
 <div class="key-message">วัดความดีของ fit ด้วย R² (relative) และ RSE (absolute)</div>
 <div class="slide-content"><p>$$RSS = \|\mathbf{b} - \mathbf{A}\hat{x}\|^2 = \sum_i e_i^2$$ $$TSS = \|\mathbf{b} - \bar{b}\mathbf{1}\|^2, \quad R^2 = 1 - \frac{RSS}{TSS}$$ $$RSE = \sqrt{\frac{RSS}{n-p}}$$</p>
@@ -510,10 +510,10 @@ print(f'R² = {R2:.4f}, RSE = {RSE:.4f}')</code></pre></div></div>
 <div class="slide-content"><p><strong>สิ่งที่เรียนรู้วันนี้</strong>:</p>
 <ul class="slide-list">
 <li>Overdetermined Ax ≈ b → minimize ||Ax − b||²</li>
-<li><a class="gloss-ref" href="../../glossary.html#term-w3-normal-equations" title="ดูนิยามใน Glossary">Normal Equations</a>: AᵀAx̂ = Aᵀb → x̂ = (AᵀA)⁻¹Aᵀb</li>
-<li>lstsq ใช้ <a class="gloss-ref" href="../../glossary.html#term-w3-svd" title="ดูนิยามใน Glossary">SVD</a>: robust กว่าสำหรับ ill-conditioned matrix</li>
-<li><a class="gloss-ref" href="../../glossary.html#term-w3-qr-decomposition" title="ดูนิยามใน Glossary">QR decomposition</a>: stable solver ผ่าน x̂ = R⁻¹Qᵀb</li>
-<li><a class="gloss-ref" href="../../glossary.html#term-w3-r2" title="ดูนิยามใน Glossary">R²</a>, <a class="gloss-ref" href="../../glossary.html#term-w3-rse" title="ดูนิยามใน Glossary">RSE</a>: วัด goodness-of-fit</li>
+<li><a class="gloss-ref" href="../../glossary.html#term-w3-normal-equations" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Normal Equations</a>: AᵀAx̂ = Aᵀb → x̂ = (AᵀA)⁻¹Aᵀb</li>
+<li>lstsq ใช้ <a class="gloss-ref" href="../../glossary.html#term-w3-svd" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">SVD</a>: robust กว่าสำหรับ ill-conditioned matrix</li>
+<li><a class="gloss-ref" href="../../glossary.html#term-w3-qr-decomposition" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">QR decomposition</a>: stable solver ผ่าน x̂ = R⁻¹Qᵀb</li>
+<li><a class="gloss-ref" href="../../glossary.html#term-w3-r2" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">R²</a>, <a class="gloss-ref" href="../../glossary.html#term-w3-rse" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">RSE</a>: วัด goodness-of-fit</li>
 </ul>
 <p><strong>Connection</strong>: Week 8–9 = Least Squares on Advertising/Housing data</p></div>
 </div>

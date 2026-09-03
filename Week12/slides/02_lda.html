@@ -350,17 +350,17 @@ h3.content-heading {
 <div class="slide-num">Slide 1</div>
 <div class="slide-title">Title</div>
 </div>
-<div class="slide-content"><p><strong>Linear Discriminant Analysis (<a class="gloss-ref" href="../../glossary.html#term-w12-lda" title="ดูนิยามใน Glossary">LDA</a>)</strong> <a class="gloss-ref" href="../../glossary.html#term-islp" title="ดูนิยามใน Glossary">ISLP</a> Ch.4.4.1–4.4.2 | Week 12 | CLO3</p></div>
+<div class="slide-content"><p><strong>Linear Discriminant Analysis (<a class="gloss-ref" href="../../glossary.html#term-w12-lda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LDA</a>)</strong> <a class="gloss-ref" href="../../glossary.html#term-islp" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ISLP</a> Ch.4.4.1–4.4.2 | Week 12 | CLO3</p></div>
 </div>
 <div class="slide slide-1" data-title="LDA: Core Idea">
 <div class="slide-header">
 <div class="slide-num">Slide 2</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w12-lda" title="ดูนิยามใน Glossary">LDA</a>: Core Idea</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w12-lda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LDA</a>: Core Idea</div>
 </div>
-<div class="key-message">LDA หา <a class="gloss-ref" href="../../glossary.html#term-linear-combination" title="ดูนิยามใน Glossary">linear combination</a> ของ features ที่แยก class ได้ดีที่สุด โดย assume Gaussian shared <a class="gloss-ref" href="../../glossary.html#term-covariance" title="ดูนิยามใน Glossary">covariance</a></div>
+<div class="key-message">LDA หา <a class="gloss-ref" href="../../glossary.html#term-linear-combination" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">linear combination</a> ของ features ที่แยก class ได้ดีที่สุด โดย assume Gaussian shared <a class="gloss-ref" href="../../glossary.html#term-covariance" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">covariance</a></div>
 <div class="slide-content"><p><strong>Setup:</strong></p>
 <ul class="slide-list">
-<li>K classes, <a class="gloss-ref" href="../../glossary.html#term-prior" title="ดูนิยามใน Glossary">prior</a> πₖ = Pr(Y=k)</li>
+<li>K classes, <a class="gloss-ref" href="../../glossary.html#term-prior" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">prior</a> πₖ = Pr(Y=k)</li>
 <li>Within each class: X|Y=k ~ N(μₖ, <strong>Σ</strong>) — <strong>Σ เดียวกันทุก class</strong></li>
 <li>Goal: classify x ไปยัง class k ที่ทำให้ Pr(Y=k|X=x) สูงสุด</li>
 </ul>
@@ -371,9 +371,9 @@ h3.content-heading {
 <div class="slide slide-2" data-title="LDA for p=1: Derivation">
 <div class="slide-header">
 <div class="slide-num">Slide 3</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w12-lda" title="ดูนิยามใน Glossary">LDA</a> for p=1: Derivation</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w12-lda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LDA</a> for p=1: Derivation</div>
 </div>
-<div class="key-message">เมื่อมีเพียง 1 feature LDA ให้ <a class="gloss-ref" href="../../glossary.html#term-decision-boundary" title="ดูนิยามใน Glossary">decision boundary</a> ที่ midpoint ของ class means (เมื่อ π₁=π₂)</div>
+<div class="key-message">เมื่อมีเพียง 1 feature LDA ให้ <a class="gloss-ref" href="../../glossary.html#term-decision-boundary" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">decision boundary</a> ที่ midpoint ของ class means (เมื่อ π₁=π₂)</div>
 <div class="slide-content"><p><strong>p = 1 case:</strong> $$\delta_k(x) = \frac{x \mu_k}{\sigma^2} - \frac{\mu_k^2}{2\sigma^2} + \log(\pi_k)$$</p>
 <p><strong>Decision boundary (K=2):</strong> Set δ₁(x) = δ₂(x) → solve for x:</p>
 <p>$$x^* = \frac{\mu_1 + \mu_2}{2} - \frac{\sigma^2}{\mu_1 - \mu_2}\log\left(\frac{\pi_1}{\pi_2}\right)$$</p>
@@ -383,11 +383,11 @@ h3.content-heading {
 <div class="slide slide-3" data-title="LDA for p&gt;1">
 <div class="slide-header">
 <div class="slide-num">Slide 4</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w12-lda" title="ดูนิยามใน Glossary">LDA</a> for p&gt;1</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w12-lda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LDA</a> for p&gt;1</div>
 </div>
-<div class="key-message">LDA ขยายสู่ multiple features ด้วย Σ (<a class="gloss-ref" href="../../glossary.html#term-covariance-matrix" title="ดูนิยามใน Glossary">covariance matrix</a>) แทน σ²</div>
+<div class="key-message">LDA ขยายสู่ multiple features ด้วย Σ (<a class="gloss-ref" href="../../glossary.html#term-covariance-matrix" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">covariance matrix</a>) แทน σ²</div>
 <div class="slide-content"><p><strong>Multivariate case:</strong> $$X|Y=k \sim \mathcal{N}(\mu_k, \Sigma)$$</p>
-<p><strong><a class="gloss-ref" href="../../glossary.html#term-decision-boundary" title="ดูนิยามใน Glossary">Decision boundary</a>: linear ใน x</strong> เพราะ term xᵀΣ⁻¹μₖ linear → boundary เป็น hyperplane</p>
+<p><strong><a class="gloss-ref" href="../../glossary.html#term-decision-boundary" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Decision boundary</a>: linear ใน x</strong> เพราะ term xᵀΣ⁻¹μₖ linear → boundary เป็น hyperplane</p>
 <p><strong>Parameter Estimation จาก Training Data:</strong></p>
 <div class="table-wrap"><table>
 <thead>
@@ -399,18 +399,18 @@ h3.content-heading {
 </thead><tbody>
 <tr>
 <td>μ̂ₖ</td>
-<td>x̄ₖ (<a class="gloss-ref" href="../../glossary.html#term-sample" title="ดูนิยามใน Glossary">sample</a> mean ของ class k)</td>
-<td>mean <a class="gloss-ref" href="../../glossary.html#term-vector" title="ดูนิยามใน Glossary">vector</a></td>
+<td>x̄ₖ (<a class="gloss-ref" href="../../glossary.html#term-sample" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">sample</a> mean ของ class k)</td>
+<td>mean <a class="gloss-ref" href="../../glossary.html#term-vector" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">vector</a></td>
 </tr>
 <tr>
 <td>Σ̂</td>
-<td>pooled sample <a class="gloss-ref" href="../../glossary.html#term-covariance" title="ดูนิยามใน Glossary">covariance</a></td>
+<td>pooled sample <a class="gloss-ref" href="../../glossary.html#term-covariance" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">covariance</a></td>
 <td>shared covariance</td>
 </tr>
 <tr>
 <td>π̂ₖ</td>
 <td>nₖ/n</td>
-<td><a class="gloss-ref" href="../../glossary.html#term-prior" title="ดูนิยามใน Glossary">prior</a></td>
+<td><a class="gloss-ref" href="../../glossary.html#term-prior" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">prior</a></td>
 </tr>
 </tbody></table></div>
 <p><strong>Connection to Week 4:</strong> Σ เป็น covariance matrix → LDA ใช้ Σ⁻¹ ซึ่งต้องการ matrix inversion!</p>
@@ -419,7 +419,7 @@ h3.content-heading {
 <div class="slide slide-4" data-title="Python: Fit LDA">
 <div class="slide-header">
 <div class="slide-num">Slide 5</div>
-<div class="slide-title">Python: Fit <a class="gloss-ref" href="../../glossary.html#term-w12-lda" title="ดูนิยามใน Glossary">LDA</a></div>
+<div class="slide-title">Python: Fit <a class="gloss-ref" href="../../glossary.html#term-w12-lda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LDA</a></div>
 </div>
 <div class="key-message">sklearn ทำ estimation Σ̂, μ̂ₖ, π̂ₖ อัตโนมัติ เพียง 2 บรรทัด</div>
 <div class="slide-content"><div class="code-block"><div class="code-lang">python</div><pre><code>from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
@@ -448,7 +448,7 @@ Class means:
 <div class="slide slide-5" data-title="LDA Confusion Matrix + Threshold">
 <div class="slide-header">
 <div class="slide-num">Slide 6</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w12-lda" title="ดูนิยามใน Glossary">LDA</a> <a class="gloss-ref" href="../../glossary.html#term-confusion-matrix" title="ดูนิยามใน Glossary">Confusion Matrix</a> + <a class="gloss-ref" href="../../glossary.html#term-threshold" title="ดูนิยามใน Glossary">Threshold</a></div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w12-lda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LDA</a> <a class="gloss-ref" href="../../glossary.html#term-confusion-matrix" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Confusion Matrix</a> + <a class="gloss-ref" href="../../glossary.html#term-threshold" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Threshold</a></div>
 </div>
 <div class="key-message">Default threshold = 0.5 มักไม่เหมาะกับ imbalanced data — ปรับ threshold ตาม cost</div>
 <div class="slide-content"><p><strong>LDA Confusion Matrix (Default dataset, threshold=0.5):</strong></p>
@@ -462,16 +462,16 @@ Class means:
 </thead><tbody>
 <tr>
 <td><strong>True: No Default</strong></td>
-<td>9627 (<a class="gloss-ref" href="../../glossary.html#term-tn" title="ดูนิยามใน Glossary">TN</a>)</td>
-<td>44 (<a class="gloss-ref" href="../../glossary.html#term-fp" title="ดูนิยามใน Glossary">FP</a>)</td>
+<td>9627 (<a class="gloss-ref" href="../../glossary.html#term-tn" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">TN</a>)</td>
+<td>44 (<a class="gloss-ref" href="../../glossary.html#term-fp" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">FP</a>)</td>
 </tr>
 <tr>
 <td><strong>True: Default</strong></td>
-<td>252 (<a class="gloss-ref" href="../../glossary.html#term-fn" title="ดูนิยามใน Glossary">FN</a>)</td>
-<td>77 (<a class="gloss-ref" href="../../glossary.html#term-tp" title="ดูนิยามใน Glossary">TP</a>)</td>
+<td>252 (<a class="gloss-ref" href="../../glossary.html#term-fn" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">FN</a>)</td>
+<td>77 (<a class="gloss-ref" href="../../glossary.html#term-tp" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">TP</a>)</td>
 </tr>
 </tbody></table></div>
-<p><strong><a class="gloss-ref" href="../../glossary.html#term-accuracy" title="ดูนิยามใน Glossary">Accuracy</a> = (9627+77)/10000 = 97.0%</strong> <strong>Recall = 77/(77+252) = 23.4%</strong> ← ต่ำมาก!</p>
+<p><strong><a class="gloss-ref" href="../../glossary.html#term-accuracy" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Accuracy</a> = (9627+77)/10000 = 97.0%</strong> <strong>Recall = 77/(77+252) = 23.4%</strong> ← ต่ำมาก!</p>
 <p><strong>แก้: ลด threshold จาก 0.5 → 0.2</strong></p>
 <div class="code-block"><div class="code-lang">python</div><pre><code>y_proba = lda.predict_proba(X_test)[:,1]
 y_pred_low = (y_proba &gt;= 0.2).astype(int)</code></pre></div>
@@ -480,9 +480,9 @@ y_pred_low = (y_proba &gt;= 0.2).astype(int)</code></pre></div>
 <div class="slide slide-6" data-title="LDA as Dimensionality Reduction">
 <div class="slide-header">
 <div class="slide-num">Slide 7</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w12-lda" title="ดูนิยามใน Glossary">LDA</a> as <a class="gloss-ref" href="../../glossary.html#term-dimensionality-reduction" title="ดูนิยามใน Glossary">Dimensionality Reduction</a></div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w12-lda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LDA</a> as <a class="gloss-ref" href="../../glossary.html#term-dimensionality-reduction" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Dimensionality Reduction</a></div>
 </div>
-<div class="key-message">LDA ไม่ใช่แค่ classifier — ยังใช้ลด <a class="gloss-ref" href="../../glossary.html#term-dimension" title="ดูนิยามใน Glossary">dimension</a> ได้เป็น K-1 dimensions</div>
+<div class="key-message">LDA ไม่ใช่แค่ classifier — ยังใช้ลด <a class="gloss-ref" href="../../glossary.html#term-dimension" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">dimension</a> ได้เป็น K-1 dimensions</div>
 <div class="slide-content"><p><strong>LDA Projection:</strong></p>
 <ul class="slide-list">
 <li>Project data จาก p dimensions → <strong>K−1 dimensions</strong></li>
@@ -497,7 +497,7 @@ X_2d = lda.transform(X_train)  # shape: (n, 2)
 # Scatter plot
 plt.scatter(X_2d[:,0], X_2d[:,1], c=y_train, cmap='Set1')
 plt.xlabel('LD1'); plt.ylabel('LD2')</code></pre></div>
-<p><strong>LDA vs <a class="gloss-ref" href="../../glossary.html#term-w12-pca" title="ดูนิยามใน Glossary">PCA</a>:</strong></p>
+<p><strong>LDA vs <a class="gloss-ref" href="../../glossary.html#term-w12-pca" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">PCA</a>:</strong></p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -527,7 +527,7 @@ plt.xlabel('LD1'); plt.ylabel('LD2')</code></pre></div>
 <div class="slide slide-7" data-title="LDA on Smarket Dataset">
 <div class="slide-header">
 <div class="slide-num">Slide 8</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w12-lda" title="ดูนิยามใน Glossary">LDA</a> on Smarket Dataset</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w12-lda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LDA</a> on Smarket Dataset</div>
 </div>
 <div class="key-message">LDA ไม่ได้ดีเสมอ — ถ้า data ไม่ meet assumptions ผลอาจไม่ดีกว่า Logistic</div>
 <div class="slide-content"><p><strong>Smarket: predict Up/Down ของ S&amp;P500</strong></p>
@@ -540,11 +540,11 @@ plt.xlabel('LD1'); plt.ylabel('LD2')</code></pre></div>
 <thead>
 <tr>
 <th>Method</th>
-<th>Test <a class="gloss-ref" href="../../glossary.html#term-accuracy" title="ดูนิยามใน Glossary">Accuracy</a> (2005)</th>
+<th>Test <a class="gloss-ref" href="../../glossary.html#term-accuracy" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Accuracy</a> (2005)</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><a class="gloss-ref" href="../../glossary.html#term-logistic-regression" title="ดูนิยามใน Glossary">Logistic Regression</a></td>
+<td><a class="gloss-ref" href="../../glossary.html#term-logistic-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Logistic Regression</a></td>
 <td>55.6%</td>
 </tr>
 <tr>
@@ -558,18 +558,18 @@ plt.xlabel('LD1'); plt.ylabel('LD2')</code></pre></div>
 <div class="slide slide-8" data-title="LDA Assumptions Check">
 <div class="slide-header">
 <div class="slide-num">Slide 9</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w12-lda" title="ดูนิยามใน Glossary">LDA</a> Assumptions Check</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w12-lda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LDA</a> Assumptions Check</div>
 </div>
-<div class="key-message">ตรวจ assumption ก่อนใช้ LDA — ถ้า assumption ผิด อาจต้องใช้ <a class="gloss-ref" href="../../glossary.html#term-w12-qda" title="ดูนิยามใน Glossary">QDA</a> หรือ LR แทน</div>
+<div class="key-message">ตรวจ assumption ก่อนใช้ LDA — ถ้า assumption ผิด อาจต้องใช้ <a class="gloss-ref" href="../../glossary.html#term-w12-qda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">QDA</a> หรือ LR แทน</div>
 <div class="slide-content"><p><strong>Assumption 1: Gaussian Distribution ของ X ใน class k</strong></p>
 <ul class="slide-list">
-<li>ตรวจด้วย: <a class="gloss-ref" href="../../glossary.html#term-histogram" title="ดูนิยามใน Glossary">histogram</a> ของแต่ละ feature แยกตาม class</li>
+<li>ตรวจด้วย: <a class="gloss-ref" href="../../glossary.html#term-histogram" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">histogram</a> ของแต่ละ feature แยกตาม class</li>
 <li>ผลสำหรับ balance (Default): roughly Gaussian ✓</li>
 <li>ผลสำหรับ Lag1 (Smarket): roughly Gaussian ✓</li>
 </ul>
-<p><strong>Assumption 2: Shared <a class="gloss-ref" href="../../glossary.html#term-covariance-matrix" title="ดูนิยามใน Glossary">Covariance Matrix</a> Σ</strong></p>
+<p><strong>Assumption 2: Shared <a class="gloss-ref" href="../../glossary.html#term-covariance-matrix" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Covariance Matrix</a> Σ</strong></p>
 <ul class="slide-list">
-<li>ตรวจด้วย: <a class="gloss-ref" href="../../glossary.html#term-w12-box-s-m-test" title="ดูนิยามใน Glossary">Box's M test</a> (formal) หรือ plot <a class="gloss-ref" href="../../glossary.html#term-covariance" title="ดูนิยามใน Glossary">covariance</a> ellipses</li>
+<li>ตรวจด้วย: <a class="gloss-ref" href="../../glossary.html#term-w12-box-s-m-test" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Box's M test</a> (formal) หรือ plot <a class="gloss-ref" href="../../glossary.html#term-covariance" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">covariance</a> ellipses</li>
 <li>ถ้า Σ₁ ≠ Σ₂ อย่างชัดเจน → ใช้ QDA แทน</li>
 </ul>
 <p><strong>Rule of Thumb:</strong></p>
@@ -584,12 +584,12 @@ plt.xlabel('LD1'); plt.ylabel('LD2')</code></pre></div>
 <div class="slide-num">Slide 10</div>
 <div class="slide-title">Summary</div>
 </div>
-<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-w12-lda" title="ดูนิยามใน Glossary">LDA</a> เป็น powerful linear classifier ที่ตีความได้และ reduce <a class="gloss-ref" href="../../glossary.html#term-dimension" title="ดูนิยามใน Glossary">dimension</a> ได้</div>
+<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-w12-lda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LDA</a> เป็น powerful linear classifier ที่ตีความได้และ reduce <a class="gloss-ref" href="../../glossary.html#term-dimension" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">dimension</a> ได้</div>
 <div class="slide-content"><p><strong>LDA สรุป:</strong></p>
 <ul class="slide-list">
 <li>Discriminant function: δₖ(x) = xᵀΣ⁻¹μₖ − ½μₖᵀΣ⁻¹μₖ + log(πₖ)</li>
-<li>Estimate: μ̂ₖ (class mean), Σ̂ (pooled <a class="gloss-ref" href="../../glossary.html#term-covariance" title="ดูนิยามใน Glossary">covariance</a>), π̂ₖ = nₖ/n</li>
-<li><a class="gloss-ref" href="../../glossary.html#term-decision-boundary" title="ดูนิยามใน Glossary">Decision boundary</a>: <strong>linear</strong> (hyperplane)</li>
+<li>Estimate: μ̂ₖ (class mean), Σ̂ (pooled <a class="gloss-ref" href="../../glossary.html#term-covariance" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">covariance</a>), π̂ₖ = nₖ/n</li>
+<li><a class="gloss-ref" href="../../glossary.html#term-decision-boundary" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Decision boundary</a>: <strong>linear</strong> (hyperplane)</li>
 <li>ลด dimension ได้สูงสุด K−1 ด้วย <code>lda.transform()</code></li>
 </ul>
 <p><strong>เหมาะสำหรับ:</strong></p>
@@ -599,7 +599,7 @@ plt.xlabel('LD1'); plt.ylabel('LD2')</code></pre></div>
 <li>ต้องการ interpretable linear boundary</li>
 </ul>
 <p><strong>Python:</strong> <code>from sklearn.discriminant_analysis import LinearDiscriminantAnalysis</code></p>
-<p><strong>สัปดาห์ต่อไป:</strong> <a class="gloss-ref" href="../../glossary.html#term-w12-qda" title="ดูนิยามใน Glossary">QDA</a> ผ่อนคลาย assumption shared Σ → quadratic boundary</p></div>
+<p><strong>สัปดาห์ต่อไป:</strong> <a class="gloss-ref" href="../../glossary.html#term-w12-qda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">QDA</a> ผ่อนคลาย assumption shared Σ → quadratic boundary</p></div>
 </div>
 </div>
 <div id="nav">

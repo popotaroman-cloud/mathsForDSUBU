@@ -350,12 +350,12 @@ h3.content-heading {
 <div class="slide-num">Slide 1</div>
 <div class="slide-title">Title</div>
 </div>
-<div class="slide-content"><p><strong>Variable Selection: เลือก Predictor ที่ดีที่สุดด้วย Adjusted <a class="gloss-ref" href="../../glossary.html#term-w9-r2" title="ดูนิยามใน Glossary">R²</a>, <a class="gloss-ref" href="../../glossary.html#term-w9-aic" title="ดูนิยามใน Glossary">AIC</a>, <a class="gloss-ref" href="../../glossary.html#term-w9-bic" title="ดูนิยามใน Glossary">BIC</a></strong> Week 9 | CLO3 | <a class="gloss-ref" href="../../glossary.html#term-islp" title="ดูนิยามใน Glossary">ISLP</a> 3.2.2–3.2.3 <a class="gloss-ref" href="../../glossary.html#term-llo" title="ดูนิยามใน Glossary">LLo</a>: เลือก predictor ที่สำคัญและเปรียบเทียบ model ด้วย Adjusted R² ได้</p></div>
+<div class="slide-content"><p><strong>Variable Selection: เลือก Predictor ที่ดีที่สุดด้วย Adjusted <a class="gloss-ref" href="../../glossary.html#term-w9-r2" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">R²</a>, <a class="gloss-ref" href="../../glossary.html#term-w9-aic" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">AIC</a>, <a class="gloss-ref" href="../../glossary.html#term-w9-bic" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">BIC</a></strong> Week 9 | CLO3 | <a class="gloss-ref" href="../../glossary.html#term-islp" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ISLP</a> 3.2.2–3.2.3 <a class="gloss-ref" href="../../glossary.html#term-llo" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LLo</a>: เลือก predictor ที่สำคัญและเปรียบเทียบ model ด้วย Adjusted R² ได้</p></div>
 </div>
 <div class="slide slide-1" data-title="ปัญหา: เพิ่ม Predictor แล้ว R² สูงขึ้นเสมอ">
 <div class="slide-header">
 <div class="slide-num">Slide 2</div>
-<div class="slide-title">ปัญหา: เพิ่ม Predictor แล้ว <a class="gloss-ref" href="../../glossary.html#term-w9-r2" title="ดูนิยามใน Glossary">R²</a> สูงขึ้นเสมอ</div>
+<div class="slide-title">ปัญหา: เพิ่ม Predictor แล้ว <a class="gloss-ref" href="../../glossary.html#term-w9-r2" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">R²</a> สูงขึ้นเสมอ</div>
 </div>
 <div class="key-message">R² ไม่เหมาะสำหรับเปรียบเทียบ model ที่มี predictor จำนวนต่างกัน</div>
 <div class="slide-content"><div class="code-block"><div class="code-lang">python</div><pre><code># R² เพิ่มทุกครั้งที่เพิ่ม predictor แม้ predictor นั้นไม่มีประโยชน์
@@ -375,7 +375,7 @@ print(f'R²(TV+Radio+Newspaper):   {m3.rsquared:.4f}')
 <div class="slide slide-2" data-title="Adjusted R²">
 <div class="slide-header">
 <div class="slide-num">Slide 3</div>
-<div class="slide-title">Adjusted <a class="gloss-ref" href="../../glossary.html#term-w9-r2" title="ดูนิยามใน Glossary">R²</a></div>
+<div class="slide-title">Adjusted <a class="gloss-ref" href="../../glossary.html#term-w9-r2" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">R²</a></div>
 </div>
 <div class="key-message">Adjusted R² ลงโทษ predictor ที่ไม่ช่วย — ใช้เปรียบเทียบ model ต่างจำนวน predictor</div>
 <div class="slide-content"><p><strong>สูตร</strong>: $$R^2_{adj} = 1 - \frac{RSS/(n-p-1)}{TSS/(n-1)}$$</p>
@@ -413,12 +413,12 @@ print(f'R²(TV+Radio+Newspaper):   {m3.rsquared:.4f}')
 <div class="slide slide-3" data-title="AIC และ BIC">
 <div class="slide-header">
 <div class="slide-num">Slide 4</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w9-aic" title="ดูนิยามใน Glossary">AIC</a> และ <a class="gloss-ref" href="../../glossary.html#term-w9-bic" title="ดูนิยามใน Glossary">BIC</a></div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w9-aic" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">AIC</a> และ <a class="gloss-ref" href="../../glossary.html#term-w9-bic" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">BIC</a></div>
 </div>
 <div class="key-message">AIC และ BIC เป็น information criteria — เลือก model ที่ AIC/BIC ต่ำที่สุด</div>
 <div class="slide-content"><p>$$AIC = -2\ln(\hat{L}) + 2p$$ $$BIC = -2\ln(\hat{L}) + p\ln(n)$$</p>
 <ul class="slide-list">
-<li>L̂: maximum <a class="gloss-ref" href="../../glossary.html#term-likelihood" title="ดูนิยามใน Glossary">likelihood</a> (<a class="gloss-ref" href="../../glossary.html#term-w9-ols" title="ดูนิยามใน Glossary">OLS</a> → proportional to <a class="gloss-ref" href="../../glossary.html#term-w9-rss" title="ดูนิยามใน Glossary">RSS</a>)</li>
+<li>L̂: maximum <a class="gloss-ref" href="../../glossary.html#term-likelihood" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">likelihood</a> (<a class="gloss-ref" href="../../glossary.html#term-w9-ols" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">OLS</a> → proportional to <a class="gloss-ref" href="../../glossary.html#term-w9-rss" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">RSS</a>)</li>
 <li>BIC ลงโทษ parameter มากกว่า AIC เมื่อ n ใหญ่</li>
 <li>เลือก model ที่ <strong>AIC/BIC ต่ำที่สุด</strong></li>
 </ul>
@@ -450,14 +450,14 @@ Step 3: ลอง Newspaper → RSS 556.83 — ไม่ลดมีนัยส
 <div class="slide-num">Slide 6</div>
 <div class="slide-title">Backward Elimination</div>
 </div>
-<div class="key-message">Backward เริ่มจาก <a class="gloss-ref" href="../../glossary.html#term-w9-full-model" title="ดูนิยามใน Glossary">full model</a> แล้วลบ predictor ทีละตัว</div>
+<div class="key-message">Backward เริ่มจาก <a class="gloss-ref" href="../../glossary.html#term-w9-full-model" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">full model</a> แล้วลบ predictor ทีละตัว</div>
 <div class="slide-content"><p><strong>Algorithm</strong>:</p>
 <div class="code-block"><pre><code>1. Start: full model (ทุก predictor)
 2. ดู: p-value ของแต่ละ predictor
 3. ลบ: predictor ที่มี p-value สูงที่สุด (ถ้า &gt; threshold)
 4. Repeat: ลบอีก 1 ตัว
 5. หยุด: ทุก predictor ที่เหลือมี p &lt; threshold</code></pre></div>
-<p><strong>ตัวอย่าง Advertising (<a class="gloss-ref" href="../../glossary.html#term-threshold" title="ดูนิยามใน Glossary">threshold</a> = 0.05)</strong>:</p>
+<p><strong>ตัวอย่าง Advertising (<a class="gloss-ref" href="../../glossary.html#term-threshold" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">threshold</a> = 0.05)</strong>:</p>
 <div class="code-block"><pre><code>Step 1: Full model — Newspaper p = 0.860 (สูงที่สุด)
 Step 2: ลบ Newspaper → TV + Radio model
 Step 3: TV p ≈ 0, Radio p ≈ 0 → ทุกตัว significant → หยุด</code></pre></div>
@@ -468,7 +468,7 @@ Step 3: TV p ≈ 0, Radio p ≈ 0 → ทุกตัว significant → หย�
 <div class="slide-num">Slide 7</div>
 <div class="slide-title">Python: เปรียบเทียบ Models Systematically</div>
 </div>
-<div class="key-message">ลอง models ทั้งหมดที่เป็นไปได้แล้วเปรียบ <a class="gloss-ref" href="../../glossary.html#term-w9-aic" title="ดูนิยามใน Glossary">AIC</a>/R²_adj</div>
+<div class="key-message">ลอง models ทั้งหมดที่เป็นไปได้แล้วเปรียบ <a class="gloss-ref" href="../../glossary.html#term-w9-aic" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">AIC</a>/R²_adj</div>
 <div class="slide-content"><div class="code-block"><div class="code-lang">python</div><pre><code>from itertools import combinations
 
 # ─── เปรียบเทียบทุก subset ของ predictors ──────────────────
@@ -494,9 +494,9 @@ print(res_df.to_string(index=False))</code></pre></div></div>
 <div class="slide slide-7" data-title="ผล Best Subset Selection">
 <div class="slide-header">
 <div class="slide-num">Slide 8</div>
-<div class="slide-title">ผล <a class="gloss-ref" href="../../glossary.html#term-w9-best-subset-selection" title="ดูนิยามใน Glossary">Best Subset Selection</a></div>
+<div class="slide-title">ผล <a class="gloss-ref" href="../../glossary.html#term-w9-best-subset-selection" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Best Subset Selection</a></div>
 </div>
-<div class="key-message">TV + Radio เป็น best model — R²_adj สูงที่สุด <a class="gloss-ref" href="../../glossary.html#term-w9-aic" title="ดูนิยามใน Glossary">AIC</a> ต่ำที่สุด</div>
+<div class="key-message">TV + Radio เป็น best model — R²_adj สูงที่สุด <a class="gloss-ref" href="../../glossary.html#term-w9-aic" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">AIC</a> ต่ำที่สุด</div>
 <div class="slide-content"><div class="table-wrap"><table>
 <thead>
 <tr>
@@ -557,23 +557,23 @@ print(res_df.to_string(index=False))</code></pre></div></div>
 <div class="slide-num">Slide 9</div>
 <div class="slide-title">ข้อควรระวัง</div>
 </div>
-<div class="key-message">Variable selection มีข้อจำกัด — ต้องระวัง <a class="gloss-ref" href="../../glossary.html#term-w9-overfitting" title="ดูนิยามใน Glossary">overfitting</a> และ theory</div>
+<div class="key-message">Variable selection มีข้อจำกัด — ต้องระวัง <a class="gloss-ref" href="../../glossary.html#term-w9-overfitting" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">overfitting</a> และ theory</div>
 <div class="slide-content"><p><strong>⚠ ข้อควรระวัง</strong>:</p>
 <ol class="slide-list">
 <li><strong>Overfitting</strong>: เลือก model จาก training data → อาจไม่ generalize</li>
 </ol>
 <p>→ ต้องใช้ cross-validation (Week 14) สำหรับ model ใหญ่ ๆ</p>
 <ol class="slide-list">
-<li><strong><a class="gloss-ref" href="../../glossary.html#term-w9-confounding" title="ดูนิยามใน Glossary">Confounding</a></strong>: ลบ predictor ที่ correlated กับตัวอื่นอาจทำให้ coefficient ที่เหลือ biased</li>
+<li><strong><a class="gloss-ref" href="../../glossary.html#term-w9-confounding" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Confounding</a></strong>: ลบ predictor ที่ correlated กับตัวอื่นอาจทำให้ coefficient ที่เหลือ biased</li>
 </ol>
 <ol class="slide-list">
 <li><strong>Theory first</strong>: ถ้ามี domain knowledge → ใส่ predictor ตามทฤษฎีก่อน อย่า "data mine"</li>
 </ol>
 <ol class="slide-list">
-<li><strong><a class="gloss-ref" href="../../glossary.html#term-w9-p-value" title="ดูนิยามใน Glossary">p-value</a> inflation</strong>: Backward selection หลายรอบ → p-value ไม่น่าเชื่อถือ 100%</li>
+<li><strong><a class="gloss-ref" href="../../glossary.html#term-w9-p-value" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">p-value</a> inflation</strong>: Backward selection หลายรอบ → p-value ไม่น่าเชื่อถือ 100%</li>
 </ol>
 <ol class="slide-list">
-<li><strong>Large p</strong>: ถ้า p ใหญ่มาก (เช่น genomics p = 20,000) → ต้องใช้ <a class="gloss-ref" href="../../glossary.html#term-regularization" title="ดูนิยามใน Glossary">regularization</a> (Lasso/Ridge)</li>
+<li><strong>Large p</strong>: ถ้า p ใหญ่มาก (เช่น genomics p = 20,000) → ต้องใช้ <a class="gloss-ref" href="../../glossary.html#term-regularization" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">regularization</a> (Lasso/Ridge)</li>
 </ol></div>
 </div>
 <div class="slide slide-9" data-title="Summary">
@@ -581,10 +581,10 @@ print(res_df.to_string(index=False))</code></pre></div></div>
 <div class="slide-num">Slide 10</div>
 <div class="slide-title">Summary</div>
 </div>
-<div class="key-message">R²_adj และ <a class="gloss-ref" href="../../glossary.html#term-w9-aic" title="ดูนิยามใน Glossary">AIC</a>/<a class="gloss-ref" href="../../glossary.html#term-w9-bic" title="ดูนิยามใน Glossary">BIC</a> เป็นเครื่องมือเลือก model ที่ balance fit กับ complexity</div>
+<div class="key-message">R²_adj และ <a class="gloss-ref" href="../../glossary.html#term-w9-aic" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">AIC</a>/<a class="gloss-ref" href="../../glossary.html#term-w9-bic" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">BIC</a> เป็นเครื่องมือเลือก model ที่ balance fit กับ complexity</div>
 <div class="slide-content"><p><strong>สิ่งที่เรียนรู้วันนี้</strong>:</p>
 <ul class="slide-list">
-<li><strong>R²_adj</strong>: 1 − <a class="gloss-ref" href="../../glossary.html#term-w9-rss" title="ดูนิยามใน Glossary">RSS</a>/(n−p−1) / <a class="gloss-ref" href="../../glossary.html#term-w9-tss" title="ดูนิยามใน Glossary">TSS</a>/(n−1) — ลงโทษ predictor ที่ไม่จำเป็น</li>
+<li><strong>R²_adj</strong>: 1 − <a class="gloss-ref" href="../../glossary.html#term-w9-rss" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">RSS</a>/(n−p−1) / <a class="gloss-ref" href="../../glossary.html#term-w9-tss" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">TSS</a>/(n−1) — ลงโทษ predictor ที่ไม่จำเป็น</li>
 <li><strong>AIC/BIC</strong>: information criteria — เลือก model AIC/BIC ต่ำสุด</li>
 <li><strong>Forward Selection</strong>: เพิ่มทีละตัวจนไม่ดีขึ้น</li>
 <li><strong>Backward Elimination</strong>: ลบทีละตัวจนทุกตัว significant</li>
@@ -598,7 +598,7 @@ print(res_df.to_string(index=False))</code></pre></div></div>
 </tr>
 </thead><tbody>
 <tr>
-<td><a class="gloss-ref" href="../../glossary.html#term-w9-r2" title="ดูนิยามใน Glossary">R²</a></td>
+<td><a class="gloss-ref" href="../../glossary.html#term-w9-r2" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">R²</a></td>
 <td>ไม่ลงโทษ</td>
 <td>ดู variance explained (ห้ามเปรียบ model ต่าง p)</td>
 </tr>
@@ -610,15 +610,15 @@ print(res_df.to_string(index=False))</code></pre></div></div>
 <tr>
 <td>AIC</td>
 <td>ปานกลาง</td>
-<td><a class="gloss-ref" href="../../glossary.html#term-prediction" title="ดูนิยามใน Glossary">prediction</a> — อนุญาตโมเดลซับซ้อนกว่า</td>
+<td><a class="gloss-ref" href="../../glossary.html#term-prediction" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">prediction</a> — อนุญาตโมเดลซับซ้อนกว่า</td>
 </tr>
 <tr>
 <td>BIC</td>
 <td>มาก</td>
-<td><a class="gloss-ref" href="../../glossary.html#term-w9-parsimony" title="ดูนิยามใน Glossary">parsimony</a> — เลือก model ง่ายกว่า</td>
+<td><a class="gloss-ref" href="../../glossary.html#term-w9-parsimony" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">parsimony</a> — เลือก model ง่ายกว่า</td>
 </tr>
 </tbody></table></div>
-<p><strong>สัปดาห์ต่อไป — Slide 4</strong>: <a class="gloss-ref" href="../../glossary.html#term-w9-ci" title="ดูนิยามใน Glossary">CI</a> vs <a class="gloss-ref" href="../../glossary.html#term-w9-pi" title="ดูนิยามใน Glossary">PI</a> — ประมาณ <a class="gloss-ref" href="../../glossary.html#term-w9-mean-response" title="ดูนิยามใน Glossary">mean response</a> vs <a class="gloss-ref" href="../../glossary.html#term-w9-individual-response" title="ดูนิยามใน Glossary">individual response</a></p></div>
+<p><strong>สัปดาห์ต่อไป — Slide 4</strong>: <a class="gloss-ref" href="../../glossary.html#term-w9-ci" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">CI</a> vs <a class="gloss-ref" href="../../glossary.html#term-w9-pi" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">PI</a> — ประมาณ <a class="gloss-ref" href="../../glossary.html#term-w9-mean-response" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">mean response</a> vs <a class="gloss-ref" href="../../glossary.html#term-w9-individual-response" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">individual response</a></p></div>
 </div>
 </div>
 <div id="nav">

@@ -350,14 +350,14 @@ h3.content-heading {
 <div class="slide-num">Slide 1</div>
 <div class="slide-title">Title</div>
 </div>
-<div class="slide-content"><p><strong><a class="gloss-ref" href="../../glossary.html#term-w2-gaussian-elimination" title="ดูนิยามใน Glossary">Gaussian Elimination</a>: แก้ระบบสมการ Ax = b</strong> Week 2 | <a class="gloss-ref" href="../../glossary.html#term-w2-clo1" title="ดูนิยามใน Glossary">CLO1</a> | Algorithm ที่ <a class="gloss-ref" href="../../glossary.html#term-numpy" title="ดูนิยามใน Glossary">NumPy</a> ใช้เบื้องหลัง <code>linalg.solve()</code></p></div>
+<div class="slide-content"><p><strong><a class="gloss-ref" href="../../glossary.html#term-w2-gaussian-elimination" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Gaussian Elimination</a>: แก้ระบบสมการ Ax = b</strong> Week 2 | <a class="gloss-ref" href="../../glossary.html#term-w2-clo1" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">CLO1</a> | Algorithm ที่ <a class="gloss-ref" href="../../glossary.html#term-numpy" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">NumPy</a> ใช้เบื้องหลัง <code>linalg.solve()</code></p></div>
 </div>
 <div class="slide slide-1" data-title="ปัญหา: แก้ระบบสมการเชิงเส้น">
 <div class="slide-header">
 <div class="slide-num">Slide 2</div>
 <div class="slide-title">ปัญหา: แก้ระบบสมการเชิงเส้น</div>
 </div>
-<div class="key-message">ทุก <a class="gloss-ref" href="../../glossary.html#term-ml" title="ดูนิยามใน Glossary">ML</a> model กำลังแก้ระบบสมการอยู่เบื้องหลัง</div>
+<div class="key-message">ทุก <a class="gloss-ref" href="../../glossary.html#term-ml" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ML</a> model กำลังแก้ระบบสมการอยู่เบื้องหลัง</div>
 <div class="slide-content"><p><strong>ระบบสมการ 3 ตัวแปร</strong>:</p>
 <div class="code-block"><pre><code>2x + y - z = 8
 -3x - y + 2z = -11
@@ -369,7 +369,7 @@ h3.content-heading {
 <div class="slide slide-2" data-title="Augmented Matrix">
 <div class="slide-header">
 <div class="slide-num">Slide 3</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-augmented-matrix" title="ดูนิยามใน Glossary">Augmented Matrix</a></div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-augmented-matrix" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Augmented Matrix</a></div>
 </div>
 <div class="key-message">รวม A และ b เป็น [A|b] เพื่อทำ row operations พร้อมกัน</div>
 <div class="slide-content"><p>$$[\mathbf{A}|\mathbf{b}] = \left(\begin{array}{rrr|r} 2 &amp; 1 &amp; -1 &amp; 8 \\ -3 &amp; -1 &amp; 2 &amp; -11 \\ -2 &amp; 1 &amp; 2 &amp; -3 \end{array}\right)$$</p>
@@ -381,7 +381,7 @@ b = np.array([8, -11, -3], dtype=float)
 # Augmented matrix
 aug = np.column_stack([A, b])
 print(aug)</code></pre></div>
-<p><strong><a class="gloss-ref" href="../../glossary.html#term-w2-elementary-row-operations" title="ดูนิยามใน Glossary">Elementary Row Operations</a></strong> (ไม่เปลี่ยน solution):</p>
+<p><strong><a class="gloss-ref" href="../../glossary.html#term-w2-elementary-row-operations" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Elementary Row Operations</a></strong> (ไม่เปลี่ยน solution):</p>
 <ol class="slide-list">
 <li>Swap row i ↔ row j</li>
 <li>Scale row i: cRᵢ → Rᵢ</li>
@@ -391,9 +391,9 @@ print(aug)</code></pre></div>
 <div class="slide slide-3" data-title="Forward Elimination Step-by-Step">
 <div class="slide-header">
 <div class="slide-num">Slide 4</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-forward-elimination" title="ดูนิยามใน Glossary">Forward Elimination</a> Step-by-Step</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-forward-elimination" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Forward Elimination</a> Step-by-Step</div>
 </div>
-<div class="key-message">ทำให้ elements ใต้ diagonal เป็น 0 ทีละ <a class="gloss-ref" href="../../glossary.html#term-w2-pivot" title="ดูนิยามใน Glossary">pivot</a></div>
+<div class="key-message">ทำให้ elements ใต้ diagonal เป็น 0 ทีละ <a class="gloss-ref" href="../../glossary.html#term-w2-pivot" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">pivot</a></div>
 <div class="slide-content"><p><strong>Step 1</strong>: Eliminate column 1 (use row 1 as pivot)</p>
 <p>$$R_2 \leftarrow R_2 + \frac{3}{2}R_1, \quad R_3 \leftarrow R_3 + R_1$$</p>
 <p>$$\left(\begin{array}{rrr|r} 2 &amp; 1 &amp; -1 &amp; 8 \\ 0 &amp; 0.5 &amp; 0.5 &amp; 1 \\ 0 &amp; 2 &amp; 1 &amp; 5 \end{array}\right)$$</p>
@@ -404,7 +404,7 @@ print(aug)</code></pre></div>
 <div class="slide slide-4" data-title="Back Substitution">
 <div class="slide-header">
 <div class="slide-num">Slide 5</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-back-substitution" title="ดูนิยามใน Glossary">Back Substitution</a></div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-back-substitution" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Back Substitution</a></div>
 </div>
 <div class="key-message">จาก Upper Triangular ถอยหาค่า x จาก row ล่างขึ้นบน</div>
 <div class="slide-content"><p>$$\begin{pmatrix} 2 &amp; 1 &amp; -1 \\ 0 &amp; 0.5 &amp; 0.5 \\ 0 &amp; 0 &amp; -1 \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 8 \\ 1 \\ 1 \end{pmatrix}$$</p>
@@ -418,10 +418,10 @@ print(x)  # [2, 3, -1]</code></pre></div></div>
 <div class="slide slide-5" data-title="Pivot Variables vs Free Variables">
 <div class="slide-header">
 <div class="slide-num">Slide 6</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-pivot" title="ดูนิยามใน Glossary">Pivot</a> Variables vs Free Variables</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-pivot" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Pivot</a> Variables vs Free Variables</div>
 </div>
 <div class="key-message">Pivot columns → unique solution; free columns → infinite solutions</div>
-<div class="slide-content"><p><strong>Full <a class="gloss-ref" href="../../glossary.html#term-rank" title="ดูนิยามใน Glossary">rank</a></strong> (pivots ครบทุก column): Unique solution</p>
+<div class="slide-content"><p><strong>Full <a class="gloss-ref" href="../../glossary.html#term-rank" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">rank</a></strong> (pivots ครบทุก column): Unique solution</p>
 <div class="code-block"><pre><code>[1 0 0 | a]
 [0 1 0 | b]  → x = (a, b, c)
 [0 0 1 | c]</code></pre></div>
@@ -429,14 +429,14 @@ print(x)  # [2, 3, -1]</code></pre></div></div>
 <div class="code-block"><pre><code>[1 2 0 | 3]
 [0 0 1 | 2]  → x₂ = free parameter (ค่าอะไรก็ได้)
 [0 0 0 | 0]</code></pre></div>
-<p><strong>ใน <a class="gloss-ref" href="../../glossary.html#term-ds" title="ดูนิยามใน Glossary">DS</a></strong>: Rank deficient XᵀX → <a class="gloss-ref" href="../../glossary.html#term-w2-multicollinearity" title="ดูนิยามใน Glossary">multicollinearity</a> → cannot invert → <a class="gloss-ref" href="../../glossary.html#term-ridge-regression" title="ดูนิยามใน Glossary">Ridge Regression</a> ช่วยได้</p></div>
+<p><strong>ใน <a class="gloss-ref" href="../../glossary.html#term-ds" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">DS</a></strong>: Rank deficient XᵀX → <a class="gloss-ref" href="../../glossary.html#term-w2-multicollinearity" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">multicollinearity</a> → cannot invert → <a class="gloss-ref" href="../../glossary.html#term-ridge-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Ridge Regression</a> ช่วยได้</p></div>
 </div>
 <div class="slide slide-6" data-title="Row Echelon Form (REF) vs RREF">
 <div class="slide-header">
 <div class="slide-num">Slide 7</div>
-<div class="slide-title">Row Echelon Form (<a class="gloss-ref" href="../../glossary.html#term-w2-ref" title="ดูนิยามใน Glossary">REF</a>) vs <a class="gloss-ref" href="../../glossary.html#term-w2-rref" title="ดูนิยามใน Glossary">RREF</a></div>
+<div class="slide-title">Row Echelon Form (<a class="gloss-ref" href="../../glossary.html#term-w2-ref" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">REF</a>) vs <a class="gloss-ref" href="../../glossary.html#term-w2-rref" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">RREF</a></div>
 </div>
-<div class="key-message">REF ใช้ <a class="gloss-ref" href="../../glossary.html#term-w2-back-substitution" title="ดูนิยามใน Glossary">Back Substitution</a>; RREF ได้คำตอบตรง</div>
+<div class="key-message">REF ใช้ <a class="gloss-ref" href="../../glossary.html#term-w2-back-substitution" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Back Substitution</a>; RREF ได้คำตอบตรง</div>
 <div class="slide-content"><p><strong>REF</strong> (Staircase form): pivot = 1 ที่ leading position, zeros below $$\begin{pmatrix} 1 &amp; * &amp; * \\ 0 &amp; 1 &amp; * \\ 0 &amp; 0 &amp; 1 \end{pmatrix}$$</p>
 <p><strong>RREF</strong> (Reduced REF): zeros ทั้ง above และ below each pivot $$\begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}$$</p>
 <div class="code-block"><div class="code-lang">python</div><pre><code>from sympy import Matrix
@@ -446,16 +446,16 @@ print(A_sym.rref())  # Sympy: reduced row echelon form</code></pre></div></div>
 <div class="slide slide-7" data-title="Numerical Stability: Partial Pivoting">
 <div class="slide-header">
 <div class="slide-num">Slide 8</div>
-<div class="slide-title">Numerical Stability: <a class="gloss-ref" href="../../glossary.html#term-w2-partial-pivoting" title="ดูนิยามใน Glossary">Partial Pivoting</a></div>
+<div class="slide-title">Numerical Stability: <a class="gloss-ref" href="../../glossary.html#term-w2-partial-pivoting" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Partial Pivoting</a></div>
 </div>
-<div class="key-message">เลือก <a class="gloss-ref" href="../../glossary.html#term-w2-pivot" title="ดูนิยามใน Glossary">pivot</a> ที่มีค่าสัมบูรณ์ใหญ่สุดเพื่อลด round-off error</div>
-<div class="slide-content"><p><strong>ปัญหา</strong>: ถ้า pivot เล็กมาก (เช่น 0.0001) → การหาร <a class="gloss-ref" href="../../glossary.html#term-w2-multiplier" title="ดูนิยามใน Glossary">multiplier</a> ทำให้ error ขยาย</p>
+<div class="key-message">เลือก <a class="gloss-ref" href="../../glossary.html#term-w2-pivot" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">pivot</a> ที่มีค่าสัมบูรณ์ใหญ่สุดเพื่อลด round-off error</div>
+<div class="slide-content"><p><strong>ปัญหา</strong>: ถ้า pivot เล็กมาก (เช่น 0.0001) → การหาร <a class="gloss-ref" href="../../glossary.html#term-w2-multiplier" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">multiplier</a> ทำให้ error ขยาย</p>
 <p><strong>Partial Pivoting</strong>: swap rows เพื่อให้ largest element เป็น pivot ก่อน</p>
 <div class="code-block"><div class="code-lang">python</div><pre><code># NumPy ทำ partial pivoting อัตโนมัติ
 # สังเกตใน scipy.linalg.lu(A):
 P, L, U = linalg.lu(A)
 # P คือ permutation matrix จาก row swaps</code></pre></div>
-<p><strong>ทำไมสำคัญ</strong>: <a class="gloss-ref" href="../../glossary.html#term-ml" title="ดูนิยามใน Glossary">ML</a> datasets มักมี features ต่าง scale → numerical issues ถ้าไม่ pivot</p></div>
+<p><strong>ทำไมสำคัญ</strong>: <a class="gloss-ref" href="../../glossary.html#term-ml" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ML</a> datasets มักมี features ต่าง scale → numerical issues ถ้าไม่ pivot</p></div>
 </div>
 <div class="slide slide-8" data-title="Summary">
 <div class="slide-header">
@@ -464,14 +464,14 @@ P, L, U = linalg.lu(A)
 </div>
 <div class="slide-content"><p><strong>สิ่งที่เรียนรู้วันนี้</strong>:</p>
 <ul class="slide-list">
-<li><a class="gloss-ref" href="../../glossary.html#term-w2-augmented-matrix" title="ดูนิยามใน Glossary">Augmented matrix</a> [A|b] รวมระบบสมการเป็นรูป Matrix</li>
-<li><a class="gloss-ref" href="../../glossary.html#term-w2-forward-elimination" title="ดูนิยามใน Glossary">Forward elimination</a> → Upper Triangular U</li>
-<li><a class="gloss-ref" href="../../glossary.html#term-w2-back-substitution" title="ดูนิยามใน Glossary">Back substitution</a> → solution x</li>
-<li><a class="gloss-ref" href="../../glossary.html#term-rank" title="ดูนิยามใน Glossary">Rank</a> deficient → no unique solution → <a class="gloss-ref" href="../../glossary.html#term-w2-multicollinearity" title="ดูนิยามใน Glossary">multicollinearity</a></li>
+<li><a class="gloss-ref" href="../../glossary.html#term-w2-augmented-matrix" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Augmented matrix</a> [A|b] รวมระบบสมการเป็นรูป Matrix</li>
+<li><a class="gloss-ref" href="../../glossary.html#term-w2-forward-elimination" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Forward elimination</a> → Upper Triangular U</li>
+<li><a class="gloss-ref" href="../../glossary.html#term-w2-back-substitution" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Back substitution</a> → solution x</li>
+<li><a class="gloss-ref" href="../../glossary.html#term-rank" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Rank</a> deficient → no unique solution → <a class="gloss-ref" href="../../glossary.html#term-w2-multicollinearity" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">multicollinearity</a></li>
 </ul>
 <p><strong>Algorithm ใน Python</strong>:</p>
 <div class="code-block"><pre><code>np.linalg.solve(A, b)  ← ใช้ LAPACK's _gesv (LU + pivot)</code></pre></div>
-<p><strong>สัปดาห์ต่อไป</strong>: <a class="gloss-ref" href="../../glossary.html#term-w2-lu" title="ดูนิยามใน Glossary">LU</a> Decomposition — ทำไม A = LU ช่วยในการแก้หลาย b ได้เร็ว</p></div>
+<p><strong>สัปดาห์ต่อไป</strong>: <a class="gloss-ref" href="../../glossary.html#term-w2-lu" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LU</a> Decomposition — ทำไม A = LU ช่วยในการแก้หลาย b ได้เร็ว</p></div>
 </div>
 </div>
 <div id="nav">

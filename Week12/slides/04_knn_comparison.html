@@ -350,14 +350,14 @@ h3.content-heading {
 <div class="slide-num">Slide 1</div>
 <div class="slide-title">Title</div>
 </div>
-<div class="slide-content"><p><strong><a class="gloss-ref" href="../../glossary.html#term-w12-knn" title="ดูนิยามใน Glossary">KNN</a> Classifier + Comparison of <a class="gloss-ref" href="../../glossary.html#term-classification" title="ดูนิยามใน Glossary">Classification</a> Methods</strong> <a class="gloss-ref" href="../../glossary.html#term-islp" title="ดูนิยามใน Glossary">ISLP</a> Ch.2.2.3 + Ch.4.5 + Ch.4.7.6 | Week 12 | CLO3</p></div>
+<div class="slide-content"><p><strong><a class="gloss-ref" href="../../glossary.html#term-w12-knn" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">KNN</a> Classifier + Comparison of <a class="gloss-ref" href="../../glossary.html#term-classification" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Classification</a> Methods</strong> <a class="gloss-ref" href="../../glossary.html#term-islp" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ISLP</a> Ch.2.2.3 + Ch.4.5 + Ch.4.7.6 | Week 12 | CLO3</p></div>
 </div>
 <div class="slide slide-1" data-title="K-Nearest Neighbors: The Idea">
 <div class="slide-header">
 <div class="slide-num">Slide 2</div>
 <div class="slide-title">K-Nearest Neighbors: The Idea</div>
 </div>
-<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-w12-knn" title="ดูนิยามใน Glossary">KNN</a> ไม่ assume distribution ใดๆ — ใช้ความใกล้เคียงในพื้นที่ feature space</div>
+<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-w12-knn" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">KNN</a> ไม่ assume distribution ใดๆ — ใช้ความใกล้เคียงในพื้นที่ feature space</div>
 <div class="slide-content"><p><strong>KNN Classifier:</strong></p>
 <p>&gt; Classify x₀ โดยดู K neighbors ที่ใกล้ที่สุดใน training data แล้ว vote majority class</p>
 <p><strong>Formal definition:</strong> $$\Pr(Y=j|X=x_0) = \frac{1}{K}\sum_{i \in \mathcal{N}_0} \mathbb{I}(y_i = j)$$</p>
@@ -370,18 +370,18 @@ h3.content-heading {
 <div class="slide slide-2" data-title="K Effect: Bias-Variance Trade-off">
 <div class="slide-header">
 <div class="slide-num">Slide 3</div>
-<div class="slide-title">K Effect: <a class="gloss-ref" href="../../glossary.html#term-bias-variance-trade-off" title="ดูนิยามใน Glossary">Bias-Variance Trade-off</a></div>
+<div class="slide-title">K Effect: <a class="gloss-ref" href="../../glossary.html#term-bias-variance-trade-off" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Bias-Variance Trade-off</a></div>
 </div>
 <div class="key-message">K เล็ก = overfit, K ใหญ่ = underfit — ต้องเลือก K ที่เหมาะสม</div>
 <div class="slide-content"><p><strong>K=1 (Overfit):</strong></p>
 <ul class="slide-list">
 <li>Boundary รอบ training points ทุกจุด</li>
 <li>Training error = 0 แต่ test error สูง</li>
-<li>High variance, Low <a class="gloss-ref" href="../../glossary.html#term-bias" title="ดูนิยามใน Glossary">bias</a></li>
+<li>High variance, Low <a class="gloss-ref" href="../../glossary.html#term-bias" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">bias</a></li>
 </ul>
 <p><strong>Large K (Underfit):</strong></p>
 <ul class="slide-list">
-<li>Boundary เรียบมาก → smooth <a class="gloss-ref" href="../../glossary.html#term-prediction" title="ดูนิยามใน Glossary">prediction</a></li>
+<li>Boundary เรียบมาก → smooth <a class="gloss-ref" href="../../glossary.html#term-prediction" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">prediction</a></li>
 <li>Miss local patterns</li>
 <li>Low variance, High bias</li>
 </ul>
@@ -398,7 +398,7 @@ plt.plot(k_values, test_errors, 'o-')  # หา K ที่ error ต่ำส�
 <div class="slide slide-3" data-title="KNN: Distance + Scaling">
 <div class="slide-header">
 <div class="slide-num">Slide 4</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w12-knn" title="ดูนิยามใน Glossary">KNN</a>: Distance + Scaling</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w12-knn" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">KNN</a>: Distance + Scaling</div>
 </div>
 <div class="key-message">KNN sensitive มากกับ feature scale — ต้อง standardize เสมอ</div>
 <div class="slide-content"><p><strong>Distance metric (default: Euclidean):</strong> $$d(x_0, x_i) = \sqrt{\sum_{j=1}^{p}(x_{0j} - x_{ij})^2}$$</p>
@@ -422,7 +422,7 @@ knn.fit(X_train_sc, y_train)</code></pre></div>
 <div class="slide-num">Slide 5</div>
 <div class="slide-title">Python: KNeighborsClassifier</div>
 </div>
-<div class="key-message">sklearn <a class="gloss-ref" href="../../glossary.html#term-w12-knn" title="ดูนิยามใน Glossary">KNN</a> ใช้ง่าย — กำหนดแค่ n_neighbors และ metric</div>
+<div class="key-message">sklearn <a class="gloss-ref" href="../../glossary.html#term-w12-knn" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">KNN</a> ใช้ง่าย — กำหนดแค่ n_neighbors และ metric</div>
 <div class="slide-content"><div class="code-block"><div class="code-lang">python</div><pre><code>from sklearn.neighbors import KNeighborsClassifier
 
 # K=5, Euclidean distance (default)
@@ -442,9 +442,9 @@ y_proba = knn.predict_proba(X_test_sc)[:,1]
 # KNN ไม่มี coef_ หรือ feature_importances_ — black box!</code></pre></div>
 <p><strong>ข้อจำกัดของ KNN:</strong></p>
 <ul class="slide-list">
-<li>Slow ใน <a class="gloss-ref" href="../../glossary.html#term-prediction" title="ดูนิยามใน Glossary">prediction</a> เมื่อ n ใหญ่ (ต้อง compute distance ทุก training point)</li>
+<li>Slow ใน <a class="gloss-ref" href="../../glossary.html#term-prediction" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">prediction</a> เมื่อ n ใหญ่ (ต้อง compute distance ทุก training point)</li>
 <li>ไม่ interpretable — ไม่รู้ว่า feature ไหนสำคัญ</li>
-<li><a class="gloss-ref" href="../../glossary.html#term-w12-curse-of-dimensionality" title="ดูนิยามใน Glossary">Curse of dimensionality</a>: เมื่อ p ใหญ่ distance ไม่มีความหมาย</li>
+<li><a class="gloss-ref" href="../../glossary.html#term-w12-curse-of-dimensionality" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Curse of dimensionality</a>: เมื่อ p ใหญ่ distance ไม่มีความหมาย</li>
 </ul></div>
 </div>
 <div class="slide slide-5" data-title="Choosing K via Cross-Validation">
@@ -452,7 +452,7 @@ y_proba = knn.predict_proba(X_test_sc)[:,1]
 <div class="slide-num">Slide 6</div>
 <div class="slide-title">Choosing K via Cross-Validation</div>
 </div>
-<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-w12-cv" title="ดูนิยามใน Glossary">CV</a> เป็น principled way ในการหา optimal K (preview Week 14)</div>
+<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-w12-cv" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">CV</a> เป็น principled way ในการหา optimal K (preview Week 14)</div>
 <div class="slide-content"><div class="code-block"><div class="code-lang">python</div><pre><code>from sklearn.model_selection import cross_val_score
 
 k_range = range(1, 31)
@@ -484,28 +484,28 @@ plt.axvline(best_k, color='red', linestyle='--', label=f'K={best_k}')</code></pr
 <thead>
 <tr>
 <th>Method</th>
-<th><a class="gloss-ref" href="../../glossary.html#term-accuracy" title="ดูนิยามใน Glossary">Accuracy</a></th>
+<th><a class="gloss-ref" href="../../glossary.html#term-accuracy" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Accuracy</a></th>
 <th>Recall</th>
-<th><a class="gloss-ref" href="../../glossary.html#term-auc" title="ดูนิยามใน Glossary">AUC</a></th>
+<th><a class="gloss-ref" href="../../glossary.html#term-auc" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">AUC</a></th>
 <th>Notes</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><a class="gloss-ref" href="../../glossary.html#term-logistic-regression" title="ดูนิยามใน Glossary">Logistic Regression</a></td>
+<td><a class="gloss-ref" href="../../glossary.html#term-logistic-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Logistic Regression</a></td>
 <td>0.974</td>
 <td>0.62</td>
 <td>0.949</td>
 <td>baseline, interpretable</td>
 </tr>
 <tr>
-<td><a class="gloss-ref" href="../../glossary.html#term-w12-lda" title="ดูนิยามใน Glossary">LDA</a></td>
+<td><a class="gloss-ref" href="../../glossary.html#term-w12-lda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LDA</a></td>
 <td>0.974</td>
 <td>0.63</td>
 <td>0.948</td>
 <td>stable, linear</td>
 </tr>
 <tr>
-<td><a class="gloss-ref" href="../../glossary.html#term-w12-qda" title="ดูนิยามใน Glossary">QDA</a></td>
+<td><a class="gloss-ref" href="../../glossary.html#term-w12-qda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">QDA</a></td>
 <td>0.971</td>
 <td>0.61</td>
 <td>0.941</td>
@@ -516,10 +516,10 @@ plt.axvline(best_k, color='red', linestyle='--', label=f'K={best_k}')</code></pr
 <td>0.963</td>
 <td>0.75</td>
 <td>0.935</td>
-<td>high recall, lower <a class="gloss-ref" href="../../glossary.html#term-precision" title="ดูนิยามใน Glossary">precision</a></td>
+<td>high recall, lower <a class="gloss-ref" href="../../glossary.html#term-precision" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">precision</a></td>
 </tr>
 <tr>
-<td><a class="gloss-ref" href="../../glossary.html#term-w12-knn" title="ดูนิยามใน Glossary">KNN</a> (K=5)</td>
+<td><a class="gloss-ref" href="../../glossary.html#term-w12-knn" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">KNN</a> (K=5)</td>
 <td>0.951</td>
 <td>0.58</td>
 <td>0.891</td>
@@ -544,17 +544,17 @@ plt.axvline(best_k, color='red', linestyle='--', label=f'K={best_k}')</code></pr
 </tr>
 </thead><tbody>
 <tr>
-<td><strong><a class="gloss-ref" href="../../glossary.html#term-logistic-regression" title="ดูนิยามใน Glossary">Logistic Regression</a></strong></td>
+<td><strong><a class="gloss-ref" href="../../glossary.html#term-logistic-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Logistic Regression</a></strong></td>
 <td>n ใหญ่, linear boundary, interpretability สำคัญ</td>
 <td>ไม่ดีเมื่อ classes well-separated มาก</td>
 </tr>
 <tr>
-<td><strong><a class="gloss-ref" href="../../glossary.html#term-w12-lda" title="ดูนิยามใน Glossary">LDA</a></strong></td>
+<td><strong><a class="gloss-ref" href="../../glossary.html#term-w12-lda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LDA</a></strong></td>
 <td>n เล็กหรือ classes well-separated, need projection</td>
 <td>ต้อง check Gaussian + shared Σ</td>
 </tr>
 <tr>
-<td><strong><a class="gloss-ref" href="../../glossary.html#term-w12-qda" title="ดูนิยามใน Glossary">QDA</a></strong></td>
+<td><strong><a class="gloss-ref" href="../../glossary.html#term-w12-qda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">QDA</a></strong></td>
 <td>n ใหญ่ (&gt;10×p²), Σₖ ต่างกัน</td>
 <td>overfit เมื่อ n เล็ก</td>
 </tr>
@@ -564,30 +564,30 @@ plt.axvline(best_k, color='red', linestyle='--', label=f'K={best_k}')</code></pr
 <td>features มี correlation สูง</td>
 </tr>
 <tr>
-<td><strong><a class="gloss-ref" href="../../glossary.html#term-w12-knn" title="ดูนิยามใน Glossary">KNN</a></strong></td>
+<td><strong><a class="gloss-ref" href="../../glossary.html#term-w12-knn" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">KNN</a></strong></td>
 <td>boundary ซับซ้อน, n ใหญ่</td>
-<td>ต้อง scale, slow <a class="gloss-ref" href="../../glossary.html#term-prediction" title="ดูนิยามใน Glossary">prediction</a>, no interpretation</td>
+<td>ต้อง scale, slow <a class="gloss-ref" href="../../glossary.html#term-prediction" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">prediction</a>, no interpretation</td>
 </tr>
 </tbody></table></div>
 <p><strong>Practical Guidance:</strong></p>
 <ol class="slide-list">
-<li>เริ่มด้วย Logistic <a class="gloss-ref" href="../../glossary.html#term-regression" title="ดูนิยามใน Glossary">Regression</a> เสมอ (baseline)</li>
+<li>เริ่มด้วย Logistic <a class="gloss-ref" href="../../glossary.html#term-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Regression</a> เสมอ (baseline)</li>
 <li>ลอง LDA ถ้า classes well-separated</li>
 <li>ลอง QDA ถ้า LDA ให้ผลไม่ดีและ n ใหญ่พอ</li>
-<li>ลอง <a class="gloss-ref" href="../../glossary.html#term-w12-nb" title="ดูนิยามใน Glossary">NB</a> ถ้า p ใหญ่หรือ categorical features</li>
+<li>ลอง <a class="gloss-ref" href="../../glossary.html#term-w12-nb" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">NB</a> ถ้า p ใหญ่หรือ categorical features</li>
 <li>ลอง KNN ถ้า boundary ซับซ้อนและ n ≥ 1000</li>
 </ol></div>
 </div>
 <div class="slide slide-8" data-title="ROC Curve: Model-Agnostic Comparison">
 <div class="slide-header">
 <div class="slide-num">Slide 9</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-roc-curve" title="ดูนิยามใน Glossary">ROC Curve</a>: Model-Agnostic Comparison</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-roc-curve" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ROC Curve</a>: Model-Agnostic Comparison</div>
 </div>
-<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-roc" title="ดูนิยามใน Glossary">ROC</a> Curve + <a class="gloss-ref" href="../../glossary.html#term-auc" title="ดูนิยามใน Glossary">AUC</a> เปรียบเทียบ classifier โดยไม่ขึ้นกับ <a class="gloss-ref" href="../../glossary.html#term-threshold" title="ดูนิยามใน Glossary">threshold</a></div>
+<div class="key-message"><a class="gloss-ref" href="../../glossary.html#term-roc" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ROC</a> Curve + <a class="gloss-ref" href="../../glossary.html#term-auc" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">AUC</a> เปรียบเทียบ classifier โดยไม่ขึ้นกับ <a class="gloss-ref" href="../../glossary.html#term-threshold" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">threshold</a></div>
 <div class="slide-content"><p><strong>ROC (Receiver Operating Characteristic) Curve:</strong></p>
 <ul class="slide-list">
-<li>X-axis: <a class="gloss-ref" href="../../glossary.html#term-fpr" title="ดูนิยามใน Glossary">FPR</a> = <a class="gloss-ref" href="../../glossary.html#term-fp" title="ดูนิยามใน Glossary">FP</a>/(FP+<a class="gloss-ref" href="../../glossary.html#term-tn" title="ดูนิยามใน Glossary">TN</a>) = 1 − <a class="gloss-ref" href="../../glossary.html#term-specificity" title="ดูนิยามใน Glossary">Specificity</a></li>
-<li>Y-axis: <a class="gloss-ref" href="../../glossary.html#term-tpr" title="ดูนิยามใน Glossary">TPR</a> = <a class="gloss-ref" href="../../glossary.html#term-tp" title="ดูนิยามใน Glossary">TP</a>/(TP+<a class="gloss-ref" href="../../glossary.html#term-fn" title="ดูนิยามใน Glossary">FN</a>) = Recall/Sensitivity</li>
+<li>X-axis: <a class="gloss-ref" href="../../glossary.html#term-fpr" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">FPR</a> = <a class="gloss-ref" href="../../glossary.html#term-fp" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">FP</a>/(FP+<a class="gloss-ref" href="../../glossary.html#term-tn" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">TN</a>) = 1 − <a class="gloss-ref" href="../../glossary.html#term-specificity" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Specificity</a></li>
+<li>Y-axis: <a class="gloss-ref" href="../../glossary.html#term-tpr" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">TPR</a> = <a class="gloss-ref" href="../../glossary.html#term-tp" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">TP</a>/(TP+<a class="gloss-ref" href="../../glossary.html#term-fn" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">FN</a>) = Recall/Sensitivity</li>
 <li>แต่ละจุดบน curve = threshold ค่าหนึ่ง</li>
 </ul>
 <p><strong>AUC (Area Under Curve):</strong></p>
@@ -608,8 +608,8 @@ plt.plot(fpr, tpr, label=f'LDA (AUC={auc:.3f})')</code></pre></div>
 <div class="slide-num">Slide 10</div>
 <div class="slide-title">Summary + Full Comparison Table</div>
 </div>
-<div class="key-message">ทุก method ที่เรียนมาเป็นส่วนหนึ่งของ <a class="gloss-ref" href="../../glossary.html#term-classification" title="ดูนิยามใน Glossary">Classification</a> toolbox ที่ Data Scientist ต้องรู้</div>
-<div class="slide-content"><p><strong>Classification Methods ใน <a class="gloss-ref" href="../../glossary.html#term-islp" title="ดูนิยามใน Glossary">ISLP</a> Ch.4:</strong></p>
+<div class="key-message">ทุก method ที่เรียนมาเป็นส่วนหนึ่งของ <a class="gloss-ref" href="../../glossary.html#term-classification" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Classification</a> toolbox ที่ Data Scientist ต้องรู้</div>
+<div class="slide-content"><p><strong>Classification Methods ใน <a class="gloss-ref" href="../../glossary.html#term-islp" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ISLP</a> Ch.4:</strong></p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -621,21 +621,21 @@ plt.plot(fpr, tpr, label=f'LDA (AUC={auc:.3f})')</code></pre></div>
 </tr>
 </thead><tbody>
 <tr>
-<td><a class="gloss-ref" href="../../glossary.html#term-logistic-regression" title="ดูนิยามใน Glossary">Logistic Regression</a></td>
+<td><a class="gloss-ref" href="../../glossary.html#term-logistic-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Logistic Regression</a></td>
 <td>Discriminative</td>
 <td>Linear</td>
 <td><code>LogisticRegression</code></td>
 <td>General baseline</td>
 </tr>
 <tr>
-<td><a class="gloss-ref" href="../../glossary.html#term-w12-lda" title="ดูนิยามใน Glossary">LDA</a></td>
+<td><a class="gloss-ref" href="../../glossary.html#term-w12-lda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">LDA</a></td>
 <td>Generative</td>
 <td>Linear</td>
 <td><code>LinearDiscriminantAnalysis</code></td>
 <td>n เล็ก, well-separated</td>
 </tr>
 <tr>
-<td><a class="gloss-ref" href="../../glossary.html#term-w12-qda" title="ดูนิยามใน Glossary">QDA</a></td>
+<td><a class="gloss-ref" href="../../glossary.html#term-w12-qda" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">QDA</a></td>
 <td>Generative</td>
 <td>Quadratic</td>
 <td><code>QuadraticDiscriminantAnalysis</code></td>
@@ -649,7 +649,7 @@ plt.plot(fpr, tpr, label=f'LDA (AUC={auc:.3f})')</code></pre></div>
 <td>p ใหญ่, text</td>
 </tr>
 <tr>
-<td><a class="gloss-ref" href="../../glossary.html#term-w12-knn" title="ดูนิยามใน Glossary">KNN</a></td>
+<td><a class="gloss-ref" href="../../glossary.html#term-w12-knn" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">KNN</a></td>
 <td>Non-parametric</td>
 <td>Non-linear</td>
 <td><code>KNeighborsClassifier</code></td>
@@ -661,10 +661,10 @@ plt.plot(fpr, tpr, label=f'LDA (AUC={auc:.3f})')</code></pre></div>
 <li>ไม่มี "best" classifier ในทุกสถานการณ์</li>
 <li>เริ่มด้วย simple methods ก่อนเสมอ</li>
 <li>ตรวจ assumption ก่อนเลือก — Gaussian? shared Σ? independence?</li>
-<li>ใช้ <a class="gloss-ref" href="../../glossary.html#term-roc" title="ดูนิยามใน Glossary">ROC</a> + <a class="gloss-ref" href="../../glossary.html#term-auc" title="ดูนิยามใน Glossary">AUC</a> เปรียบเทียบ classifier โดยไม่ขึ้นกับ <a class="gloss-ref" href="../../glossary.html#term-threshold" title="ดูนิยามใน Glossary">threshold</a></li>
+<li>ใช้ <a class="gloss-ref" href="../../glossary.html#term-roc" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">ROC</a> + <a class="gloss-ref" href="../../glossary.html#term-auc" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">AUC</a> เปรียบเทียบ classifier โดยไม่ขึ้นกับ <a class="gloss-ref" href="../../glossary.html#term-threshold" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">threshold</a></li>
 <li>Standardize features ก่อน KNN เสมอ!</li>
 </ol>
-<p><strong>สัปดาห์ต่อไป (Week 13):</strong> Resampling Methods — Cross-Validation, <a class="gloss-ref" href="../../glossary.html#term-bootstrap" title="ดูนิยามใน Glossary">Bootstrap</a> สำหรับ <a class="gloss-ref" href="../../glossary.html#term-model-selection" title="ดูนิยามใน Glossary">model selection</a></p></div>
+<p><strong>สัปดาห์ต่อไป (Week 13):</strong> Resampling Methods — Cross-Validation, <a class="gloss-ref" href="../../glossary.html#term-bootstrap" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Bootstrap</a> สำหรับ <a class="gloss-ref" href="../../glossary.html#term-model-selection" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">model selection</a></p></div>
 </div>
 </div>
 <div id="nav">

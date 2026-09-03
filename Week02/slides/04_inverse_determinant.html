@@ -350,14 +350,14 @@ h3.content-heading {
 <div class="slide-num">Slide 1</div>
 <div class="slide-title">Title</div>
 </div>
-<div class="slide-content"><p><strong><a class="gloss-ref" href="../../glossary.html#term-w2-inverse-matrix" title="ดูนิยามใน Glossary">Inverse Matrix</a> และ <a class="gloss-ref" href="../../glossary.html#term-w2-determinant" title="ดูนิยามใน Glossary">Determinant</a>: เมื่อไหร่ที่ Ax = b มี Solution เดียว?</strong> Week 2 | <a class="gloss-ref" href="../../glossary.html#term-w2-clo1" title="ดูนิยามใน Glossary">CLO1</a> | เชื่อมกับ <a class="gloss-ref" href="../../glossary.html#term-w2-multicollinearity" title="ดูนิยามใน Glossary">Multicollinearity</a> และ Singular System</p></div>
+<div class="slide-content"><p><strong><a class="gloss-ref" href="../../glossary.html#term-w2-inverse-matrix" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Inverse Matrix</a> และ <a class="gloss-ref" href="../../glossary.html#term-w2-determinant" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Determinant</a>: เมื่อไหร่ที่ Ax = b มี Solution เดียว?</strong> Week 2 | <a class="gloss-ref" href="../../glossary.html#term-w2-clo1" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">CLO1</a> | เชื่อมกับ <a class="gloss-ref" href="../../glossary.html#term-w2-multicollinearity" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Multicollinearity</a> และ Singular System</p></div>
 </div>
 <div class="slide slide-1" data-title="Inverse Matrix คืออะไร?">
 <div class="slide-header">
 <div class="slide-num">Slide 2</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-inverse-matrix" title="ดูนิยามใน Glossary">Inverse Matrix</a> คืออะไร?</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-inverse-matrix" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Inverse Matrix</a> คืออะไร?</div>
 </div>
-<div class="key-message">A⁻¹ มีอยู่เมื่อ A เป็น square full-<a class="gloss-ref" href="../../glossary.html#term-rank" title="ดูนิยามใน Glossary">rank</a> matrix</div>
+<div class="key-message">A⁻¹ มีอยู่เมื่อ A เป็น square full-<a class="gloss-ref" href="../../glossary.html#term-rank" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">rank</a> matrix</div>
 <div class="slide-content"><p><strong>นิยาม</strong>: <strong>AA⁻¹ = A⁻¹A = I</strong></p>
 <p><strong>ใช้แก้ Ax = b</strong>: x = A⁻¹b</p>
 <div class="code-block"><div class="code-lang">python</div><pre><code>A = np.array([[2, 1], [1, 3]], dtype=float)
@@ -374,7 +374,7 @@ print('x =', x)</code></pre></div>
 <div class="slide slide-2" data-title="Gauss-Jordan Elimination หา A⁻¹">
 <div class="slide-header">
 <div class="slide-num">Slide 3</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-gauss-jordan-elimination" title="ดูนิยามใน Glossary">Gauss-Jordan Elimination</a> หา A⁻¹</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-gauss-jordan-elimination" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Gauss-Jordan Elimination</a> หา A⁻¹</div>
 </div>
 <div class="key-message">augment [A|I] แล้วทำ row operations จนได้ [I|A⁻¹]</div>
 <div class="slide-content"><p>$$[\mathbf{A}|\mathbf{I}] \xrightarrow{\text{row ops}} [\mathbf{I}|\mathbf{A}^{-1}]$$</p>
@@ -397,12 +397,12 @@ B = np.random.randn(3, 3)
 lhs = np.linalg.inv(A @ B)
 rhs = np.linalg.inv(B) @ np.linalg.inv(A)
 print(np.allclose(lhs, rhs))  # True</code></pre></div>
-<p><strong>ใน <a class="gloss-ref" href="../../glossary.html#term-normal-equations" title="ดูนิยามใน Glossary">Normal Equations</a></strong>: (XᵀX)⁻¹ = (X⁻¹)(Xᵀ)⁻¹ = (X⁻¹)(X⁻ᵀ)</p></div>
+<p><strong>ใน <a class="gloss-ref" href="../../glossary.html#term-normal-equations" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Normal Equations</a></strong>: (XᵀX)⁻¹ = (X⁻¹)(Xᵀ)⁻¹ = (X⁻¹)(X⁻ᵀ)</p></div>
 </div>
 <div class="slide slide-4" data-title="Singular Matrix: เมื่อ A⁻¹ ไม่มี">
 <div class="slide-header">
 <div class="slide-num">Slide 5</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-singular-matrix" title="ดูนิยามใน Glossary">Singular Matrix</a>: เมื่อ A⁻¹ ไม่มี</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-singular-matrix" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Singular Matrix</a>: เมื่อ A⁻¹ ไม่มี</div>
 </div>
 <div class="key-message">Singular matrix ↔ linearly dependent rows/columns ↔ det = 0</div>
 <div class="slide-content"><div class="code-block"><div class="code-lang">python</div><pre><code># Singular: row 2 = 2 × row 1
@@ -414,12 +414,12 @@ try:
     np.linalg.inv(B)
 except np.linalg.LinAlgError as e:
     print('Error:', e)</code></pre></div>
-<p><strong>ใน <a class="gloss-ref" href="../../glossary.html#term-ds" title="ดูนิยามใน Glossary">DS</a></strong>: XᵀX singular หมายถึง features บางตัวเป็น <a class="gloss-ref" href="../../glossary.html#term-linear-combination" title="ดูนิยามใน Glossary">linear combination</a> ของตัวอื่น (<a class="gloss-ref" href="../../glossary.html#term-w2-multicollinearity" title="ดูนิยามใน Glossary">multicollinearity</a>) → <a class="gloss-ref" href="../../glossary.html#term-ridge-regression" title="ดูนิยามใน Glossary">Ridge Regression</a> แก้ได้</p></div>
+<p><strong>ใน <a class="gloss-ref" href="../../glossary.html#term-ds" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">DS</a></strong>: XᵀX singular หมายถึง features บางตัวเป็น <a class="gloss-ref" href="../../glossary.html#term-linear-combination" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">linear combination</a> ของตัวอื่น (<a class="gloss-ref" href="../../glossary.html#term-w2-multicollinearity" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">multicollinearity</a>) → <a class="gloss-ref" href="../../glossary.html#term-ridge-regression" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Ridge Regression</a> แก้ได้</p></div>
 </div>
 <div class="slide slide-5" data-title="Determinant: คืออะไร?">
 <div class="slide-header">
 <div class="slide-num">Slide 6</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-determinant" title="ดูนิยามใน Glossary">Determinant</a>: คืออะไร?</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-determinant" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Determinant</a>: คืออะไร?</div>
 </div>
 <div class="key-message">det(A) = signed volume ที่ matrix A scale พื้นที่ unit square/cube</div>
 <div class="slide-content"><p>$$\det\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix} = ad - bc$$</p>
@@ -431,13 +431,13 @@ print(np.linalg.det(A))  # 3*2 - 1*1 = 5</code></pre></div>
 <li>|det(A)| = scaling factor ของ area/volume</li>
 <li>det(A) &gt; 0: preserves orientation</li>
 <li>det(A) &lt; 0: flips orientation</li>
-<li>det(A) = 0: collapses to lower <a class="gloss-ref" href="../../glossary.html#term-dimension" title="ดูนิยามใน Glossary">dimension</a> (singular!)</li>
+<li>det(A) = 0: collapses to lower <a class="gloss-ref" href="../../glossary.html#term-dimension" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">dimension</a> (singular!)</li>
 </ul></div>
 </div>
 <div class="slide slide-6" data-title="Properties ของ Determinant">
 <div class="slide-header">
 <div class="slide-num">Slide 7</div>
-<div class="slide-title">Properties ของ <a class="gloss-ref" href="../../glossary.html#term-w2-determinant" title="ดูนิยามใน Glossary">Determinant</a></div>
+<div class="slide-title">Properties ของ <a class="gloss-ref" href="../../glossary.html#term-w2-determinant" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Determinant</a></div>
 </div>
 <div class="key-message">det(AB) = det(A)det(B) — สำคัญมากในการ prove theorems</div>
 <div class="slide-content"><div class="table-wrap"><table>
@@ -452,7 +452,7 @@ print(np.linalg.det(A))  # 3*2 - 1*1 = 5</code></pre></div>
 <td>det(AB) = det(A)det(B)</td>
 </tr>
 <tr>
-<td><a class="gloss-ref" href="../../glossary.html#term-w2-transpose" title="ดูนิยามใน Glossary">Transpose</a></td>
+<td><a class="gloss-ref" href="../../glossary.html#term-w2-transpose" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Transpose</a></td>
 <td>det(Aᵀ) = det(A)</td>
 </tr>
 <tr>
@@ -460,7 +460,7 @@ print(np.linalg.det(A))  # 3*2 - 1*1 = 5</code></pre></div>
 <td>det(A⁻¹) = 1/det(A)</td>
 </tr>
 <tr>
-<td><a class="gloss-ref" href="../../glossary.html#term-scalar" title="ดูนิยามใน Glossary">Scalar</a></td>
+<td><a class="gloss-ref" href="../../glossary.html#term-scalar" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Scalar</a></td>
 <td>det(cA) = cⁿ det(A) for n×n</td>
 </tr>
 <tr>
@@ -487,7 +487,7 @@ print(np.linalg.det(A))  # 22</code></pre></div></div>
 <div class="slide slide-8" data-title="Condition Number และ Numerical Stability">
 <div class="slide-header">
 <div class="slide-num">Slide 9</div>
-<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-condition-number" title="ดูนิยามใน Glossary">Condition Number</a> และ Numerical Stability</div>
+<div class="slide-title"><a class="gloss-ref" href="../../glossary.html#term-w2-condition-number" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Condition Number</a> และ Numerical Stability</div>
 </div>
 <div class="key-message">Condition number วัดว่า matrix "ใกล้ singular" แค่ไหน</div>
 <div class="slide-content"><p>$$\kappa(\mathbf{A}) = \|\mathbf{A}\| \cdot \|\mathbf{A}^{-1}\| = \frac{\sigma_{\max}}{\sigma_{\min}}$$</p>
@@ -505,12 +505,12 @@ print('cond(A_bad): ', np.linalg.cond(A_bad))   # ~2000</code></pre></div>
 </div>
 <div class="slide-content"><p><strong>สิ่งที่เรียนรู้วันนี้</strong>:</p>
 <ul class="slide-list">
-<li>A⁻¹ มีเมื่อ det(A) ≠ 0 (full <a class="gloss-ref" href="../../glossary.html#term-rank" title="ดูนิยามใน Glossary">rank</a>, non-singular)</li>
+<li>A⁻¹ มีเมื่อ det(A) ≠ 0 (full <a class="gloss-ref" href="../../glossary.html#term-rank" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">rank</a>, non-singular)</li>
 <li>Gauss-Jordan: [A|I] → [I|A⁻¹]</li>
 <li>det = 0 ↔ singular ↔ linearly dependent columns</li>
-<li><a class="gloss-ref" href="../../glossary.html#term-w2-condition-number" title="ดูนิยามใน Glossary">Condition number</a> วัด numerical sensitivity</li>
+<li><a class="gloss-ref" href="../../glossary.html#term-w2-condition-number" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Condition number</a> วัด numerical sensitivity</li>
 </ul>
-<p><strong>สัปดาห์ต่อไป — Week 3</strong>: <a class="gloss-ref" href="../../glossary.html#term-vector" title="ดูนิยามใน Glossary">Vector</a> Spaces, Null Space, Column Space, Rank</p></div>
+<p><strong>สัปดาห์ต่อไป — Week 3</strong>: <a class="gloss-ref" href="../../glossary.html#term-vector" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Vector</a> Spaces, Null Space, Column Space, Rank</p></div>
 </div>
 </div>
 <div id="nav">
