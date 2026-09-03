@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1145201 คณิตศาสตร์สำหรับวิทยาการข้อมูล — Math for Data Science, UBU</title>
+<style>
+  :root { --accent: #E8820C; }
+  body {
+    font-family: 'Sarabun', 'Segoe UI', sans-serif;
+    max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 4rem;
+    line-height: 1.7; color: #222;
+  }
+  header { border-bottom: 3px solid var(--accent); padding-bottom: 1rem; margin-bottom: 2rem; }
+  header h1 { margin-bottom: 0.3rem; font-size: 1.6rem; }
+  header p { color: #555; margin: 0.2rem 0; }
+  .top-links { margin: 1rem 0 2rem; }
+  .top-links a {
+    display: inline-block; margin-right: 0.8rem; padding: 0.5rem 1rem;
+    background: var(--accent); color: #fff; text-decoration: none; border-radius: 6px;
+    font-size: 0.95rem;
+  }
+  .top-links a:hover { background: #c66d09; }
+  section.week { margin-bottom: 1.8rem; padding: 1rem 1.2rem; border: 1px solid #eee; border-radius: 8px; }
+  section.week h2 { font-size: 1.1rem; margin: 0 0 0.6rem; color: #333; }
+  section.week ul { margin: 0; padding-left: 1.3rem; columns: 2; }
+  section.week li { margin-bottom: 0.35rem; break-inside: avoid; }
+  section.week a { color: #0a58ca; text-decoration: none; }
+  section.week a:hover { text-decoration: underline; }
+  footer { margin-top: 3rem; font-size: 0.85rem; color: #888; text-align: center; }
+  @media (max-width: 600px) { section.week ul { columns: 1; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>1145201 คณิตศาสตร์สำหรับวิทยาการข้อมูล</h1>
+  <p>Mathematics for Data Science — หลักสูตร วท.บ. วิทยาการข้อมูลฯ | มหาวิทยาลัยอุบลราชธานี</p>
+  <div class="top-links">
+    <a href="glossary.html">📖 Glossary (คำศัพท์/คำย่อทั้งหมด)</a>
+  </div>
+</header>
+
+<main>
+
+<section class="week">
+  <h2>สัปดาห์ที่ 1: บทนำ: คณิตศาสตร์กับ Data Science, Scalar, Vector พื้นฐาน</h2>
+  <ul>
+    <li><a href="Week01/slides/01_intro_math_ds.html">บทบาทของคณิตศาสตร์ใน Data Science</a></li><li><a href="Week01/slides/02_scalar_and_vector_basics.html">Scalar vs Vector — นิยามและตัวอย่าง</a></li><li><a href="Week01/slides/03_vector_notation.html">สัญลักษณ์และการเขียน Vector ในรูปแบบต่าง ๆ</a></li><li><a href="Week01/slides/04_numpy_intro.html">แนะนำ NumPy — Array และ ndarray พื้นฐาน</a></li>
+  </ul>
+</section>
+<section class="week">
+  <h2>สัปดาห์ที่ 2: แมทริกซ์และระบบสมการเชิงเส้น: Matrix Operations, Elimination, LU, Inverse, Determinant</h2>
+  <ul>
+    <li><a href="Week02/slides/01_matrix_types_operations.html">Matrix Types and Operations</a></li><li><a href="Week02/slides/02_gaussian_elimination.html">Gaussian Elimination และ Row Reduction</a></li><li><a href="Week02/slides/03_lu_decomposition.html">LU Decomposition</a></li><li><a href="Week02/slides/04_inverse_determinant.html">Inverse Matrix and Determinant</a></li>
+  </ul>
+</section>
+<section class="week">
+  <h2>สัปดาห์ที่ 3: Vector Spaces, Subspaces, Rank &amp; Orthogonality: สี่ปริภูมิพื้นฐาน + Projection + Least Squares</h2>
+  <ul>
+    <li><a href="Week03/slides/01_vector_spaces_subspaces.html">Vector Spaces and Subspaces</a></li><li><a href="Week03/slides/02_four_subspaces.html">The Four Fundamental Subspaces</a></li><li><a href="Week03/slides/03_orthogonality_projection.html">Orthogonality and Projection</a></li><li><a href="Week03/slides/04_least_squares_qr.html">Least Squares, Normal Equations, QR Decomposition</a></li>
+  </ul>
+</section>
+<section class="week">
+  <h2>สัปดาห์ที่ 4: Eigenvalues, Eigenvectors, SVD &amp; PCA: จาก Diagonalization สู่ Dimensionality Reduction</h2>
+  <ul>
+    <li><a href="Week04/slides/01_eigenvalues_eigenvectors.html">Eigenvalues &amp; Eigenvectors</a></li><li><a href="Week04/slides/02_diagonalization_symmetric.html">Diagonalization &amp; Symmetric Matrices</a></li><li><a href="Week04/slides/03_svd.html">Singular Value Decomposition (SVD)</a></li><li><a href="Week04/slides/04_pca.html">Principal Component Analysis (PCA)</a></li>
+  </ul>
+</section>
+<section class="week">
+  <h2>สัปดาห์ที่ 5: Statistical Learning: Framework, Supervised vs Unsupervised, Prediction vs Inference</h2>
+  <ul>
+    <li><a href="Week05/slides/01_what_is_statistical_learning.html">What Is Statistical Learning?</a></li><li><a href="Week05/slides/02_parametric_vs_nonparametric.html">Parametric vs Non-parametric Approaches</a></li><li><a href="Week05/slides/03_accuracy_vs_interpretability.html">Prediction Accuracy vs Model Interpretability</a></li><li><a href="Week05/slides/04_supervised_unsupervised_regression_classification.html">Supervised vs Unsupervised &amp; Regression vs Classification</a></li>
+  </ul>
+</section>
+<section class="week">
+  <h2>สัปดาห์ที่ 6: Model Accuracy &amp; Bias-Variance Trade-Off: MSE, Overfitting, Underfitting, Bayes Classifier</h2>
+  <ul>
+    <li><a href="Week06/slides/01_training_test_mse.html">Training MSE vs Test MSE</a></li><li><a href="Week06/slides/02_bias_variance_tradeoff.html">Bias-Variance Trade-Off</a></li><li><a href="Week06/slides/03_classification_setting.html">The Classification Setting</a></li><li><a href="Week06/slides/04_probability_for_sl.html">Probability Foundations for Statistical Learning</a></li>
+  </ul>
+</section>
+<section class="week">
+  <h2>สัปดาห์ที่ 7: EDA, Descriptive Statistics &amp; Statistical Inference: Distributions, CI, Hypothesis Testing</h2>
+  <ul>
+    <li><a href="Week07/slides/01_descriptive_statistics.html">Descriptive Statistics</a></li><li><a href="Week07/slides/02_eda_visualization.html">EDA Visualization</a></li><li><a href="Week07/slides/03_sampling_distributions_se.html">Sampling Distributions and Standard Error</a></li><li><a href="Week07/slides/04_ci_hypothesis_testing.html">Confidence Intervals and Hypothesis Testing</a></li>
+  </ul>
+</section>
+<section class="week">
+  <h2>สัปดาห์ที่ 8: Simple Linear Regression: Estimating Coefficients, Standard Error, t-test, R², RSE</h2>
+  <ul>
+    <li><a href="Week08/slides/01_slr_model_assumptions.html">SLR Model และ Assumptions</a></li><li><a href="Week08/slides/02_least_squares_estimation.html">Least Squares Estimation</a></li><li><a href="Week08/slides/03_coefficient_accuracy.html">Coefficient Accuracy — SE, CI, t-test</a></li><li><a href="Week08/slides/04_r_squared_rse.html">R² และ RSE — Model Fit Assessment</a></li>
+  </ul>
+</section>
+<section class="week">
+  <h2>สัปดาห์ที่ 9: Multiple Linear Regression: Estimating Coefficients, F-statistic, Variable Selection, R² adj</h2>
+  <ul>
+    <li><a href="Week09/slides/01_mlr_model.html">Multiple Linear Regression Model</a></li><li><a href="Week09/slides/02_f_statistic.html">F-statistic — Testing All Predictors Jointly</a></li><li><a href="Week09/slides/03_variable_selection.html">Variable Selection และ Model Fit Assessment</a></li><li><a href="Week09/slides/04_confidence_prediction_intervals.html">Confidence Intervals vs Prediction Intervals</a></li>
+  </ul>
+</section>
+<section class="week">
+  <h2>สัปดาห์ที่ 10: Regression: Qualitative Predictors, Extensions, Potential Problems &amp; Diagnostics</h2>
+  <ul>
+    <li><a href="Week10/slides/01_qualitative_predictors.html">Qualitative Predictors — Dummy Variables</a></li><li><a href="Week10/slides/02_interaction_polynomial.html">Interaction Terms และ Polynomial Regression</a></li><li><a href="Week10/slides/03_residual_diagnostics.html">Regression Diagnostics — Residual Analysis</a></li><li><a href="Week10/slides/04_multicollinearity_vif.html">Multicollinearity และ VIF</a></li>
+  </ul>
+</section>
+<section class="week">
+  <h2>สัปดาห์ที่ 11: Classification: Overview, Logistic Regression, Multiple &amp; Multinomial Logistic Regression</h2>
+  <ul>
+    <li><a href="Week11/slides/01_classification_overview.html">Classification Overview</a></li><li><a href="Week11/slides/02_why_not_linear_regression.html">ทำไม Linear Regression ไม่เหมาะสำหรับ Classification</a></li><li><a href="Week11/slides/03_logistic_regression.html">Logistic Regression — Sigmoid, Log-odds, MLE</a></li><li><a href="Week11/slides/04_multiple_multinomial_logistic.html">Multiple Logistic Regression และ Multinomial</a></li><li><a href="Week11/slides/05_classification_metrics.html">Classification Metrics</a></li>
+  </ul>
+</section>
+<section class="week">
+  <h2>สัปดาห์ที่ 12: Generative Models: LDA, QDA, Naive Bayes + KNN Classifier</h2>
+  <ul>
+    <li><a href="Week12/slides/01_generative_vs_discriminative.html">Slide Deck 1: Generative vs Discriminative Models</a></li><li><a href="Week12/slides/02_lda.html">Slide Deck 2: Linear Discriminant Analysis (LDA)</a></li><li><a href="Week12/slides/03_qda_naive_bayes.html">Slide Deck 3: QDA and Naive Bayes</a></li><li><a href="Week12/slides/04_knn_comparison.html">Slide Deck 4: KNN Classifier + Method Comparison</a></li>
+  </ul>
+</section>
+<section class="week">
+  <h2>สัปดาห์ที่ 13: Generalized Linear Models, ROC Curve &amp; Model Evaluation + Lab: Full Classification Pipeline</h2>
+  <ul>
+    <li><a href="Week13/slides/01_glm_framework.html">Slide Deck 1: Generalized Linear Models Framework</a></li><li><a href="Week13/slides/02_poisson_regression.html">Slide Deck 2: Poisson Regression</a></li><li><a href="Week13/slides/03_roc_auc.html">Slide Deck 3: ROC Curve and AUC</a></li><li><a href="Week13/slides/04_classification_pipeline.html">Slide Deck 4: Full Classification Pipeline</a></li>
+  </ul>
+</section>
+<section class="week">
+  <h2>สัปดาห์ที่ 14: Resampling Methods: Cross-Validation, Bootstrap + Model Selection in Practice</h2>
+  <ul>
+    <li><a href="Week14/slides/01_why_resampling.html">Slide Deck 1: Why Resampling?</a></li><li><a href="Week14/slides/02_loocv_kfold.html">Slide Deck 2: LOOCV and k-Fold Cross-Validation</a></li><li><a href="Week14/slides/03_bootstrap.html">Slide Deck 3: The Bootstrap</a></li><li><a href="Week14/slides/04_model_selection_cv.html">Slide Deck 4: Model Selection with Cross-Validation</a></li>
+  </ul>
+</section>
+<section class="week">
+  <h2>สัปดาห์ที่ 15: สรุปรายวิชา + นำเสนอโครงงานวิเคราะห์ข้อมูลด้วยคณิตศาสตร์</h2>
+  <ul>
+    <li><a href="Week15/slides/01_course_summary.html">Course Summary — คณิตศาสตร์ทั้งหมดในภาพเดียว</a></li><li><a href="Week15/slides/02_final_project_rubric.html">Final Project Rubric &amp; Expectations</a></li><li><a href="Week15/slides/03_math_in_ml_roadmap.html">คณิตศาสตร์ใน ML — Roadmap สู่อนาคต</a></li><li><a href="Week15/slides/04_next_steps.html">Next Steps — แหล่งเรียนรู้ต่อและ Career Path</a></li>
+  </ul>
+</section>
+</main>
+
+<footer>
+  1145201 Mathematics for Data Science — Ubon Ratchathani University
+</footer>
+</body>
+</html>
