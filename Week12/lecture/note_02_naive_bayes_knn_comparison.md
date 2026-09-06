@@ -228,6 +228,24 @@ print(f"\nBest K = {best_k} (Accuracy = {results[best_k]:.4f})")
 - ไม่รู้ distribution ของข้อมูลล่วงหน้า
 - ยอมรับ computation cost ใน prediction ได้
 
+### Empirical Comparison: 6 Scenarios (ISLP 4.5.2)
+
+ตารางเปรียบเทียบข้างบนเป็นแนวทางทั่วไป แต่ ISLP ทำการทดลองจริง — สร้างข้อมูลจำลอง 6 สถานการณ์ (Bayes boundary เป็น linear 3 แบบ, non-linear 3 แบบ) แล้ว fit ทั้ง 6 methods (Logistic, LDA, QDA, Naive Bayes, KNN-1, KNN-CV) วัด test error rate:
+
+| Scenario | ลักษณะข้อมูล | Bayes Boundary | ผู้ชนะ | เหตุผล |
+|---|---|---|---|---|
+| 1 | Gaussian, features independent, n เล็ก (20/class) | Linear | **LDA**, Logistic | ตรงตาม assumption ของ LDA พอดี; QDA แพ้เพราะ flexible เกินจำเป็น |
+| 2 | เหมือน 1 แต่ features correlate (−0.5) | Linear | LDA, Logistic | เหมือนเดิม แต่ **Naive Bayes แพ้หนัก** เพราะ independence assumption ถูกละเมิด |
+| 3 | Features จาก t-distribution (ไม่ Gaussian), correlate | Linear | **Logistic** ชนะ LDA | LDA เสียเปรียบเพราะข้อมูลไม่ Gaussian จริง; QDA แย่ลงมากเพราะ non-normality |
+| 4 | Gaussian, correlation ต่างเครื่องหมายกันคนละ class | Quadratic | **QDA** | ตรงตาม assumption ของ QDA (covariance ต่างกันจริงระหว่าง class) |
+| 5 | Gaussian, response จาก logistic function ที่ไม่ linear | Non-linear (ซับซ้อน) | **KNN-CV** | boundary ซับซ้อนเกินกว่า linear/quadratic method จะจับได้; **KNN-1 แพ้สุด** เพราะ variance สูงเกินไป |
+| 6 | Gaussian, covariance ต่างกันมาก, n เล็กมาก (6/class) | Non-linear | **Naive Bayes** | n เล็กเกินกว่า QDA จะประมาณ correlation ได้แม่นยำ (variance สูง); NB assumption พอดีกับสถานการณ์นี้ |
+
+**บทเรียนสำคัญที่สุด**: **ไม่มี method ไหนดีที่สุดเสมอ ("no free lunch")** — ขึ้นกับ 3 ปัจจัย:
+1. **รูปร่างของ true decision boundary** จริง (linear → LDA/Logistic ดี, non-linear ปานกลาง → QDA/NB ดี, ซับซ้อนมาก → KNN ดี)
+2. **n เทียบกับ p** (n เล็ก → ต้องการ method ที่ variance ต่ำอย่าง LDA/NB; n ใหญ่ → ยอมรับ flexible method อย่าง QDA/KNN ได้)
+3. **สมมติฐานของแต่ละ method ตรงกับข้อมูลจริงแค่ไหน** (independence จริงไหม? Gaussian จริงไหม? covariance เท่ากันทุก class ไหม?)
+
 ### ความสัมพันธ์ระหว่าง Logistic Regression และ LDA
 
 น่าแปลกใจที่ Logistic Regression และ LDA ให้ **linear classifier** เหมือนกัน แต่ต่างกันที่:

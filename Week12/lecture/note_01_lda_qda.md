@@ -110,15 +110,35 @@ $$\hat{\pi}_k = \frac{n_k}{n}$$
 
 ### Confusion Matrix และการปรับ Threshold
 
-LDA ใช้ threshold เริ่มต้นที่ Pr(Y=k|X) > 0.5 (majority vote) แต่สามารถปรับได้:
+LDA ใช้ threshold เริ่มต้นที่ Pr(Y=k|X) > 0.5 (majority vote) แต่สามารถปรับได้
 
-| | Predicted Down | Predicted Up |
-|--|--|--|
-| **True Down** | TN | FP |
-| **True Up** | FN | TP |
+**ตัวอย่างจริง (ISLP Table 4.4)**: fit LDA บน Default dataset ทั้งหมด (`default ~ balance + student`) แล้วดู confusion matrix บน training data (n=10,000):
 
-- ถ้าต้องการ recall สูง (เช่น การตรวจโรค): ลด threshold → จับ True Positive มากขึ้น
+| | True: No | True: Yes | Total |
+|--|--|--|--|
+| **Predicted No** | 9644 (TN) | 252 (FN) | 9896 |
+| **Predicted Yes** | 23 (FP) | 81 (TP) | 104 |
+| **Total** | 9667 | 333 | 10000 |
+
+**Training error rate** = (23+252)/10000 = **2.75%** — ดูต่ำมาก! แต่:
+- **Sensitivity** (recall ของ class Yes) = 81/333 = **24.3%** — LDA จับ default ได้แค่ 1 ใน 4 เท่านั้น!
+- **Specificity** = 1 − 23/9667 = **99.8%** — จับ non-default ได้เกือบสมบูรณ์แบบ
+
+**ทำไม accuracy สูงแต่ sensitivity ต่ำมาก?** เพราะ Bayes classifier (และ LDA ที่ approximate มัน) ใช้ threshold 0.5 ซึ่ง minimize **total error rate รวม** โดยไม่สนว่า error เกิดจาก class ไหน — เมื่อ class Yes มีแค่ 3.33% ของข้อมูล การทำนาย "No" เกือบตลอดก็ยังให้ accuracy สูงอยู่ดี (null classifier ที่ทาย "No" เสมอก็ได้ error แค่ 3.33% อยู่แล้ว!) แต่สำหรับธนาคารที่อยากจับลูกค้าที่จะ default ให้ได้มากที่สุด ผลลัพธ์นี้ใช้งานไม่ได้เลย
+
+**ปรับ threshold เป็น 0.2** (ISLP Table 4.5) — ทำนาย default ถ้า Pr(Yes|X) > 0.2 แทน 0.5:
+
+| | True: No | True: Yes | Total |
+|--|--|--|--|
+| **Predicted No** | 9432 (TN) | 138 (FN) | 9570 |
+| **Predicted Yes** | 235 (FP) | 195 (TP) | 430 |
+| **Total** | 9667 | 333 | 10000 |
+
+ตอนนี้ sensitivity = 195/333 = **58.6%** (ดีขึ้นมาก จาก 24.3%!) แต่ overall error rate เพิ่มเป็น (235+138)/10000 = **3.73%** (จาก 2.75%) — **trade-off ที่ชัดเจน**: ยอมรับ error รวมสูงขึ้นนิดหน่อย เพื่อจับ default ได้มากขึ้นเยอะ ธนาคารต้องตัดสินใจเลือก threshold จาก **cost จริงของแต่ละ error type** ไม่ใช่แค่ดู overall accuracy
+
+- ถ้าต้องการ recall สูง (เช่น การตรวจโรค, credit risk): ลด threshold → จับ True Positive มากขึ้น แลกกับ False Positive ที่มากขึ้น
 - ถ้าต้องการ precision สูง: เพิ่ม threshold
+- การเลือก threshold ที่ดีที่สุดในทุกค่า threshold พร้อมกัน ดูได้จาก **ROC Curve** (Week 13)
 
 ---
 
