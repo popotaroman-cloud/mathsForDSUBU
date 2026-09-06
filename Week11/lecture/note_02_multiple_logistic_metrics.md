@@ -103,19 +103,34 @@ for is_student, label in [(0, 'Non-student'), (1, 'Student')]:
 
 ## 11.6 Multinomial Logistic Regression  *(ISLP 4.3.5)*
 
-ในส่วนนี้เราจะขยายไปสู่กรณีที่ Response Y มีมากกว่า 2 Classes โดยใช้ **Softmax Function**
+ในส่วนนี้เราจะขยายไปสู่กรณีที่ Response Y มีมากกว่า 2 Classes ISLP เสนอวิธีเขียนสมการที่ **เทียบเท่ากันสองแบบ** ให้ผลการทำนายเหมือนกันทุกประการ ต่างกันแค่วิธีตีความ coefficient
 
-### Softmax Function
+### แบบที่ 1: Baseline Coding
 
-สำหรับ K classes เลือก Class K เป็น **Baseline**:
+เลือก Class K เป็น **Baseline** แล้วเขียน log-odds เทียบกับ baseline:
 
-$$\Pr(Y = k \mid X) = \frac{e^{\beta_{k0} + \beta_k^T X}}{\sum_{j=1}^{K} e^{\beta_{j0} + \beta_j^T X}}, \quad k = 1, \ldots, K$$
+$$\Pr(Y = k \mid X = x) = \frac{e^{\beta_{k0} + \beta_k^T x}}{1 + \sum_{l=1}^{K-1} e^{\beta_{l0} + \beta_l^T x}}, \quad k = 1, \ldots, K-1$$
+
+$$\Pr(Y = K \mid X = x) = \frac{1}{1 + \sum_{l=1}^{K-1} e^{\beta_{l0} + \beta_l^T x}}$$
+
+- ได้ **K−1 ชุดของ coefficients** เท่านั้น (class K ไม่มี coefficient ของตัวเอง — เป็น baseline)
+- **log-odds ระหว่าง class k กับ class K** = $\beta_{k0} + \beta_k^T x$ → Linear in X
+- ตีความ $\beta_{k,j}$: X_j เพิ่ม 1 หน่วย → log-odds ของ (class k เทียบกับ class K) เพิ่ม $\beta_{k,j}$
+- **ข้อควรระวัง**: การเลือก baseline มีผลต่อค่า coefficient ที่ได้ (ตัวเลขจะไม่เหมือนกันถ้าเปลี่ยน baseline) แต่ **fitted probabilities และ log-odds ระหว่างคู่ class ใดๆ จะเหมือนเดิมเสมอ** ไม่ว่าจะเลือก class ไหนเป็น baseline
+
+### แบบที่ 2: Softmax Coding
+
+อีกวิธีที่**เทียบเท่ากันทุกประการ** (นิยมใช้มากใน Machine Learning/Deep Learning) คือปฏิบัติกับทุก class อย่างสมมาตร **ไม่ต้องเลือก baseline**:
+
+$$\Pr(Y = k \mid X = x) = \frac{e^{\beta_{k0} + \beta_k^T x}}{\sum_{l=1}^{K} e^{\beta_{l0} + \beta_l^T x}}, \quad k = 1, \ldots, K$$
 
 **คุณสมบัติ**:
 - $\sum_{k=1}^{K} \Pr(Y=k \mid X) = 1$ เสมอ
 - ลดรูปเป็น Logistic Regression เมื่อ K = 2
-- K−1 ชุดของ coefficients (ชุดที่ K คือ baseline = ศูนย์)
-- **log-odds ระหว่าง class k กับ class K** = $\beta_{k0} + \beta_k^T X$ → Linear in X
+- มี K ชุดของ coefficients (สมมาตรทุก class ไม่มี class ไหนพิเศษ) — ต่างจาก Baseline Coding ที่มีแค่ K−1 ชุด
+- Softmax Coding คือรูปแบบที่ `sklearn.linear_model.LogisticRegression(multi_class='multinomial')` ใช้ภายใน
+
+**สรุป**: ทั้งสองวิธีให้ fitted values และ log-odds ระหว่างคู่ class เหมือนกันทุกประการ ต่างกันแค่จำนวน/การตีความ coefficient — Baseline Coding เข้าใจง่ายกว่าสำหรับตีความทีละคู่ class ส่วน Softmax Coding นิยมใช้ในโค้ด ML เพราะสมมาตรและ implement ง่ายกว่า
 
 ```python
 # ─── Multinomial Logistic Regression: Iris Dataset ────────────────────────

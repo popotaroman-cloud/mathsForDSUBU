@@ -319,6 +319,22 @@ Threshold ค่าเริ่มต้น 0.5 ไม่ใช่ทางเ�
 | Fraud Detection | ต่ำ (เช่น 0.1) — ค่าใช้จ่าย fraud สูงมาก |
 | Balanced classes | 0.5 เหมาะสม |
 
+### Qualitative Predictor ใน Logistic Regression
+
+Logistic Regression ก็ใช้ Categorical Predictor ได้เหมือนกับ Linear Regression (Week 9) — สร้าง **Dummy Variable** แล้ว fit ตามปกติ
+
+**ตัวอย่าง (ISLP Table 4.2)**: fit `default ~ student` (ไม่มี balance):
+
+$$\log\left(\frac{p}{1-p}\right) = -3.5041 + 0.4049 \times \text{student[Yes]}$$
+
+โดย `student[Yes]` = 1 ถ้าเป็นนักศึกษา, 0 ถ้าไม่ใช่ — coefficient เป็นบวกและ significant ($p = 0.0004$) แปลว่านักศึกษามีโอกาส default สูงกว่า:
+
+$$\hat{\Pr}(\text{default=Yes} \mid \text{student=Yes}) = \frac{e^{-3.5041 + 0.4049 \times 1}}{1 + e^{-3.5041 + 0.4049 \times 1}} = 0.0431$$
+
+$$\hat{\Pr}(\text{default=Yes} \mid \text{student=No}) = \frac{e^{-3.5041 + 0.4049 \times 0}}{1 + e^{-3.5041 + 0.4049 \times 0}} = 0.0292$$
+
+**การตีความ**: นักศึกษา default 4.31% ของเวลา เทียบกับ non-student ที่ 2.92% — ดูเหมือนนักศึกษาเสี่ยงกว่า **แต่** ผลนี้จะพลิกกลับเมื่อเพิ่ม `balance` เข้าไปในโมเดล (ดู Confounding ใน Note 11-2 หัวข้อ 11.5) เพราะนักศึกษามักมี balance สูงกว่า — coefficient ตัวเดียวโดยไม่ control ตัวแปรอื่นอาจให้ข้อสรุปที่เข้าใจผิดได้
+
 ---
 
 ## Case Study: Credit Card Default Prediction
