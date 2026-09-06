@@ -542,13 +542,13 @@ loocv_f1 = cross_val_score(clf, X, y, cv=loo, scoring='f1').mean()</code></pre><
 </thead><tbody>
 <tr>
 <td><a class="gloss-ref" href="../../glossary.html#term-bias" rel="noopener" target="_blank" title="ดูนิยามใน Glossary">Bias</a></td>
-<td>Lowest</td>
-<td>Moderate</td>
-<td>Low</td>
+<td><strong>Lowest</strong> (train บน n−1 ≈ 100%)</td>
+<td>Moderate (train บน 80%)</td>
+<td>Moderate (train บน 90%, ต่ำกว่า 5-Fold เล็กน้อยแต่ยังสูงกว่า LOOCV)</td>
 </tr>
 <tr>
 <td>Variance</td>
-<td>High</td>
+<td><strong>Highest</strong> (n models correlated กันสูง)</td>
 <td>Low</td>
 <td>Low</td>
 </tr>

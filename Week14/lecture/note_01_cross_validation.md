@@ -236,14 +236,16 @@ for name, mse_list in cv_results.items():
 
 ### Bias-Variance Trade-Off ของ CV เอง
 
-| CV Method | Bias | Variance | Computation |
-|-----------|------|----------|------------|
-| **Validation Set (50/50)** | สูง (train บน data น้อย) | สูง (random split) | เร็ว |
-| **LOOCV** | ต่ำ (train บน n−1) | สูง (n models คล้ายกัน) | ช้า O(n) |
-| **5-Fold CV** | ปานกลาง | ต่ำกว่า LOOCV | เร็ว |
-| **10-Fold CV** | ต่ำ | ต่ำ | ปานกลาง |
+| CV Method | Train บน | Bias | Variance | Computation |
+|-----------|---------|------|----------|------------|
+| **Validation Set (50/50)** | ~50% ของข้อมูล | สูง | สูง (random split) | เร็ว |
+| **LOOCV** | n−1 (~100%) | **ต่ำที่สุด** (unbiased เกือบสมบูรณ์) | **สูงที่สุด** (n models คล้ายกันมาก → correlated) | ช้า O(n) |
+| **5-Fold CV** | (k−1)n/k = 80% | ปานกลาง | ต่ำกว่า LOOCV | เร็ว |
+| **10-Fold CV** | (k−1)n/k = 90% | ปานกลาง (ต่ำกว่า 5-Fold เล็กน้อย เพราะ train บนข้อมูลมากกว่า) | ต่ำกว่า LOOCV | ปานกลาง |
 
-**ข้อแนะนำทั่วไป**: ใช้ **10-Fold CV** สำหรับ Model Selection และ **5-Fold** เมื่อ dataset ใหญ่หรือ model ช้า
+**สำคัญ**: LOOCV มี bias ต่ำที่สุดเสมอ (train บน n−1 obs เกือบเท่าข้อมูลทั้งหมด) แต่ variance สูงที่สุด เพราะ n models ที่ fit นั้น train บนข้อมูลที่เกือบเหมือนกันทุกครั้ง (correlated กันสูง) — ส่วน k-Fold (k&lt;n) ยอม bias เพิ่มขึ้นเล็กน้อยเพื่อแลกกับ variance ที่ต่ำกว่ามาก นี่คือ bias-variance trade-off ของ CV เอง (ISLP 5.1.4)
+
+**ข้อแนะนำทั่วไป**: ใช้ **k=5 หรือ k=10** สำหรับ Model Selection — งานวิจัยเชิงประจักษ์ (empirical) แสดงว่าค่าเหล่านี้ให้ estimate ที่ไม่ bias มากเกินไปและไม่ variance สูงเกินไป
 
 ---
 
