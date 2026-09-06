@@ -226,6 +226,24 @@ plt.suptitle('Linear vs Poisson Regression — Count Data', fontsize=13)
 plt.tight_layout(); plt.show()
 ```
 
+### ตัวอย่างจริงจาก ISLP: Linear vs Poisson บน Bikeshare
+
+ISLP fit ทั้งสองโมเดลบน Bikeshare จริง (predictors: `workingday`, `temp`, `weathersit`, `mnth`, `hr`) แล้วเจอ 3 ปัญหาของ Linear Regression ที่ชัดเจนมาก:
+
+**1. Negative predictions**: โมเดล Linear ให้ค่าทำนาย**ติดลบถึง 9.6%** ของข้อมูลทั้งหมด (ทำนายว่ามีคน "ติดลบ" มาเช่าจักรยาน! ไม่มีความหมายเลย) ขณะที่ Poisson ไม่มีทางติดลบเลยเพราะ $\lambda = e^{(\cdot)} > 0$ เสมอ
+
+**2. Mean-Variance Relationship (Heteroscedasticity)**: ข้อมูลจริงแสดงว่า
+- ตี 1–4 เดือน ธ.ค.-ก.พ. ฝนตก: mean = 5.05 คน, SD = 3.73
+- 7–10 โมงเช้า เดือน เม.ย.-มิ.ย. ฟ้าใส: mean = 243.59 คน, SD = 131.7
+
+Variance **สูงขึ้นตาม mean อย่างชัดเจน** — ตรงข้ามกับ Linear Regression ที่สมมติ variance คงที่ (homoscedasticity) ทุกจุด นี่คือการละเมิด assumption ของ Linear Regression ตรงๆ แต่ Poisson จัดการได้เพราะ $\text{Var}(Y) = \lambda = \text{E}(Y)$ (mean เพิ่ม → variance เพิ่มตาม โดยอัตโนมัติ)
+
+**3. Coefficient ที่ significant ต่างกัน**: `workingday` **ไม่ significant** ใน Linear (p=0.48) แต่ **significant มาก** ใน Poisson (p<0.001) — สะท้อนว่า Linear Regression ประเมิน SE ผิดเมื่อ assumption (constant variance) ไม่จริง
+
+**การตีความ IRR จาก ISLP Table 4.11** (ตัวอย่างจริง): weathersit เปลี่ยนจาก clear → cloudy ให้ coefficient = −0.08 → IRR = $e^{-0.08}$ = 0.923 (คนใช้จักรยานเหลือ 92.3% เทียบกับวันฟ้าใส) ถ้าฝนตกต่อ coefficient เพิ่มเป็น −0.58 → IRR เทียบกับ cloudy = $e^{-0.5}$ = 0.607 (เหลือ 60.7%)
+
+> **หมายเหตุ**: ข้อมูล Bikeshare จริงมี **overdispersion** (variance >> mean) ทำให้ z-values ใน Poisson summary สูงเกินจริงเล็กน้อย — ในทางปฏิบัติควรตรวจสอบด้วย Negative Binomial หรือ Quasi-Poisson เสมอ (ดูหัวข้อถัดไป)
+
 ### Deviance: GLM Goodness-of-Fit
 
 ใน GLM ไม่มี R² แบบ Linear Regression → ใช้ **Deviance** แทน:

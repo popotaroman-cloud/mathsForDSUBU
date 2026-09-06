@@ -47,6 +47,8 @@ $$\text{FPR (1 − Specificity)} = \frac{FP}{FP + TN}$$
 
 **AUC Interpretation**: ความน่าจะเป็นที่ classifier ให้ score ของ positive observation สูงกว่า negative observation ที่เลือกแบบสุ่ม
 
+**ตัวอย่างจริงจาก ISLP**: LDA บน Default dataset ให้ **AUC = 0.95** — ใกล้ค่าสูงสุด (1.0) มาก ถือว่าดีมาก และที่น่าสนใจคือ ROC curve ของ Logistic Regression บนข้อมูลชุดเดียวกัน **แทบจะทับกันสนิท**กับของ LDA (AUC ใกล้เคียงกันมาก) — ยืนยันสิ่งที่เรียนใน Week 12 ว่า Logistic Regression และ LDA ให้ linear decision boundary ที่ใกล้เคียงกันมากเมื่อข้อมูลมีลักษณะเหมาะกับทั้งคู่
+
 ```python
 import numpy as np
 import pandas as pd
